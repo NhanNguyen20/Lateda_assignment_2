@@ -2,6 +2,7 @@
     text-decoration: none;
     margin: 0; 
     padding: 0;
+    box-sizing: border-box;
 }
 /* header */
 .logo img{
@@ -14,10 +15,11 @@ header {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    position: fixed;
+    position: sticky;
     top: 0;
     z-index: 10;
     box-shadow: 0 3px 1px rgba(0, 0, 0, 0.05);
+    background-color: aquamarine;
 }
 #search-checker, header label {
     display: none;
@@ -53,7 +55,7 @@ nav ul {
 
 /* footer */
 footer {
-    position: absolute;
+
     bottom: 0;
     width: 100%;
     padding: 8% 0;
@@ -93,4 +95,20 @@ footer nav ul {
     footer {
         font-size: 80%;
     }
+}
+
+/* Homepage Hero */
+.hero-container {
+    border: 2px solid black;
+    height: 20%;
+    margin: 16px;
+}
+
+.hero div {
+    max-width: 100%;
+}
+
+.hero img {
+    width: 100%;
+    display: block;
 }
