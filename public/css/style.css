@@ -112,3 +112,60 @@ footer nav ul {
     width: 100%;
     display: block;
 }
+
+/* Homepage top category */
+.section-title {
+    text-align: center;
+    margin-top: 3%;
+}
+.top-cate {
+    width: 100%;
+}
+.category-container {
+    width: 100%;
+    margin: 2% 0;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+}
+.category-item {
+    width: 16%;
+}
+.category-item img {
+    width: 60%;
+    border: solid;
+    padding: 12%;
+}
+
+/* Homepage trendy products */
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin: 2% 0;
+}
+.tab-container .tab {
+    margin: 2%;
+    cursor: pointer;
+    border: #d5d5d5 solid;
+    background-color: rgb(230, 210, 181);
+    width: 15%;
+    text-align: center;
+}
+.tab-products {
+    border: solid;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2%;
+}
+.tab-products .tab-item {
+    border: solid;
+    width: 25%;
+    height: 40px;
+}
+.trendy-prod .hidden {
+    display: none;
+}
+.tab-container .hidden-color {
+    background-color: #fff;
+}
