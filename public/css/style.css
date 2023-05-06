@@ -98,20 +98,86 @@ footer nav ul {
 }
 
 /* Homepage Hero */
-.hero-container {
+.hero {
     border: 2px solid black;
-    height: 20%;
     margin: 16px;
-}
-
-.hero div {
-    max-width: 100%;
-}
-
-.hero img {
+    position: relative;
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .hero-slider {
+    display: flex;
+    width: 600%;
+    position: relative;
+    height: 100%;
+  }
+  
+  .hero-slide {
+    position: relative;
+    width: 16.66%;
+    height: 100%;
+    flex-shrink: 0;
+  }
+  
+  .hero-slide img {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
     width: 100%;
-    display: block;
-}
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .slide-button {
+    position: absolute;
+    top: 40%;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    left: 5%;
+  } 
+
+  .slide-button button {
+    padding: 2%;
+    border-radius: 50%;
+    font-size: 2em;
+    font-family: monospace;
+    border: none;
+    opacity: 0.5;
+  }
+
+  .slide-button button:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .dots {
+    position: absolute;
+    bottom: 5%;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%
+  }
+
+  .dots li {
+    width: 1vw;
+    height: 1vw; 
+    background-color: white;
+    margin: 2%;
+    border-radius: 50%;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  
+  .dots .active {
+    width: 5%;
+    border-radius: 20px;
+    opacity: 1;
+    transition: 1s;
+  }
 
 /* Homepage top category */
 .section-title {
