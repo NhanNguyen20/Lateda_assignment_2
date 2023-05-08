@@ -1,0 +1,84 @@
+<!-- RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Authors: 
+  Nguyen Le Thu Nhan - s3932151
+  Ong Gia Man - s3938231
+  Nguyen Ngoc Minh Thu - s3941327
+  Nguyen Tuan Duong - s3965530
+  Nguyen Pham Tien Hai - s3979239
+  Chau The Kien - s3790421
+  Acknowledgement: Acknowledge the resources that you use here. -->
+
+  <!-- Home page -->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.jpeg" type="images/icon type">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Add New Products</title>
+    
+  </head>
+  <body>
+    <header>
+      <div class="logo"><a href="./vendor.html"><img src="images/logo.jpeg" alt="Lazada logo"></a></div>
+      <div class="header-info">Vendor Center</div>
+    </header>
+
+    <main>
+      <div class="page-container">
+        <div class="side-menu">
+          <nav>
+            <ul>
+                <a href="vendor.html">Home</a>
+                <a href="view-products.html">View My Products</a>
+                <a href="add-products.html">Add New Products</a>
+                <a href="my-account.html">My Account</a>
+            </ul>
+          </nav>
+        </div>
+        <div class="page-content">
+            <h1 class="role-title">Add New Products</h1>
+            <form action="">
+                <h3>Add a new product here:</h3>
+                <div class="form-section">
+                    <label for="productName" class="form-label">Product Name:</label>
+                    <input type="text" name="productName" id="productName" class="form-input" required>
+                </div>
+                <div class="form-section">
+                    <label for="productPrice" class="form-label">Product Price:</label>
+                    <input type="number" name="productPrice" id="productPrice" min="0" step="0.01" class="form-input" placeholder="USD" required>
+                </div>
+                <div class="form-section">
+                    <label for="productImage" class="form-label">Product Image:</label>
+                    <input type="file" name="productImage" id="productImage" accept="images" required>
+                </div>
+                <div class="form-section textarea-section">
+                    <label for="prodDescription">Product Description:</label>
+                    <textarea name="prodDescription" id="prodDescription" class="form-input" required></textarea>
+                </div>    
+                <button type="submit" class="submit-btn">ADD PRODUCT</button>       
+            </form>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="">About Us</a></li>
+          <li><a href="">Copyright</a></li>
+          <li><a href="">Privacy</a></li>
+          <li><a href="">Help links</a></li>
+        </ul>
+      </nav>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+  </html>

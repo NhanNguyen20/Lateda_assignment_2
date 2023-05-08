@@ -411,3 +411,135 @@ footer nav ul {
 .tab-container .hidden-color {
     background-color: #fff;
 }
+
+
+/* vendor page */
+.header-info {
+    font-family: 'Proxima Nova', sans-serif;
+    color: #2b278f;
+    font-size: 20px;
+}
+.role-title {
+    text-align: center;
+    margin: 5% 0;
+}
+.page-container {
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 10%;
+}
+.side-menu {
+    width: 20%;
+    margin-top: 5%;
+    border-right: solid #656b7c 2px;
+}
+.side-menu ul{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.side-menu a {
+    width: 80%;
+    height: 70px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-left: solid #fff 3px;
+}
+.side-menu a:hover {
+    border-left: solid #3c486b 3px;
+    background-color: #f0f0f0;
+}
+.page-content {
+    width: 74%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.page-content .role-title {
+    width: 100%;
+}
+.product-item {
+    width: calc(33.33% - 20px);
+    text-align: center;
+    margin-bottom: 5%;
+}
+.product-item img {
+    width: 70%;
+}
+form {
+    width: 80%;
+}
+.form-section {
+    /* border: solid; */
+    display: block;
+    margin-top: 4%;
+}
+.form-label {
+    margin-right: 3%;
+}
+.form-input {
+    display: block;
+    width: 70%;
+    height: 30px;
+    margin-top: 1%;
+}
+.form-section textarea {
+    height: 70px;
+}
+.submit-btn {
+    width: 50%;
+    height: 10%;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+.info-container {
+    display: flex;
+    /* border: solid; */
+    width: 90%;
+}
+.profile-pic {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 200%;
+}
+.profile-pic img {
+    width: 40%;
+    margin-bottom: 3%;
+}
+.profile-data {
+    width: 100%;
+    /* border: solid; */
+    margin-left: 3%;
+    position: relative;
+}
+.profile-data .info-data {
+    margin-bottom: 10%;
+}
+.logout-btn {
+    position: absolute;
+    bottom: 0%;
+    width: 40%;
+    margin-left: 10%;
+}
+.order-card {
+    width: 80%;
+    margin: 0 10%;
+    padding: 3%;
+    border: solid 1px;
+    border-radius: 6px;
+    margin-bottom: 5%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.075);
+}
+.order-card a{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+.order-card img {
+    width: 20%;
+    margin-right: 20%;
+}
