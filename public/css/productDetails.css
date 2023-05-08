@@ -1,0 +1,115 @@
+.prd-card {
+    margin: 4%;
+    display: flex;
+}
+
+.prd-img-container {
+    width: 50%;
+    margin: 8px;
+}
+
+.large-img {
+    width: 100%;
+}
+
+.large-img>img,
+.small-img-container>div>img {
+    max-width: 100%;
+}
+
+.small-img-container {
+    width: 20%;
+    display: inline-block;
+    margin-left: 2px;
+}
+
+.small-img-container:hover {
+    border: 2px solid red;
+}
+
+.small-img-container>div {
+    width: 100%;
+}
+
+.prd-info-container {
+    /* display: flex;
+    flex-wrap: wrap; */
+    margin: 16px;
+}
+
+.prd-info-container>* {
+    flex: 1 1 100%;
+}
+
+.prd-info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+.prd-info>* {
+    flex: 1 1 500%;
+}
+
+.prd-title {
+    font-size: 2.5vw;
+    margin-bottom: 3vw;
+    border-bottom: 1px solid black;
+    padding-bottom: 5%;
+}
+
+.prd-quantity {
+    margin-bottom: 3vw;
+    border-bottom: 1px solid black;
+    padding-bottom: 5%;
+    font-size: 2vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+label[for="quantity"] {
+    /* font-size: 150%; */
+    font-weight: bold;
+    padding: 5px;
+    margin-right: 7%;
+}
+
+input[type=number] {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1.5vw;
+    width: 6vw;
+}
+
+.prd-price {
+    margin-bottom: 3vw;
+    border-bottom: 1px solid black;
+    padding-bottom: 5%;
+    font-size: 3.8vw;
+    text-align: center;
+    font-weight: 600;
+}
+
+.atc-btn {
+    margin-bottom: 3vw;
+    margin-top: 3vw;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+.add-to-cart {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 6% 6%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 3vw;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 80%;
+}
