@@ -18,20 +18,174 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lateda</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
   <div id="page" class="site">
     <header>
-      <div class="header-top">
+      <div class="header-top mobile-hide">
         <div class="container">
-          <wrapper class="flexitem">
+          <div class="wrapper flexitem">
+            <div class="left">
+              <ul class="flexitem main-links">
+                <li><a href="">Blog</a></li>
+                <li><a href="">Featured Products</a></li>
+                <li><a href="">Wishlist</a></li>
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="flexitem main-links">
+                <li><a href="">Sign Up</a></li>
+                <li><a href="">My Account</a></li>
+                <li><a href="">Order Tracking</a></li>
+                <li><a href="">USD <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
+                  <ul>
+                    <li class="current"><a href="">USD</a></li>
+                    <li><a href="">EURO</a></li>
+                    <li><a href="">VND</a></li>
+                  </ul>
+                </li>
+                <li><a href="">English <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
+                  <ul>
+                    <li class="current"><a href="">English</a></li>
+                    <li><a href="">Vietnamese</a></li>
+                  </ul>
+                </li>  
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Header Top -->
+
+      <div class="header-nav">
+        <div class="container">
+          <div class="wrapper flexitem">
+            <a href="" class="trigger desktop-hide"><span><i class="ri-menu-2-line"></i></span></a>
+            <div class="left flexitem">
+              <div class="logo"><a href="/"><span class="circle"></span>.Lateda</a></div>
+              <nav class="mobile-hide">
+                <ul class="flexitem second-links">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Shop</a></li>
+                  <li class="has-child">
+                    <a href="#">Women
+                      <div class="icon-small"><i class="ri-arrow-down-s-line"></i></div>
+                    </a>
+                    <div class="mega">
+                      <div class="container">
+                        <div class="wrapper">
+                          <div class="flexcol">
+                            <div class="row">
+                              <h4>Women's Clothing</h4>
+                              <ul>
+                                <li><a href="">Dresses</a></li>
+                                <li><a href="">Tops & Tees</a></li>
+                                <li><a href="">Pants & Capris</a></li>
+                                <li><a href="">Sweaters</a></li>
+                                <li><a href="">Swimwear</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="flexcol">
+                            <div class="row">
+                              <h4>Jewelry</h4>
+                              <ul>
+                                <li><a href="">Accessories</a></li>
+                                <li><a href="">Bags & Purses</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="flexcol">
+                            <div class="row">
+                              <h4>Beauty</h4>
+                              <ul>
+                                <li><a href="">Makeup & Cosmetics</a></li>
+                                <li><a href="">Skin Care</a></li>
+                                <li><a href="">Hair Care</a></li>
+                                <li><a href="">Soaps & Bath Bombs</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="flexcol">
+                            <div class="row">
+                              <h4>Top Brands</h4>
+                              <ul class="women-brands">
+                                <li><a href="">Nike</a></li>
+                                <li><a href="">Louis Vuitton</a></li>
+                                <li><a href="">Hermes</a></li>
+                                <li><a href="">Gucci</a></li>
+                                <li><a href="">Zara</a></li>
+                                <li><a href="">H&M</a></li>
+                                <li><a href="">Cartier</a></li>
+                                <li><a href="">Chanel</a></li>
+                              </ul>
+                              <a href="" class="view-all">View all brands <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                          </div>
+                          <div class="flexcol products">
+                            <div class="row">
+                              <div class="media">
+                                <div class="thumbnail object-cover">
+                                  <a href="">
+                                    <img src="assets/products/apparel1.jpg" alt="">
+                                  </a>
+                                </div>
+                              </div>
+                              <div class="text-content">
+                                <h4>Most wanted!</h4>
+                                <a href="" class="primary-button">Order Now</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li><a href="#">Men</a></li>
+                  <li><a href="#">Electronic Devices</a></li>
+                  <li>
+                    <a href="#">Sports
+                      <div class="fly-item"><span>New!</span></div>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="right">
+              <ul class="flexitem second-links">
+                <li class="mobile-hide"><a href="">
+                  <div class="icon-large"><i class="ri-heart-line"></i></div>
+                  <div class="fly-item"><span class="item-number">0</span></div>
+                </a></li>
+                <li><a href="" class="iscart">
+                  <div class="icon-large">
+                    <i class="ri-shopping-cart-line"></i>
+                    <div class="fly-item"><span class="item-number">0</span></div>
+                  </div>
+                  <div class="icon-text">
+                    <div class="mini-text">Total</div>
+                    <div class="cart-total">$0.00</div>
+                  </div>
+                </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-main mobile-hide">
+        <div class="container">
+          <div class="wrapper flexitem">
             <div class="left"></div>
             <div class="right"></div>
-          </wrapper>
+          </div>
         </div>
       </div>
     </header>
+    <!-- Header -->
+
     <main></main>
     <footer></footer>
   </div>
