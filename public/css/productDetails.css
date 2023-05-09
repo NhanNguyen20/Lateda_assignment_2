@@ -3,6 +3,10 @@
     display: flex;
 }
 
+.prd-info-card {
+    margin: 4%;
+}
+
 .prd-img-container {
     width: 50%;
     margin: 8px;
@@ -25,6 +29,7 @@
 
 .small-img-container:hover {
     border: 2px solid red;
+    cursor: pointer;
 }
 
 .small-img-container>div {
@@ -54,13 +59,13 @@
 .prd-title {
     font-size: 2.5vw;
     margin-bottom: 3vw;
-    border-bottom: 1px solid black;
+    border-bottom: 0.5px solid grey;
     padding-bottom: 5%;
 }
 
 .prd-quantity {
     margin-bottom: 3vw;
-    border-bottom: 1px solid black;
+    border-bottom: 0.5px solid grey;
     padding-bottom: 5%;
     font-size: 2vw;
     display: flex;
@@ -85,7 +90,7 @@ input[type=number] {
 
 .prd-price {
     margin-bottom: 3vw;
-    border-bottom: 1px solid black;
+    border-bottom: 0.5px solid grey;
     padding-bottom: 5%;
     font-size: 3.8vw;
     text-align: center;
@@ -97,6 +102,7 @@ input[type=number] {
     margin-top: 3vw;
     padding-bottom: 5%;
     text-align: center;
+    border-bottom: 0.5px solid grey ;
 }
 
 .add-to-cart {
@@ -107,9 +113,42 @@ input[type=number] {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 3vw;
+    font-size: 2vw;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 8px;
-    width: 80%;
+    width: 50%;
+}
+
+.prd-supplier {
+    display: flex;
+    align-items: center;
+}
+
+.supplier-ava-container {
+    width: 100%; 
+    border-radius: 50%;
+}
+
+.supplier-ava-container img {
+    max-width: 100%;
+    border-radius: 50%;
+    border: 2px solid grey;
+}
+
+.supplier-ava {
+    width: 20%;
+    margin-right: 5%;
+}
+
+.suplier-username {
+    flex: 1;
+}
+
+#des-title {
+    text-transform: uppercase;
+    font-weight: 550;
+    margin: 5% 0;
+    border-bottom: 1px solid black;
+    padding: 2% 0;
 }
