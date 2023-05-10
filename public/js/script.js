@@ -24,7 +24,7 @@ const menuButton = document.querySelector('.trigger'),
 menuButton.addEventListener('click', function() {
     addClass.classList.toggle('showmenu')
 })
-closeButton.addEventListener('click', function() {
+menuButton.addEventListener('click', function() {
     addClass.classList.remove('showmenu')
 })
 
