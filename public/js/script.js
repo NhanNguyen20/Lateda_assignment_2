@@ -42,8 +42,13 @@ function toggle(e) {
 //slider
 const swiper = new Swiper('.swiper', {
     loop: true,
-  
+
     pagination: {
       el: '.swiper-pagination',
+      clickable: true,
     }, 
+    autoplay: {
+    delay: 3500, // time in milliseconds between slides
+    disableOnInteraction: false, // continue autoplay after user interaction
+  },
 });
