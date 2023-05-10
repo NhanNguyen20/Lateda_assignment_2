@@ -24,7 +24,7 @@ const menuButton = document.querySelector('.trigger'),
 menuButton.addEventListener('click', function() {
     addClass.classList.toggle('showmenu')
 })
-menuButton.addEventListener('click', function() {
+closeButton.addEventListener('click', function() {
     addClass.classList.remove('showmenu')
 })
 
@@ -42,8 +42,13 @@ function toggle(e) {
 //slider
 const swiper = new Swiper('.swiper', {
     loop: true,
-  
+
     pagination: {
       el: '.swiper-pagination',
+      clickable: true,
     }, 
+    autoplay: {
+    delay: 3500, // time in milliseconds between slides
+    disableOnInteraction: false, // continue autoplay after user interaction
+  },
 });
