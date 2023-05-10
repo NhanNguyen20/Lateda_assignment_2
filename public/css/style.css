@@ -479,7 +479,7 @@ form.search button:hover {
     z-index: 1000;
     transform: translateX(-100%);
     visibility: hidden;
-    transition: transform .4s visibility .4s;
+    transition: transform .4s, visibility .4s;
     will-change: transform, visibility;
 }
 .showmenu .site-off {
@@ -586,6 +586,40 @@ form.search button:hover {
 /* ------------
 02. SLIDER
 ------------ */
+.slider > div > .wrapper {
+    width: calc(100% - (300px + 2em));
+    margin-left: auto;
+}
+.slider .item {
+    position: relative;
+    height: 474px;
+}
+.slider .text-content {
+    position: relative;
+    height: var(--percent100);
+    justify-content: flex-end;
+    padding: 0 0 10% 10%;
+    z-index: 1;
+}
+.slider h4 {
+    font-size: var(--font-small);
+    font-weight: var(--fw7);
+    width: fit-content;
+    padding: 4px 10px;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    border-radius: 4px;
+}
+.text-content :where(h2,h3) span:first-child {
+    font-weight: var(--fw3);
+    columns: var(--light-text-color);
+}
+.text-content :where(h2,h3) span:last-child {
+    color: var(--secondary-dark-color);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
 
 /* ------------
 03. BRANDS
