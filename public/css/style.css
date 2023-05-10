@@ -586,13 +586,21 @@ form.search button:hover {
 /* ------------
 02. SLIDER
 ------------ */
-.slider > div > .wrapper {
-    width: calc(100% - (300px + 2em));
-    margin-left: auto;
-}
 .slider .item {
     position: relative;
     height: 474px;
+}
+.slider .item::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 450px;
+    height: 300px;
+    background-color: var(--white-color);
+    z-index: 1;
+    filter: blur(50px);
+    opacity: .8;
 }
 .slider .text-content {
     position: relative;
@@ -619,10 +627,28 @@ form.search button:hover {
     text-transform: uppercase;
     letter-spacing: -1px;
 }
-
+.swiper-pagination .swiper-pagination-bullet-active {
+    background-color: var(--secondary-dark-color);
+}
 
 /* ------------
 03. BRANDS
+------------ */
+.brands .wrapper {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 2em 0;
+}
+.brands .item img {
+    opacity: .25;
+    transition: opacity .3s;
+}
+.brands .item a:hover img {
+    opacity: 1;
+}
+
+/* ------------
+04. PRODUCT BLOCK 
 ------------ */
 
 
@@ -767,16 +793,16 @@ SCREEN MODIFICATION
     } */
 
     .dpt-menu .beauty ul {
-        background-image: url(assets/menu/menu_bg1.jpg);
+        background-image: url(/public/assets/menu/menu_bg1.jpg);
     }
     .dpt-menu .electric ul {
-        background-image: url(public/assets/menu/menu_bg2.jpg);
+        background-image: url(/public/assets/menu/menu_bg2.jpg);
     }
     .dpt-menu .fashion ul {
-        background-image: url(public/assets/menu/menu_bg3.jpg);
+        background-image: url(/public/assets/menu/menu_bg3.jpg);
     }
     .dpt-menu .homekit .mega {
-        background-image: url(public/assets/menu/menu_bg4.jpg);
+        background-image: url(/public/assets/menu/menu_bg4.jpg);
     }
     .dpt-menu .has-child > :where(ul,.mega)::before {
         content: '';
@@ -793,6 +819,12 @@ SCREEN MODIFICATION
     }
     .dpt-menu .has-child:hover .mega {
         display: flex;
+    }
+
+    /* Slider */
+    .slider > div > .wrapper {
+        width: calc(100% - (300px + 2em));
+        margin-left: auto;
     }
 }
 
