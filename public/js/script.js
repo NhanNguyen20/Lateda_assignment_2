@@ -1,68 +1,40 @@
-// Trendy Product Tabs
-var newProdBtn = document.querySelector('.new-products');
-var featuredProdBtn = document.querySelector('.featured-products');
-var newProdContainer = document.querySelector('.new-prod-container');
-var featuredProdContainer = document.querySelector('.featured-prod-container');
-var currentVisibleItem = newProdContainer;  // set the current displayed tab products
-var currentVisibleBtn = newProdBtn; 
+// Copy menu for tablet and mobile
+function copyMenu () {
+    // copy inside .dpt-cat to .departments 
+    var dptCategory = document.querySelector('.dpt-cat');
+    var dptPlace = document.querySelector('.departments');
+    dptPlace.innerHTML = dptCategory.innerHTML;
 
-let switchVisibility = (btn, item) => {
-    btn.addEventListener('click', () => {
-        currentVisibleItem.classList.add("hidden");
-        currentVisibleBtn.classList.add("hidden-color");
-        item.classList.remove("hidden");
-        btn.classList.remove("hidden-color");
-        currentVisibleItem = item;
-        currentVisibleBtn = btn;
-    })
+    // copy inside nav to nav
+    var mainNav = document.querySelector('.header-nav nav');
+    var navPlace = document.querySelector('.off-canvas nav');
+    navPlace.innerHTML = mainNav.innerHTML;
+
+    // copy .header-top .wrapper to .thetop-nav
+    var topNav = document.querySelector('.header-top .wrapper');
+    var topPlace = document.querySelector('.off-canvas .thetop-nav');
+    topPlace.innerHTML = topNav.innerHTML;
 }
+copyMenu();
 
-switchVisibility(newProdBtn, newProdContainer);
-switchVisibility(featuredProdBtn, featuredProdContainer);
-
-// Hero Banner Slider
-const slider = document.querySelector('.hero-slider');
-const slide = document.querySelectorAll('.hero-slide');
-let activeSlide = 0; 
-let numOfSlide = slide.length; // return the number of all .hero-slide
-let slideWidth = slide[0].clientWidth;  //get the width of the images
-let dots = document.querySelectorAll('.dots li');
-
-let prev = document.querySelector('.left-btn');
-let nxt = document.querySelector('.rgt-btn');
-
-let autoSlider = () => {
-    slider.style.transform = `translateX(-${slideWidth * activeSlide}px)`;
-    slider.style.transition = 'transform 1s ease-in-out';
-
-    dots.forEach(dot => {dot.classList.remove('active')})
-    dots[activeSlide].classList.add('active')
-}   
-
-nxt.onclick =  () => {
-    if (activeSlide + 1 > numOfSlide - 1) {
-        activeSlide = 0;
-    } else {activeSlide ++}
-    autoSlider();
-    clearInterval(refreshSlide);
-    refreshSlide = setInterval(nxt.onclick, 3000)
-}
-
-prev.onclick = () =>{
-    if (activeSlide == 0) {
-        activeSlide = numOfSlide - 1;
-    } else {activeSlide --}
-    autoSlider();
-    clearInterval(refreshSlide);
-    refreshSlide = setInterval(nxt.onclick, 3000);
-}
-
-let refreshSlide = setInterval(nxt.onclick, 3000)
-
-// Clickable dot menu
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        activeSlide = index;
-        autoSlider();
-    })
+// Show main menu for tablet and mobile 
+const menuButton = document.querySelector('.trigger'),
+      closeButton = document.querySelector('.t-close'),
+      addClass = document.querySelector('.site');
+menuButton.addEventListener('click', function() {
+    addClass.classList.toggle('showmenu')
 })
+closeButton.addEventListener('click', function() {
+    addClass.classList.remove('showmenu')
+})
+
+// Show sub menu on tablet and mobile 
+const submenu = document.querySelectorAll('.has-child .icon-small');
+submenu.forEach((menu) => menu.addEventListener('click', toggle));
+
+function toggle(e) {
+    e.preventDefault();
+    submenu.forEach((item) => item != this ? item.closest('.has-child').classList.remove('expand') : null);
+    if (this.closest('.has-child').classList != 'expand');
+    this.closest('.has-child').classList.toggle('expand');
+}
