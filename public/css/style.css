@@ -294,7 +294,7 @@ header li > a {
     margin-right: 0.5em;
 }
 .logo a {
-    color: var(--secondary-dark-color);
+    color: var(--primary-color);
     font-family: 'Poppins';
     font-size: 1.75em;
     position: relative;
