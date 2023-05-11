@@ -14,7 +14,7 @@ function copyMenu () {
     var topNav = document.querySelector('.header-top .wrapper');
     var topPlace = document.querySelector('.off-canvas .thetop-nav');
     topPlace.innerHTML = topNav.innerHTML;
-}
+};
 copyMenu();
 
 // Show main menu for tablet and mobile 
@@ -23,10 +23,10 @@ const menuButton = document.querySelector('.trigger'),
       addClass = document.querySelector('.site');
 menuButton.addEventListener('click', function() {
     addClass.classList.toggle('showmenu')
-})
+});
 closeButton.addEventListener('click', function() {
     addClass.classList.remove('showmenu')
-})
+});
 
 // Show sub menu on tablet and mobile 
 const submenu = document.querySelectorAll('.has-child .icon-small');
@@ -37,9 +37,9 @@ function toggle(e) {
     submenu.forEach((item) => item != this ? item.closest('.has-child').classList.remove('expand') : null);
     if (this.closest('.has-child').classList != 'expand');
     this.closest('.has-child').classList.toggle('expand');
-}
+};
 
-//slider
+// slider
 const swiper = new Swiper('.swiper', {
     loop: true,
 
@@ -53,13 +53,45 @@ const swiper = new Swiper('.swiper', {
   },
 });
 
-//show bottom menu 
+// show bottom menu 
 const searchButton = document.querySelector('.t-search'),
       tClose = document.querySelector('.search-close'),
       showClass = document.querySelector('.site');
 searchButton.addEventListener('click', function() {
     showClass.classList.toggle('showsearch')
-})
+});
 tClose.addEventListener('click', function() {
     showClass.classList.remove('showsearch')
-})
+});
+
+// show menu on page-single
+const dptButton = document.querySelector('.dpt-cat .dpt-trigger'),
+      dptClass = document.querySelector('.site');
+dptButton.addEventListener('click', function() {
+    dptClass.classList.toggle('showdpt')
+});
+
+// product image slider 
+var productThumb = new Swiper ('.small-image', {
+    loop: true,
+    spaceBetween: 10, 
+    slidesPerView: 3,
+    freeMode: true,
+    watchSlidesProgress: true,
+    breakpoints: {
+        481: {
+            spaceBetween: 32,
+        }
+    }
+});
+var productBig = new Swiper ('.big-image', {
+    loop: true,
+    autoHeight: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    thumbs: {
+        swiper: productThumb,
+    }
+});

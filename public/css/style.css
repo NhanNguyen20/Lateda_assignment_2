@@ -1137,6 +1137,278 @@ form.search button:hover {
 }
 
 
+/* ------------
+09. PAGE SINGLE
+------------ */  
+    
+    /* ------------
+    09. PAGE SINGLE
+    a. Department Menu
+    ------------ */ 
+.page-home .dpt-cat .dpt-trigger,
+.dpt-trigger .ri-close-line,
+.showdpt .dpt-trigger .ri-menu-3-line {
+    display: none;
+}
+.showdpt .dpt-trigger .ri-close-line {
+    display: block;
+}
+
+    /* ------------
+    09. PAGE SINGLE
+    b. Breadcrumb
+    ------------ */ 
+.breadcrumb {
+    font-size: var(--font-small);
+    margin-bottom: 2em;
+}
+.breadcrumb li:not(:last-child)::after {
+    content: '/';
+    padding: 0 0.35em;
+}
+.breadcrumb li:last-child {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--light-text-color);
+}
+
+    /* ------------
+    09. PAGE SINGLE
+    c. Product details
+    ------------ */ 
+.products.one .item {
+    flex-direction: column;
+}
+.products.one .price .discount {
+    font-size: 1em;
+    font-weight: var(--fw7);
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    padding: 1em;
+    z-index: 2;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    border-radius: var(--percent50);
+    margin: 0.5em;
+}
+.products.one :where(.big-image, .small-image) {
+    overflow: hidden;
+}
+.products.one .big-image {
+    position: relative;
+    margin-bottom: 1em;
+}
+.products.one :where(.big-image, .small-image) img {
+    object-fit: cover;
+    width: var(--percent100);
+    height: var(--percent100);
+    display: block;
+}
+.products.one .thumbnail-show {
+    position: relative;
+    width: 130px;
+    height: 110px;
+    overflow: hidden;
+    margin: 0 2em 2em 0;
+}
+.products :is(.swiper-button-next, .swiper-button-prev) {
+    outline: 0;
+    color: var(--secondary-dark-color);
+    transition: var(--trans-background), transform .3s;
+}
+.products .big-image:hover .swiper-button-next {
+    transform: translateX(10px);
+}
+.products .big-image:hover .swiper-button-prev {
+    transform: translateX(-10px);
+}
+.products :is(.swiper-button-next, .swiper-button-prev)::after {
+    font-size: 1.5em;
+}
+.products .big-image:hover  :is(.swiper-button-next, .swiper-button-prev) {
+    background-color: var(--light-bg-color);
+}
+
+    /* ------------
+    09. PAGE SINGLE
+    d. Product description
+    ------------ */ 
+.products.one .available {
+    font-size: var(--font-small);
+    font-weight: var(--fw5);
+    padding: 0.5em;
+    margin-right: 1em;
+    border-radius: 3px;
+    color: var(--secondary-color);
+    background-color: var(--light-bg-color);
+}
+.products.one .add-review {
+    color: var(--dark-color);
+}
+.products.one .price {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.products.one .price .current {
+    font-size: 2.5em;
+}
+.products .variant form {
+    display: flex;
+    margin-top: 0.5em;
+}
+.products .variant form p {
+    position: relative;
+    margin: 0 0.5em 0.5em;
+}
+.products :where(.variant, .actions) .circle {
+    display: block;
+    position: static;
+    top: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+.products .variant input {
+    clip: rect(0,0,0,0);
+    overflow: hidden;
+    position: absolute;
+    height: 0;
+    width: 0;
+}
+.products .variant label::before {
+    opacity: 1;
+}
+.products .variant label[for="cogrey"]::before {
+    background-color: grey;
+}
+.products .variant label[for="coblue"]::before {
+    background-color: blue;
+}
+.products .variant label[for="cogreen"]::before {
+    background-color: green;
+}
+.single-product .variant form p input:checked + label {
+    background-color: transparent;
+    border: 2px solid var(--dark-color);
+    color: var(--white-color);
+}
+
+.products .sizes .variant label::before {
+    background-color: var(--white-color);
+}
+.products .sizes .variant label span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--percent100);
+    height: var(--percent100);
+    font-size: 0.85em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.single-product .sizes .variant form p input:checked + label::before {
+    background-color: var(--dark-color);
+    opacity: 1;
+}
+
+.products .actions {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2em;
+}
+.products .qty-control {
+    width: fit-content;
+    padding: 0.5em;
+    border: 1px solid var(--border-color);
+    margin: 0 2em 2em 0;
+}
+.products .actions :where(input, button) {
+    font-size: 1.25em;
+    outline: 0;
+    border: 0;
+}
+.products .actions input {
+    width: 50px;
+    text-align: center;
+}
+.products .qty-control button::before {
+    background-color: transparent;
+}
+.products .actions .button-cart {
+    flex: 1;
+    min-width: 200px;
+}
+.products .actions .button-cart button {
+    width: var(--percent100);
+    cursor: pointer;
+}
+.wish-share a {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: var(--fw7);
+    margin: 1em 2em 1em 0;
+    transition: var(--trans-color);
+}
+
+    /* ------------
+    09. PAGE SINGLE
+    e. Product Review
+    ------------ */ 
+.products .collapse .has-child > a {
+    position: relative;
+    font-weight: var(--fw7);
+    text-transform: uppercase;
+    padding: 1em 1.25em;
+    border-top: 1px solid var(--border-color);
+}
+.products .collapse .has-child > a::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+}
+.products .collapse .content {
+    margin: 0 0 1.5em 2em;
+    font-size: var(--font-small);
+}
+.products .collapse .content li span:first-child {
+    min-width: 100px;
+    display: inline-flex;
+    font-weight: var(--fw7);
+    text-transform: uppercase;
+}
+.products .collapse table {
+    line-height: 3em;
+}
+.products .collapse table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid var(--dark-color);
+}
+.products .collapse table :where(th, td) {
+    border-bottom: 1px solid var(--border-color);
+    padding-left: 2em;
+}
+.products .collapse .content {
+    display: none;
+}
+.products .collapse .expand .content {
+    display: flex;
+}
+.products .collapse .expand > a::before {
+    content: '-';
+}
+
+    /* ------------
+    09. PAGE SINGLE
+    f. Product Review Form
+    ------------ */ 
 
 
 
@@ -1145,12 +1417,13 @@ form.search button:hover {
 /* ------------
 15. RESPONSIVE 
 ------------ */   
-@media only screen and (min-width: 490px) and (max-width: 767px) {
+@media only screen and (min-width: 481px) and (max-width: 767px) {
     .products.main .item {
         flex: 0 0 100%;
         padding: 0 10em;
         padding-bottom: 4em;
     }
+
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -1158,6 +1431,19 @@ form.search button:hover {
         flex: 0 0 50%;
         padding: 0 3em;
         padding-bottom: 3em;
+    }
+}
+
+@media only screen and (min-width: 481px) {
+    /* Page single  */
+    .products.one .big-image {
+        margin-bottom: 2em;
+    }
+    .products.one .image-show {
+        height: 680px;
+    }
+    .products.one .thumbnail-show {
+        height: 160px;
     }
 }
 
@@ -1169,6 +1455,10 @@ form.search button:hover {
     .banner .row,
     .widgets .row {
         flex: 0 0 50%;
+    }
+    .products.one .row {
+        flex: 0 0 50%;
+        width: 50%;
     }
 }
 
@@ -1370,6 +1660,14 @@ SCREEN MODIFICATION
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    /* Page single */
+    #page:not(.page-home) .dpt-menu {
+        display: none;
+    }
+    #page.showdpt .dpt-menu {
+        display: block;
     }
 }
 
