@@ -24,7 +24,7 @@ const menuButton = document.querySelector('.trigger'),
 menuButton.addEventListener('click', function() {
     addClass.classList.toggle('showmenu')
 })
-menuButton.addEventListener('click', function() {
+closeButton.addEventListener('click', function() {
     addClass.classList.remove('showmenu')
 })
 
@@ -52,3 +52,14 @@ const swiper = new Swiper('.swiper', {
     disableOnInteraction: false, // continue autoplay after user interaction
   },
 });
+
+//show bottom menu 
+const searchButton = document.querySelector('.t-search'),
+      tClose = document.querySelector('.search-close'),
+      showClass = document.querySelector('.site');
+searchButton.addEventListener('click', function() {
+    showClass.classList.toggle('showsearch')
+})
+tClose.addEventListener('click', function() {
+    showClass.classList.remove('showsearch')
+})

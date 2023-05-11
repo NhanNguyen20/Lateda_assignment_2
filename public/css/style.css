@@ -203,7 +203,7 @@ h4 {
     color: var(--light-text-color);
 }
 
-/* ------------
+/* ------------------------------------------------------------
 * Structure Styling
 
 00. Reusable selection
@@ -221,26 +221,27 @@ h4 {
     b. BIG product
     c. MINI product
     d. MAIN product
-05. BANNER 
+05. BANNER
+06. FOOTER 
     a. News Letter
     b. Widgets
     c. Footer Info
-06. BOTTOM MENU
+07. BOTTOM MENU
     a Search
-07. OVERLAY
-08. PAGE SINGLE
+08. OVERLAY
+09. PAGE SINGLE
     a.
     b.
     c.
     d.
-09. PAGE CATEGORY
+10. PAGE CATEGORY
     a. Sidebar products filter
     b. products block
-10. CART
-11. PAGE CART
-12. PAGE LOGIN
+11. CART
+12. PAGE CART
+
 13. 
------------- */
+-------------------------------------------------------------- */
 
 /* ------------
 01. HEADER
@@ -302,7 +303,6 @@ h4 {
     margin-right: 0.5em;
 }
 .logo a {
-    color: var(--primary-color);
     font-family: 'Poppins';
     font-size: 1.75em;
     position: relative;
@@ -975,6 +975,168 @@ form.search button:hover {
 06. FOOTER 
 ------------ */  
 
+    /* ------------
+    06. FOOTER 
+    a. News Letter
+    ------------ */  
+.newsletter {
+    padding: 2.5em 0;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+}
+.newsletter h3 {
+    font-size: 1.5em;
+}
+.newsletter p {
+    font-weight: var(--fw3);
+    color: var(--border-color);
+    margin: 0.5em 0 1.5em;
+}
+.newsletter p strong {
+    color: var(--primary-color);
+}
+.newsletter form {
+    max-width: 500px;
+    width: var(--percent100);
+}
+
+    /* ------------
+    06. FOOTER 
+    b. Widgets
+    ------------ */ 
+.widgets {
+    padding: 3.5em 2.5em;
+    background-color: var(--light-bg-color);
+}
+
+    /* ------------
+    06. FOOTER 
+    c. Footer Info
+    ------------ */ 
+.footer-info {
+    padding: 3.5em 0 5em;
+}
+.footer-info .wrapper .flexcol {
+    align-items: center;
+    gap: 0;
+}
+.footer-info ul li a {
+    font-size: 1.25em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--light-bg-color);
+    border-radius: var(--percent50);
+    margin: 0.25em;
+    transition: var(--trans-background);
+}
+.footer-info ul li a:hover {
+    background-color: var(--border-color);
+}
+.footer-info .logo a {
+    margin: 0 0 1em -0.75em;
+}
+.footer-info .mini-text {
+    margin-top: 2em;
+    text-align: center;
+}
+
+/* ------------
+07. BOTTOM MENU 
+------------ */ 
+.menu-bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    background-color: var(--white-color);
+    box-shadow: 0 -2px 10px rgb(0 0 0 / 10%);
+    z-index: 900;
+}
+.menu-bottom nav li {
+    flex: 1;
+}
+.menu-bottom nav li a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5em 0;
+    color: var(--light-text-color);
+    transition: var(--trans-color);
+}
+.menu-bottom nav li a:hover {
+    color: var(--dark-color);
+}
+.menu-bottom nav li a span {
+    font-size: var(--font-smaller);
+}
+.menu-bottom nav li a i {
+    font-size: 1.25em;
+}
+.menu-bottom .fly-item {
+    right: 50%;
+    width: 16px;
+    border-radius: var(--percent50);
+    margin-right: -20px;
+    background-color: var(--secondary-dark-color);
+}
+
+    /* ------------
+    07. BOTTOM MENU
+        a Search 
+    ------------ */
+.search-bottom {
+    position: fixed;
+    bottom: 60px;
+    width: var(--percent100);
+    padding: 2.5em 0;
+    background-color: var(--secondary-dark-color);
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    will-change: visibility, opacity;
+}
+.showsearch .search-bottom {
+    visibility: inherit;
+    opacity: 1;
+}
+.search-bottom .t-close {
+    position: absolute;
+    top: -54px;
+    right: 0;
+}
+.search-bottom .t-close:hover {
+    background-color: var(--primary-color);
+}
+
+/* ------------
+08. OVERLAY
+------------ */  
+.overlay {
+    position: fixed;
+    width: var(--percent100);
+    height: var(--percent100);
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.4);
+    visibility: hidden;
+    opacity: 0;
+}
+.showmenu .overlay {
+    opacity: 1;
+}
+
+
+
+
+
+
+
 /* ------------
 15. RESPONSIVE 
 ------------ */   
@@ -999,7 +1161,8 @@ form.search button:hover {
         font-size: 1.25em;
     }
     .products.mini,
-    .banner .row {
+    .banner .row,
+    .widgets .row {
         flex: 0 0 50%;
     }
 }
@@ -1188,7 +1351,8 @@ SCREEN MODIFICATION
         max-height: 373px;
     }
 
-    .products.mini {
+    .products.mini,
+    .widgets .row {
         flex: 0 0 25%;
     }
 
@@ -1196,6 +1360,12 @@ SCREEN MODIFICATION
         flex: 0 0 33.3333%;
     }
 
+    /* Footer */
+    .newsletter .box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 
