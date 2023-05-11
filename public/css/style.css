@@ -330,7 +330,7 @@ h4 {
     width: 28px;
     height: 28px;
     border-radius: var(--percent50);
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-dark-color);
     bottom: 5px;
     right: 5px;
     opacity: .4;
