@@ -4,9 +4,9 @@ Poppins: 300, 400, 600, 700, 800
 Rubik: 300, 400, 500, 600 */
 
 :root {
-    --primary-color: #ff6d60;
-    --secondary-color: #f3e99f;
-    --secondary-dark-color: #f7d060;
+    --primary-color: #EE1D52;
+    --secondary-color: #127087;
+    --secondary-dark-color: #020847;
 
     --white-color: #fff;
     --light-bg-color: #f2f3f5;
@@ -256,6 +256,9 @@ h4 {
     01. HEADER
     a. Header Top
     ------------ */
+.header-top {
+    background-color: var(--light-bg-color);
+}
 .header-top .wrapper {
     font-size: var(--font-small);
     font-weight: var(--fw3);
@@ -1126,9 +1129,11 @@ form.search button:hover {
     background-color: rgba(0, 0, 0, 0.4);
     visibility: hidden;
     opacity: 0;
+    will-change: visibility, opacity;
 }
 .showmenu .overlay {
     opacity: 1;
+    visibility: inherit;
 }
 
 
