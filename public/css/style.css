@@ -984,7 +984,7 @@ form.search button:hover {
     ------------ */  
 .newsletter {
     padding: 2.5em 0;
-    background-color: var(--dark-color);
+    background-color: var(--secondary-dark-color);
     color: var(--white-color);
 }
 .newsletter h3 {
