@@ -238,9 +238,10 @@ h4 {
     a. Sidebar products filter
     b. products block
 11. CART
-12. PAGE CART
-
-13. 
+12. CART PAGE
+13. CHECKOUT PAGE
+14.
+15. MEDIA QUERY
 -------------------------------------------------------------- */
 
 /* ------------
@@ -349,7 +350,8 @@ h4 {
     line-height: 10px;
     color: var(--white-color);
 }
-nav .fly-item {
+nav .fly-item,
+.header-nav .mini-cart .price .fly-item {
     top: 50%;
     margin-top: -24px;
     width: 30px;
@@ -1738,7 +1740,92 @@ input[type="range"]::-webkit-slider-thumb {
     opacity: 1;
 }
 
+/* ------------
+12. CART
+------------ */  
+.mini-cart {
+    position: absolute;
+    width: 400px;
+    top: 100%;
+    right: 0;
+    background-color: var(--white-color);
+    z-index: 1000;
+    box-shadow: rgba(0 0 0 / 30%) 0 10px 50px;
+    visibility: hidden;
+    opacity: 0;
+}
+.iscart:hover .mini-cart {
+    visibility: visible;
+    opacity: 1;
+}
+.mini-cart .products img {
+    transform: none;
+}
+.mini-cart ul :where(li, .price) {
+    position: relative;
+}
+.mini-cart .content {
+    width: var(--percent100);
+    height: var(--percent100);
+    touch-action: auto;
+    padding: 1.5em;
+}
+.mini-cart .cart-head {
+    font-size: 1.5em;
+    font-weight: var(--fw5);
+    color: var(--light-text-color);
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid var(--border-color);
+}
+.mini-cart .cart-body {
+    padding: 0 1.5em;
+    margin: 0 -1.5em;
+    max-width: 450px;
+    overflow: auto;
+}
+.mini-cart .thumbnail {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    margin-right: 1em;
+}
+.mini-cart .item-content p {
+    font-size: var(--font-small);
+    font-weight: var(--fw5);
+    margin-bottom: 1.5em;
+    line-height: 1.2;
+}
+.mini-cart .item-remove {
+    margin-left: 1em;
+    flex: 1;
+    justify-content: flex-end;
+}
+.mini-cart .subtotal {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+    margin-bottom: 2em;
+    border-top: 1px solid var(--border-color);
+}
+.mini-cart .subtotal p:last-child {
+    font-size: 2em;
+}
+.mini-cart .actions a {
+    display: block;
+    width: var(--percent100);
+    text-align: center;
+    margin-bottom: 1em;
+}
 
+/* ------------
+13. CART PAGE
+------------ */  
+
+/* ------------
+14. CHECKOUT PAGE
+------------ */  
 
 
 
