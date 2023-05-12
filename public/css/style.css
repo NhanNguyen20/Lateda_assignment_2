@@ -1819,6 +1819,16 @@ input[type="range"]::-webkit-slider-thumb {
     margin-bottom: 1em;
 }
 
+.mini-cart.show {
+    visibility: visible;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    max-width: 400px;
+    width: 90%;
+}
+
 /* ------------
 13. CART PAGE
 ------------ */  
