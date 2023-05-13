@@ -27,11 +27,10 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 // Customer Registration
-app.post('/customer/register', (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  // const hashedPassword = await bcrypt.hash
-  const customer = new Customer(req.body)
+app.post('/customer/register', async (req, res) => {
+  const {username, password, ...otherProperties} = req.body;
+  const hashedPassword = await bcrypt.hash(password, 5);
+  const customer = new Customer({username, password: hashedPassword, ...otherProperties});
   customer.save()
   .then((customer) => {res.send(customer)}) // Test
   .catch((error) => {res.send(error.message)})
