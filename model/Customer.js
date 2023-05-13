@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const db = require('./db');
-const Product = require('./Product.js')
+const Product = require('./Product.js');
+const Vendor = require('./Vendor');
+const Shipper = require('./Shipper');
 
 // Define Customer Schema
 const customerSchema = new mongoose.Schema({
@@ -10,7 +12,17 @@ const customerSchema = new mongoose.Schema({
         minlength: 8,
         match: /^[a-zA-Z0-9]+$/,
         unique: true,
-        required: true
+        required: true,
+        validate: {
+            validator: async function(value) {  // 'value' is the value of 'username' being validated
+                const customer = await this.constructor.findOne({ username: value});
+                const vendor = await mongoose.model('Vendor').findOne({username: value});
+                const shipper = await mongoose.model('Shipper').findOne({username: value});
+                if (customer || vendor || shipper) {
+                    return false;
+                }   return true;
+            }
+        }
     },
     password: {
         type: String,
