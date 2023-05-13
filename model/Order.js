@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const db = require('./db');
 const Product = require('./Product');
 
 
@@ -25,7 +26,7 @@ const orderSchema = new mongoose.Schema({
 });
 
 // Define Order Model
-const Order = mongoose.model('Order', orderSchema);
+const Order = db.model('Order', orderSchema);
 
 // Export Order Model
 module.exports = Order;

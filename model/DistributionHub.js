@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const db = require('./db');
 const Order = require('./Order')
 
 // Define DistributionHub Schema
@@ -12,7 +13,7 @@ const distributionHubSchema = new mongoose.Schema({
 })
 
 // Define DistributionHub Model
-const DistributionHub = mongoose.model('DistributionHub', distributionHubSchema);
+const DistributionHub = db.model('DistributionHub', distributionHubSchema);
 
 // Export DistributionHub Model
 module.exports = DistributionHub;

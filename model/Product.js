@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const db = require('./db');
 const Vendor = require('./Vendor')
 
 // Define Product Schema 
@@ -27,7 +28,7 @@ const productSchema = new mongoose.Schema({
 })
 
 // Define Product Model
-const Product = mongoose.model('Product', productSchema)
+const Product = db.model('Product', productSchema)
 
 // Export Product Module
 module.exports = Product;

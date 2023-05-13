@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const db = require('./db');
 const DistributionHub = require('./DistributionHub');
 
 // Define Shipper Schema 
@@ -28,7 +29,7 @@ const shipperSchema = new mongoose.Schema({
 });
 
 // Define Shipper Model 
-const Shipper = mongoose.model('Shipper', shipperSchema);
+const Shipper = db.model('Shipper', shipperSchema);
 
 // Export Shipper Model
 module.exports = Shipper;
