@@ -18,27 +18,30 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 // Customer Registration
-app.post('/customer/register', (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  // const hashedPassword = await bcrypt.hash
-  const customer = new Customer(req.body)
+app.post('/customer/register', async (req, res) => {
+  const {username, password, ...otherProperties} = req.body;
+  const hashedPassword = await bcrypt.hash(password, 5);
+  const customer = new Customer({username, password: hashedPassword, ...otherProperties});
   customer.save()
   .then((customer) => {res.send(customer)}) // Test
   .catch((error) => {res.send(error.message)})
 })
 
 // Vendor Registration
-app.post('/vendor/register', (req, res) => {
-  const vendor = new Vendor(req.body) 
+app.post('/vendor/register', async (req, res) => {
+  const {username, password, ...otherProperties} = req.body;
+  const hashedPassword = await bcrypt.hash(password, 5);
+  const vendor = new Vendor({username, password: hashedPassword, ...otherProperties});
   vendor.save()
   .then((vendor) => {res.send(vendor)}) // Test
   .catch((error) => {res.send(error.message)})
 })
 
 // Shipper Registration
-app.post('/shipper/register', (req, res) => {
-  const shipper = new Shipper(req.body) 
+app.post('/shipper/register', async (req, res) => {
+  const {username, password, ...otherProperties} = req.body;
+  const hashedPassword = await bcrypt.hash(password, 5);
+  const shipper = new Shipper({username, password: hashedPassword, ...otherProperties});
   shipper.save()
   .then((shipper) => {res.send(shipper)}) // Test
   .catch((error) => {res.send(error.message)})
