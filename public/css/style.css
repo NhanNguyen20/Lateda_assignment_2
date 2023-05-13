@@ -240,7 +240,7 @@ h4 {
 11. CART
 12. CART PAGE
 13. CHECKOUT PAGE
-14.
+14. MODAL
 15. MEDIA QUERY
 -------------------------------------------------------------- */
 
@@ -1133,7 +1133,7 @@ form.search button:hover {
     opacity: 0;
     will-change: visibility, opacity;
 }
-.showmenu .overlay {
+:where(.showmenu, .showmodal) .overlay {
     opacity: 1;
     visibility: inherit;
 }
@@ -1758,7 +1758,7 @@ input[type="range"]::-webkit-slider-thumb {
     visibility: visible;
     opacity: 1;
 }
-:is(.mini-cart .products, .products.cart) .thumbnail img {
+:is(.mini-cart .products, .products.cart, .checkout .products) .thumbnail img {
     transform: none;
 }
 .mini-cart ul :where(li, .price) {
@@ -1784,7 +1784,7 @@ input[type="range"]::-webkit-slider-thumb {
     max-width: 450px;
     overflow: auto;
 }
-:where(.mini-cart, .products.cart) .thumbnail {
+:where(.mini-cart, .products.cart, .checkout) .thumbnail {
     position: relative;
     width: 80px;
     height: 80px;
@@ -1970,14 +1970,157 @@ input[type="range"]::-webkit-slider-thumb {
     font-size: 1.25em;
 }
 
+
 /* ------------
 14. CHECKOUT PAGE
 ------------ */  
+.checkout {
+    margin: 5em 0;
+}
+.checkout .left {
+    padding: 4em;
+    background-color: var(--light-bg-color);
+    box-shadow: 0 15px 70px -8px rgb(0 0 0 / 20%);
+}
+.checkout .item {
+    width: var(--percent100);
+}
+.checkout .left h1 {
+    font-weight: var(--fw3);
+    margin-bottom: 1.5em;
+}
+.checkout .left label {
+    font-size: var(--font-small);
+    text-transform: capitalize;
+    position: relative;
+    width: fit-content;
+}
+.checkout .left label span {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: var(--percent50);
+}
+.checkout p :where(input, textarea) {
+    background-color: rgb(225 225 225 / 50%);
+    font-family: inherit;
+}
+.checkout p input:focus {
+    background-color: var(--white-color);
+}
+.checkout p.checkset {
+    flex-direction: row;
+}
+.checkout p.checkset label {
+    margin: 0 0 0 1em;
+    cursor: pointer;
+}
+.checkout h2 {
+    padding-top: 0.5em;
+    margin-top: 0.75em;
+    border-top: 1px solid var(--border-color);
+}
+.primary-checkout button {
+    display: block;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    width: var(--percent100);
+    max-width: 280px;
+    font-size: 1.2em;
+    margin: 3em auto 0;
+}
+.checkout .item.right {
+    padding: 5em 0 0;
+}
+.summary-totals ul {
+    max-width: 335px;
+    line-height: 2;
+    margin-bottom: 3em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid var(--secondary-dark-color);
+}
+.summary-totals li {
+    display: flex;
+    justify-content: space-between;
+    font-weight: var(--fw5);
+}
+.summary-totals li strong {
+    font-size: 2.5em;
+    line-height: 1;
+}
+.summary-totals li:last-child {
+    margin-top: 2em;
+}
+.summary-totals Li:not(:last-child) span:first-child {
+    columns: var(--light-text-color);
+}
 
-
+.summary-order .price  {
+    display: flex;
+    flex-direction: column;
+    color: var(--light-text-color);
+    font-size: 0.85em;
+    margin-top: 0.5em;
+}
 
 /* ------------
-15. RESPONSIVE | MEDIA QUERY
+15. MODAL
+------------ */  
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 600px;
+    width: 90%;
+    height: max-content;
+    padding: 2em;
+    margin: auto;
+    text-align: center;
+    background-color: var(--light-bg-color);
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform .2s, visibility .2s, opacity .2s;
+}
+.showmodal .modal {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 1s, visibility 1s, opacity 1s;
+}
+.modal .image {
+    position: relative;
+    height: calc(150px + 10vw);
+    overflow: hidden;
+    max-height: 400px;
+    margin: -2em -2em 0 -2em;
+}
+.modal h2 {
+    font-size: 1.75em;
+    text-transform: uppercase;
+    max-width: 300px;
+    margin: 0.5em auto;
+    line-height: 1;
+}
+.modal p {
+    margin-bottom: 1em;
+    color: var(--light-text-color);
+}
+.modal .t-close {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+
+/* ------------
+16. RESPONSIVE | MEDIA QUERY
 ------------ */   
 @media only screen and (min-width: 481px) and (max-width: 767px) {
     .products.main .item {
@@ -2042,7 +2185,8 @@ input[type="range"]::-webkit-slider-thumb {
     }
     .products.mini,
     .banner .row,
-    .widgets .row {
+    .widgets .row,
+    .checkout .item {
         flex: 0 0 50%;
     }
     .products.one .row {
@@ -2053,6 +2197,9 @@ input[type="range"]::-webkit-slider-thumb {
     .is_sticky {
         position: sticky;
         top: 2em;
+    }
+    .checkout .item.right {
+        padding: 5em 0 0 5em;
     }
 }
 

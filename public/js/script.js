@@ -126,3 +126,11 @@ document.addEventListener('click', (e) => {
         divPopup.classList.remove('show')
     }
 })
+
+// show modal on load 
+window.onload = function () {
+    document.querySelector('.site').classList.toggle('showmodal')
+}
+document.querySelector('.modal-close').addEventListener('click', function() {
+    document.querySelector('.site').classList.remove('showmodal')
+})
