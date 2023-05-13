@@ -11,89 +11,91 @@
   Chau The Kien - s3790421
   Acknowledgement: Acknowledge the resources that you use here. -->
 
-  <!-- Home page -->
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/logo.jpeg" type="images/icon type">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Sign up</title>
-    
-  </head>
-  <body>
-    <header>
-      <input type="checkbox" id="search-checker"><label for="search-checker"><i class="fa fa-search"></i></label>
-      <div class="logo"><a href="./index.html"><img src="images/logo.jpeg" alt="Lazada logo"></a></div>
-      <div class="search-container">
-        <form action="">
-          <input type="text" placeholder="Search in Lazada">
-          <button type="submit"><i class="fa fa-search"></i></button>
+<!-- Home page -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/logo.jpeg" type="images/icon type">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Sign up</title>
+
+</head>
+
+<body>
+  <header>
+    <input type="checkbox" id="search-checker"><label for="search-checker"><i class="fa fa-search"></i></label>
+    <div class="logo"><a href="./index.html"><img src="images/logo.jpeg" alt="Lazada logo"></a></div>
+    <div class="search-container">
+      <form action="">
+        <input type="text" placeholder="Search in Lazada">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+    <nav class="header-nav">
+      <ul>
+        <li><a href=""><i class="fa fa-cart-shopping"></i></a></li>
+        <li><a href="register_page_customer.html">SIGN UP</a></li>
+        <li><a href="login_page.html">LOGIN</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="box">
+    <!--register form-->
+
+    <div class="wrapper">
+      <div class="form-box register">
+        <h2>Create your Lazada account</h2>
+        <h1>Customer</h1>
+        <form action="#">
+          <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-user"></i></span>
+            <input type="text" required>
+            <label>Username</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-lock"></i></span>
+            <input type="password" required>
+            <label>Password</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-user"></i></span>
+            <input type="text" required>
+            <label>Enter your full name</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+            <input type="text" required>
+            <label>Enter your address</label>
+          </div>
+          <div class="upload-file">
+            <h3>Upload your profile picture</h3>
+            <input type="file" id="file" accept="image/*">
+          </div>
+          <div class="terms">
+            <label><input type="checkbox">I agree with all terms of use and privacy policy</label>
+          </div>
+          <button type="submit" class="btn">Sign up</button>
+          <div class="login-register">
+            <p>Already have an account? <a href="login_page.html" class="login-link">Login now</a></p>
+          </div>
         </form>
       </div>
-      <nav class="header-nav">
-        <ul>
-          <li><a href=""><i class="fa fa-cart-shopping"></i></a></li>
-          <li><a href="register_page_customer.html">SIGN UP</a></li>
-          <li><a href="login_page.html">LOGIN</a></li>
-        </ul>
-      </nav>
-    </header>
+    </div>
+  </main>
 
-    <main class="box">
-        <!--register form-->
-
-        <div class="wrapper">
-            <div class="form-box register">
-                <h2>Create your Lazada account</h2>
-                <h1>Customer</h1>
-                <form action="#">
-                    <div class="input-box">
-                        <span class="icon"><i class="fa-solid fa-user"></i></span>
-                            <input type="text" required>
-                            <label>Username</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                            <input type="password" required>
-                            <label>Password</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon"><i class="fa-solid fa-user"></i></span>
-                            <input type="text" required>
-                            <label>Enter your full name</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
-                            <input type="text" required>
-                            <label>Enter your address</label>
-                    </div>
-                    <div class="upload-file">
-                        <h3>Upload your profile picture</h3>
-                        <input type="file" id="file" accept="image/*">
-                    </div>
-                    <div class="terms">
-                        <label><input type="checkbox">I agree with all terms of use and privacy policy</label>
-                    </div>
-                    <button type="submit" class="btn">Sign up</button>
-                    <div class="login-register">
-                        <p>Already have an account? <a href="login_page.html" class="login-link">Login now</a></p>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <nav class="footer-nav">
-          <ul>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Copyright</a></li>
-            <li><a href="">Privacy</a></li>
-            <li><a href="">Help links</a></li>
-          </ul>
-        </nav>
-      </footer>
+  <footer>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="">About Us</a></li>
+        <li><a href="">Copyright</a></li>
+        <li><a href="">Privacy</a></li>
+        <li><a href="">Help links</a></li>
+      </ul>
+    </nav>
+  </footer>
