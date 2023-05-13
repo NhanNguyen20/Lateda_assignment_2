@@ -8,7 +8,7 @@ const shipperSchema = new mongoose.Schema({
         type: String,
         maxlength: 15,
         minlength: 8,
-        match: /^[a-zA-Z0-9]+$*/,
+        match: /^[a-zA-Z0-9]+$/,
         unique: true,
         required: true
     },

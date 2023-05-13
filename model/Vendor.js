@@ -8,7 +8,7 @@ const vendorSchema = new mongoose.Schema({
         type: String,
         maxlength: 15,
         minlength: 8,
-        match: /^[a-zA-Z0-9]+$*/,
+        match: /^[a-zA-Z0-9]+$/,
         unique: true,
         required: true
     },
@@ -27,7 +27,7 @@ const vendorSchema = new mongoose.Schema({
         required: true,
         minlength: 5
     },
-    bussinessAddress: {
+    businessAddress: {
         type: String,
         required: true,
         minlength: 5
