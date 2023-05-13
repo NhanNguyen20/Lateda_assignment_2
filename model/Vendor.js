@@ -31,7 +31,7 @@ const vendorSchema = new mongoose.Schema({
         match: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]*$/,
         required: true
     }, 
-    profiePicture: {
+    profilePicture: {
         type: String
     },
     businessName: {

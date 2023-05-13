@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const port = 3000;
+// Import Bcrypt Module
+const bcrypt = require('bcrypt');
 
-// import model files
+// Import Model Modules
 const Product = require('./model/Product');
 const Customer = require('./model/Customer');
 const Vendor = require('./model/Vendor');
@@ -17,6 +19,9 @@ app.use(express.static('public'));
 
 // Customer Registration
 app.post('/customer/register', (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  // const hashedPassword = await bcrypt.hash
   const customer = new Customer(req.body)
   customer.save()
   .then((customer) => {res.send(customer)}) // Test
