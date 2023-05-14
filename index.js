@@ -27,17 +27,20 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 // Customer Registration
-app.post('/customer/register', async (req, res) => {
+app.post('/customer/register', upload.single('profilePicture'), async (req, res) => {
   const {username, password, ...otherProperties} = req.body;
-  const hashedPassword = await bcrypt.hash(password, 5);
-  const customer = new Customer({username, password: hashedPassword, ...otherProperties});
+  const hashedPassword = await bcrypt.hash(password, 5);    // waiting for generating hash password
+  const customer = new Customer({
+    username, password: hashedPassword, 
+    profilePicture: req.file.filename, 
+    ...otherProperties});
   customer.save()
   .then((customer) => {res.send(customer)}) // Test
   .catch((error) => {res.send(error.message)})
 });
 
 // My Account for Customer
-app.get('/customer/:id', (req, res) => {
+app.get('/customer/:id/myaccount', (req, res) => {
   Customer.findById(req.params.id)
     .then((customer) => {
       if (!customer) {
@@ -49,24 +52,52 @@ app.get('/customer/:id', (req, res) => {
 });
 
 // Vendor Registration
-app.post('/vendor/register', async (req, res) => {
+app.post('/vendor/register', upload.single('profilePicture'), async (req, res) => {
   const {username, password, ...otherProperties} = req.body;
   const hashedPassword = await bcrypt.hash(password, 5);
-  const vendor = new Vendor({username, password: hashedPassword, ...otherProperties});
+  const vendor = new Vendor({
+    username, password: hashedPassword,
+    profilePicture: req.file.filename,
+     ...otherProperties});
   vendor.save()
   .then((vendor) => {res.send(vendor)}) // Test
   .catch((error) => {res.send(error.message)})
-})
+});
+// My Account for Vendor
+app.get('/vendor/:id/myaccount', (req, res) => {
+  Vendor.findById(req.params.id)
+    .then((vendor) => {
+      if (!vendor) {
+        return res.send("Cannot found vendor ID!");
+      }
+      res.render('my-account', {vendor});
+    })
+    .catch((error) => res.send(error));
+});
 
 // Shipper Registration
-app.post('/shipper/register', async (req, res) => {
+app.post('/shipper/register', upload.single('profilePicture'), async (req, res) => {
   const {username, password, ...otherProperties} = req.body;
   const hashedPassword = await bcrypt.hash(password, 5);
-  const shipper = new Shipper({username, password: hashedPassword, ...otherProperties});
+  const shipper = new Shipper({
+    username, password: hashedPassword,
+    profilePicture: req.file.filename,
+     ...otherProperties});
   shipper.save()
   .then((shipper) => {res.send(shipper)}) // Test
   .catch((error) => {res.send(error.message)})
-})
+});
+// My Account for Shipper
+app.get('/shipper/:id/myaccount', (req, res) => {
+  Shipper.findById(req.params.id)
+    .then((shipper) => {
+      if (!shipper) {
+        return res.send("Cannot found customer ID!");
+      }
+      res.render('my-account', {shipper});
+    })
+    .catch((error) => res.send(error));
+});
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
