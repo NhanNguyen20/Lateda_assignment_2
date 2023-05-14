@@ -1,0 +1,658 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700;800&family=Rubik:wght@300;400;500;600&display=swap');
+/* Fonts:
+Poppins: 300, 400, 600, 700, 800
+Rubik: 300, 400, 500, 600 */
+
+:root {
+    --primary-color: #ff6d60;
+    --secondary-color: #f3e99f;
+    --secondary-dark-color: #f7d060;
+
+    --white-color: #fff;
+    --light-bg-color: #f2f3f5;
+    --light-text-color: #7c899a;
+    --border-color: #e5e8ec;
+    --dark-color: #0a021c;
+
+    --font-small: 13px;
+    --font-smaller: 11px;
+
+    --percent100: 100%;
+    --percent50: 50%;
+
+    --fw3: 300;
+    --fw5: 500;
+    --fw6: 600;
+    --fw7: 700;
+    --fw8: 800;
+
+    --trans-background-color: background-color .3s, color .3s;
+    --trans-background: background-color .3s;
+    --trans-color: color .3s;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+/* Set up the page background and font */
+body {
+  margin: auto;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: auto;
+  background: linear-gradient(315deg, #F3E99F , #E7AB9A,#FFF6BD, #FFD4B2);
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  height:48em;
+}
+/* Set up a gradient animation for the background */
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+
+/* Set up a wave effect with animation for an element */
+.wave {
+  background: linear-gradient(rgba(255, 109, 96, 20%), rgba(247, 208, 96, 20%), rgba(243, 233, 159, 20%));
+  border-radius: 1300% 1300% 0 0;
+  position: absolute;
+  width: 3000px;
+  height: 50em;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom :  0;
+
+  z-index: -1;
+}
+
+/* Set up additional wave effects for other elements */
+.wave:nth-of-type(2) {
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+  animation: wave 20s -1s reverse infinite;
+  opacity: 0.9;
+}
+
+/* Set up a rotating animation for an element */
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+/* Set up the wave animation */
+@keyframes wave {
+  2% {
+    transform: translateX(1);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  75% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(1);
+  }
+}
+
+/*--heading--*/
+header{
+  display: flex;
+  justify-content: center;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  margin-top: 30px;
+  margin-bottom: -40px;
+}
+
+.logo a {
+  color: var(--primary-color);
+  font-family: 'Poppins';
+  font-size: 2.5em;
+  position: relative;
+  font-weight: var(--fw8);
+  display: flex;
+  padding-left: 0.75em;
+  margin-right: 2em;
+  text-decoration: none;
+  
+}
+.circle {
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--percent50);
+  background-color: var(--light-bg-color);
+  z-index: -1;
+}
+.circle::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--percent50);
+  background-color: var(--secondary-color);
+  bottom: 5px;
+  right: 5px;
+  opacity: .4;
+}
+
+.navbar-list {
+  display: flex;
+  list-style: none;
+  margin-top:0;
+  font-size: 30px;
+
+}
+
+.navbar-list li a i.fa-solid.fa-home {
+  color: #FF6969;  
+  text-decoration: none;
+  padding :15px 15px;
+  background-color:#ffd4b0b6 ;
+  border-radius: var(--percent50);
+}
+
+.navbar-list li a i.fa-solid.fa-home:hover {
+  color: #ffd4b0b6;
+  background: #FF6969;
+}
+
+
+
+/*--main-content of login page--*/
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+
+.wrapper {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 1000px;
+    height: 100%;
+    background: linear-gradient(#FEF2F4,#FFEBEB,#D8D8D8, #F5E9CF, #e3929e  );
+    border: 1px solid rgba(232, 106, 51, 0.5);
+    border-radius: 1px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(224, 101, 136, 0.367);
+    display: flex;
+    justify-content: center;
+  
+
+}
+
+.form {
+  margin-bottom: 30px;
+}
+.wrapper .form-box {
+    width: 100%;
+    font-family: 'Rubik', sans-serif;
+    padding: 50px 35px;
+}
+
+.form-box h1 {
+    font-size: 3em;
+    color: --;
+    text-align: center;
+    text
+}
+
+.form-box h2 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+    color: var(--primary-color);
+    text-align: center; 
+    padding: 10px 0;
+}
+
+.form-box h4 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    color: #FF6D60;
+    text-align: center; 
+    padding: 0px 0;
+    margin-bottom: 70px;
+    margin-top: 20px;
+}
+
+
+
+.input-box {
+    position: relative;
+    width: 40%;
+    height: 50px;
+    border-bottom: 0.5px solid black;
+    margin: 30px 0;
+   
+}
+
+
+  .input-box label {
+    font-weight: lighter;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: ;
+    font-weight: 300;
+    pointer-events: none;
+    transition: .5s;
+   
+
+}
+
+.input-box input:focus + label,
+.input-box input:valid + label,
+.input-box input:not(:placeholder-shown) + label {
+  top: -5px;
+}
+ 
+.user-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #db616179;
+    line-height: 55px;
+}
+
+.remember-forgot {
+    margin-top: 10px;
+    font-size: .9em;
+    color: black;
+    font-weight: 400;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: black;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: black;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: var(--primary-color);
+    border: none;
+    outline: none;
+    border-radius: 1px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 400;
+    text-transform: uppercase;
+    word-spacing: 2px;
+    margin-top: 60px;
+}
+
+.btn:hover {
+  background-color: #FFABAB;
+}
+
+.login-register {
+    font-size: .9em;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom : 50px;
+}
+
+.login-register p a {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+}
+
+.register-link {
+  color: #FFABAB;
+
+}
+
+  
+/* Register page */
+
+.terms {
+    font-size: .9em;
+    color: black;
+    font-weight: 500;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.terms label input {
+    accent-color: black;
+    margin-right: 3px;
+}
+
+.terms a {
+    color: black;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+.upload-file h3 {
+    font-size: .9em;
+    font-weight: 500;
+}
+
+#birthday-form,
+#gender-form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#birthday-form label,
+#gender-form label {
+  margin-right: 10px;
+}
+
+#birthday-form select {
+  width: 100px; 
+}
+
+.gender-form label {
+  font-weight: bold;
+}
+
+.dot-selection {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap; 
+  font-weight: bold;
+}
+
+.dot-selection label {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.dot-selection input[type="radio"] {
+  display: none;
+}
+
+.dot-selection .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-right: 5px;
+}
+
+.dot-selection label:hover .dot {
+  background-color: #aaa;
+}
+
+.dot-selection input[type="radio"]:checked + .dot {
+  background-color: #000;
+}
+
+.category-selector {
+  margin-bottom: 20px;
+}
+
+.category-selector label {
+  font-weight: bold;
+}
+
+.category-selector select {
+  width: 200px;
+  padding: 5px;
+}
+
+/*--register role--*/
+.button-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: -50px;
+    margin-bottom: 40px;
+  }
+  
+  .button-container .btn2 {
+    width: 100%;
+    height: 45px;
+    background: var(--primary-color);
+    border: none;
+    outline: none;
+    border-radius: 1px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 400;
+    text-transform: uppercase;
+    word-spacing: 2px;
+    margin-top: 20px;
+
+}
+
+.btn2 a{
+    text-decoration: none;
+    color: #0a021c;
+}
+
+.btn2:hover {
+    background-color: #FFABAB;
+  }
+
+/*--footer--*/
+footer {
+  position: relative;
+  margin-top: 10em;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.footer-container{
+  margin-top: -20px;
+}
+
+.footer-container p{
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  color: #4F200D;
+  margin-bottom: 30px;
+} 
+
+.footer-container .logo2 {
+  margin: auto;
+}
+
+.logo2 {
+  margin: 10px 0;
+  padding:0;
+  display: flex;
+  justify-content: center;
+}
+.logo2 a{
+    color: var(--primary-color);
+    font-family: 'Poppins';
+    font-size: 2em;
+    position: relative;
+    font-weight: var(--fw8);
+    display: flex;
+    padding-left: 0.75em;
+    margin-right: 2em;
+    text-decoration: none;
+}
+.footer-container .socials{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+
+
+}
+
+.footer-container .quick-link {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0 5rem 0;
+}
+
+.socials li{
+  margin: 10px 30px;
+  background-color: #CCD5AE;
+  padding: 8px 8px;
+  border-radius: 50%;
+  width: 28px;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.socials a {
+  text-decoration: none;
+  color: #3C486B;
+  font-size: 25px;
+}
+
+.socials li:hover {
+  background-color: #3C486B;
+}
+
+.socials li:hover a i {
+  color: #CCD5AE;
+}
+
+.quick-link li {
+  margin: -40px 34px
+}
+
+.quick-link a {
+  text-decoration: none;
+  color: #0a021c;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 2px 0;
+  width: 100%;
+  background-color: #F7D060;
+  height: 10px;
+}
+
+.footer-bottom p{
+  font-size: 10px;
+}
+
+/* media query */
+@media (max-width: 1023px){
+
+}
+@media (max-width: 767px){
+    
+    .wrapper{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+    .form-box register {
+      width: 80%;
+      display:flex;
+    }
+    .user-detail{
+      width: 180%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .quick-link li {
+      margin: -40px 20px
+    }
+    .socials li {
+    margin: 10px 20px;
+    }
+    .birthday-form,
+    .gender-form {
+      display: flex;
+      flex-direction: column;
+    }
+    .btn {
+      width: 80%;
+    }
+    .terms {
+      display: flex;
+      width: 80%;
+    }
+}

@@ -1,18 +1,4 @@
-<!-- RMIT University Vietnam
-  Course: COSC2430 Web Programming
-  Semester: 2023A
-  Assessment: Assignment 2
-  Authors: 
-  Nguyen Le Thu Nhan - s3932151
-  Ong Gia Man - s3938231
-  Nguyen Ngoc Minh Thu - s3941327
-  Nguyen Tuan Duong - s3965530
-  Nguyen Pham Tien Hai - s3979239
-  Chau The Kien - s3790421
-  Acknowledgement: Acknowledge the resources that you use here. -->
-
-  <!-- Home page -->
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -44,7 +30,7 @@
           
           <div class="info-container">
             <div class="profile-pic">
-                <img src="images/banners/icon-pet.png" alt="user's picture">
+                <img src="/assets/profilePics/<%= customer.profilePicture%>" alt="user's picture">
                 <form action="">
                     <label for="profilePicture" class="form-label">Update your profile picture:</label>
                     <input type="file" name="profilePicture" id="profilePicture">
@@ -52,8 +38,8 @@
             </div>
             <div class="profile-data">
                 <!-- take & display data here -->
-                <div class="info-data"><p>data</p></div>
-                <div class="info-data"><p>data</p></div>
+                <div class="info-data"><p><%= customer.name%></p></div>
+                <div class="info-data"><p><%= customer.username%></p></div>
                 <div class="info-data"><p>data</p></div>
                 <button type="" class="logout-btn">LOG OUT</button>
             </div>
