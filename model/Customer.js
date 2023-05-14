@@ -42,7 +42,11 @@ const customerSchema = new mongoose.Schema({
     cart: [{
         type: mongoose.Schema.Types.ObjectID,
         ref: 'Product'
-    }]
+    }],
+    role: {
+        type: String,
+        default: 'customer'
+    }
 })
 
 // Define Customer Model

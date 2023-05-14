@@ -37,7 +37,11 @@ const shipperSchema = new mongoose.Schema({
     distributionHub: {
         type: mongoose.Schema.Types.ObjectID,
         ref: 'DistributionHub'
-    }
+    },
+    role: {
+        type: String,
+        default: 'shipper'
+    } 
 });
 
 // Define Shipper Model 

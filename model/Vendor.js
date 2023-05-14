@@ -47,7 +47,11 @@ const vendorSchema = new mongoose.Schema({
     allProduct: [{
         type: mongoose.Schema.Types.ObjectID,
         ref: 'Product'
-    }]
+    }],
+    role: {
+        type: String,
+        default: 'vendor'
+    }
 });
 
 // Define Vendor Model
