@@ -231,6 +231,35 @@ app.get('/', (req, res)=> {
   res.render('homepage');
 })
 
+// DISPLAY CART PAGE 
+app.get('/cart', (req, res) => {
+  // Get customer's user ID in the session
+  const customerID = req.session.user._id;
+
+  // Retrieve customer's document and populate the shopping cart
+  Customer.findById(customerID)
+  .populate('cart.productID')
+  .then((foundCustomer) => {
+    if (!foundCustomer) {res.send('No customer found')}
+    // If found, render the cart page with the retrieved productID in the customer cart
+    res.render('cart', {cart: foundCustomer.cart})
+  })
+})
+
+// ADD PRODUCT TO CART
+app.post('/cart/add', (req, res) => {
+  const customerID = req.session.user._id;
+  const productID = req.body.productId;
+
+  // Find the customer in Customer database and add the product to their cart
+  Customer.findByIdAndUpdate(
+    customerID, {$addToSet: {cart: {productId: productID}}})
+  .then((foundCustomer) => {
+    if (!foundCustomer) {res.send('Cannot find customer')}
+  })
+  .catch((error) => {res.send(error.message)})
+})
+
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
 });
