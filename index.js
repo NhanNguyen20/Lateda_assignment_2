@@ -125,9 +125,9 @@ app.post('/login', (req, res) => {
 
   // Find the username and password in all three schema
   Promise.all([
-    Customer.findOne({ username: username }).select("+password +role"),
-    Vendor.findOne({ username: username }).select("+password +role"),
-    Shipper.findOne({ username: username }).select("+password +role")
+    Customer.findOne({ username: username }),
+    Vendor.findOne({ username: username }),
+    Shipper.findOne({ username: username })
   ])
     .then(([customer, vendor, shipper]) => {
       // Check if the user already exist (any of the value is not falsy, add that value to the user var)
