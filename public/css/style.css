@@ -216,32 +216,34 @@ h4 {
     e. Responsive MENU
 02. SLIDER
 03. BRANDS
-04. PRODUCT
+04. STYLING PRODUCT BLOCK
+05. PRODUCT
     a. Global product
     b. BIG product
     c. MINI product
     d. MAIN product
-05. BANNER
-06. FOOTER 
+06. BANNER
+07. FOOTER 
     a. News Letter
     b. Widgets
     c. Footer Info
-07. BOTTOM MENU
+08. BOTTOM MENU
     a Search
-08. OVERLAY
-09. PAGE SINGLE
+09. OVERLAY
+10. PAGE SINGLE
     a.
     b.
     c.
     d.
-10. PAGE CATEGORY
+11. PAGE CATEGORY
     a. Sidebar products filter
     b. products block
-11. CART
-12. CART PAGE
-13. CHECKOUT PAGE
-14. MODAL
-15. MEDIA QUERY
+12. CART
+13. CART PAGE
+14. CHECKOUT PAGE
+15. MODAL
+16. ORDER DETAILS PAGE
+17. MEDIA QUERY
 -------------------------------------------------------------- */
 
 /* ------------
@@ -2120,7 +2122,18 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 /* ------------
-16. RESPONSIVE | MEDIA QUERY
+16. ORDER DETAILS PAGE
+------------ */ 
+.order-details ul {
+    line-height: 2.5;
+}
+.order-details .content li {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ------------
+17. RESPONSIVE | MEDIA QUERY
 ------------ */   
 @media only screen and (min-width: 481px) and (max-width: 767px) {
     .products.main .item {
