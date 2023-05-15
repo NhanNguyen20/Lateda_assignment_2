@@ -19,9 +19,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/logo.jpeg" type="images/icon type">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/account.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>My Account</title>
+    <script type="text/javascript" href="js/login.js"></script>
   </head>
   <body>
     <header>
@@ -44,22 +45,23 @@
           
           <div class="info-container">
             <div class="profile-pic">
-                <img src="images/banners/icon-pet.png" alt="user's picture">
-                <form action="">
-                    <label for="profilePicture" class="form-label">Update your profile picture:</label>
-                    <input type="file" name="profilePicture" id="profilePicture">
-                </form>
+              <img id="profilePicturePreview" src="images/banners/icon-pet.png" alt="user's picture">
+              <form>
+                <label for="profilePicture" class="form-label">Update your profile picture:</label>
+                <input type="file" name="profilePicture" id="profilePicture" onchange="showImage(this)">
+              </form>
             </div>
             <div class="profile-data">
                 <!-- take & display data here -->
-                <div class="info-data"><p>data</p></div>
-                <div class="info-data"><p>data</p></div>
-                <div class="info-data"><p>data</p></div>
-                <button type="" class="logout-btn">LOG OUT</button>
+                <div class="fullname"><p>Name</p></div>
+                <div class="address"><p>Adress</p></div>
+                <div class="phone-number"><p>Number</p></div>
+                
             </div>
           </div>
         </div>
       </div>
+      <button type="" class="logout-btn">LOG OUT</button>
     </main>
 
     <footer>
@@ -73,6 +75,6 @@
       </nav>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js"></scrip>
   </body>
   </html>
