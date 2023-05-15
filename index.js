@@ -9,13 +9,20 @@ const session = require('express-session')
 
 
 const multer = require('multer');
-const storage = multer.diskStorage({
+const profileStorage = multer.diskStorage({
   destination: 'public/assets/profilePics',
   filename: function (req, file, cb) {
     cb(null, file.originalname); // set the filename as the original name of the uploaded file
   }
 });
-const upload = multer({ storage: storage });
+const productStorage = multer.diskStorage({
+  destination: 'public/assets/products',
+  filename: function (req, file, cb) {
+    cb(null, file.originalname); 
+  }
+});
+const profilePicUpload = multer({ storage: profileStorage });
+const productUpload = multer({storage: productStorage});
 
 // Import Model Modules
 const Product = require('./model/Product');
@@ -39,7 +46,7 @@ app.use(session({
 }))
 
 // Customer Registration
-app.post('/customer/register', upload.single('profilePicture'), async (req, res) => {
+app.post('/customer/register', profilePicUpload.single('profilePicture'), async (req, res) => {
   const { username, password, ...otherProperties } = req.body;
   const hashedPassword = await bcrypt.hash(password, 5);    // waiting for generating hash password
   const customer = new Customer({
@@ -65,7 +72,7 @@ app.get('/customer/:id/myaccount', (req, res) => {
 });
 
 // Vendor Registration
-app.post('/vendor/register', upload.single('profilePicture'), async (req, res) => {
+app.post('/vendor/register', profilePicUpload.single('profilePicture'), async (req, res) => {
   const { username, password, ...otherProperties } = req.body;
   const hashedPassword = await bcrypt.hash(password, 5);
   const vendor = new Vendor({
@@ -90,7 +97,7 @@ app.get('/vendor/:id/myaccount', (req, res) => {
 });
 
 // Shipper Registration
-app.post('/shipper/register', upload.single('profilePicture'), async (req, res) => {
+app.post('/shipper/register', profilePicUpload.single('profilePicture'), async (req, res) => {
   const { username, password, ...otherProperties } = req.body;
   const hashedPassword = await bcrypt.hash(password, 5);
   const shipper = new Shipper({
@@ -148,17 +155,39 @@ app.post('/login', (req, res) => {
 
           // Redirect the user to the appropriate page based on their role
           if (user.role === 'customer') {
-            res.redirect('/customer/myaccount');
+            res.render('customer-page', { user });
           } else if (user.role === 'vendor') {
-            res.redirect('/vendor/dashboard');
+            res.render('vendor-page', { user });
           } else if (user.role === 'shipper') {
-            res.redirect('/shipper/orders');
+            res.render('shipper-page', { user });
           }
         })
         .catch((error) => { res.send(error.message) })
     })
     .catch((error) => { res.send(error.message) })
 })
+
+// GET request for Vendor homepage   (haven't test)
+app.get('vendor/:id/add-product', (req, res) => {
+  Vendor.findById(req.params.id)
+    .then((vendor) => {
+      if (!vendor) {
+        return res.send("Cannot found vendor ID!");
+      }
+      res.render('add-product', { vendor });
+    })
+    .catch((error) => res.send(error));
+});
+
+app.post('/vendor/add-product', productUpload.single('image'), (req, res)=> {
+  const product = new Product({
+    ...req.body,
+    image: req.file.filename
+  });
+  product.save()
+  .then((product) => {res.send(product)}) 
+  .catch((error) => {res.send(error.message)})
+});
 
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);

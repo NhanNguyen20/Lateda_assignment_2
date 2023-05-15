@@ -43,39 +43,38 @@
         <div class="wrapper">
             <div class="form-box register">
                 <h2>Create your Lateda` account</h2>
-                <h1>Customer</h1>
+                <h1>Vendor</h1>
                 <form action="#">
                   <div class="user-detail">
 
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-user"></i></span>
-                            <input type="text" required id="fullname" name="fullname">
-                            <label>Enter Vendor's owner full name:</label>
+                            <input type="text" required id="fullname">
+                            <label for="fullname">Enter Vendor's owner full name:</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-user"></i></span>
-                            <input type="text" required id="fullname" name="username">
-                            <label>Enter vendor user name:</label>
+                            <input type="text" required id="username" name="username">
+                            <label for="username">Enter vendor username:</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-lock"></i></span>
                             <input type="password" required id="password" name="password">
-                            <label>Enter your password:</label>
+                            <label for="password">Enter your password:</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                            <input type="password" required id="confirm" name="confirm">
-                            <label>Confirm your password:</label>
+                            <input type="text" required id="businessName" name="businessName">
+                            <label for="businessName">Enter your business name:</label>
                     </div>
                     <div class="input-box">
-                      <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                          <input type="email" required id="email" name="email">
-                          <label>Enter vendor's email address:</label>
+                      <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                          <input type="text" required id="businessAddress">
+                          <label for="businessAddress">Enter your business address:</label>
                     </div>
-                   <div class="input-box">
-                    <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
-                        <input type="text" required id="address" name="address">
-                        <label>Enter Vendor's address :</label>
+                    <div class="input-box">
+                      <input name="image" type="file" id="image">
+                      <label for="image">Upload your profile picture :</label>
                     </div>
                   </div>
 
@@ -85,13 +84,13 @@
                         </div>
                     <div class="birthday-form" id="birthday-form">
                       <label for="day">Day:</label>
-                      <select id="day" name="day"></select>
+                      <select id="day"></select>
 
                       <label for="month">Month:</label>
-                      <select id="month" name="month"></select>
+                      <select id="month"></select>
 
                       <label for="year">Year:</label>
-                      <select id="year" name="year"></select>
+                      <select id="year"></select>
                     </div>
                     </div>
                     <br>
@@ -100,17 +99,17 @@
                       <label for="gender">Gender:</label>
                       <div class="dot-selection">
                         <label>
-                          <input type="radio" name="gender" value="male">
+                          <input type="radio" value="male">
                           <span class="dot"></span>
                           Male
                         </label>
                         <label>
-                          <input type="radio" name="gender" value="female">
+                          <input type="radio" value="female">
                           <span class="dot"></span>
                           Female
                         </label>
                         <label>
-                          <input type="radio" name="gender" value="not-specified">
+                          <input type="radio" value="not-specified">
                           <span class="dot"></span>
                           Prefer not to tell
                         </label>
