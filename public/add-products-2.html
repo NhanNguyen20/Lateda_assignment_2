@@ -83,7 +83,7 @@
                   <ul class="flexitem second-links">
                     <li><a href="#">My Profile</a></li>
                     <li><a href="#">View My Products</a></li>
-                    <li><a href="./add-products-2.html">Add New Products</a></li>
+                    <li><a href="#">Add New Products</a></li>
                   </ul>
                 </nav>
               </div>
@@ -123,7 +123,50 @@
       <!-- Header -->
   
       <main>
-        .
+        <div class="add-products">
+            <div class="container">
+              <div class="wrapper">
+                <div class="sectop flexitem">
+                    <h2><span class="circle"></span><span>Add New Products</span></h2>
+                </div>
+                <div class="checkout flexwrap">
+                  <div class="item left styled">
+                    <h1>Product Information</h1>
+                    <form action="">
+                      <p>
+                        <label for="productName" class="form-label">Product Name <span></span></label>
+                        <input type="text" name="name" id="productName" class="form-input" required>
+                      </p>
+                      <p>
+                        <label for="productPrice" class="form-label">Product Price <span></span></label>
+                        <input type="number" name="price" id="productPrice" min="0" step="1000" class="form-input" placeholder="VND" required>
+                      </p>
+                      <p>
+                        <label for="category" class="form-label">Product Category <span></span></label>
+                        <select name="category" id="category">
+                            <option value="beauty">Beauty</option>
+                            <option value="electronic">Electronic</option>
+                            <option value="women">Women</option>
+                            <option value="men">Men</option>
+                        </select>
+                      </p>
+                      <p>
+                        <label for="productImage" class="form-label">Product Image <span></span></label>
+                        <input type="file" name="image" id="productImage" accept="images" required>
+                      </p>
+                      <p>
+                        <label for="prodDescription">Product Description</label>
+                        <textarea name="description" id="prodDescription" class="form-input" required></textarea>
+                      </p>
+                    </form>
+                    <div class="primary-checkout">
+                      <button class="primary-button">Add Product</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
       </main>
       <!-- Main -->
   

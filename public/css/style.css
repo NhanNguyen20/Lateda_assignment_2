@@ -2201,6 +2201,10 @@ input[type="range"]::-webkit-slider-thumb {
     .checkout .item.right {
         padding: 5em 0 0 5em;
     }
+
+    .add-products .checkout .item {
+        flex: 0 0 100%;
+    }
 }
 
 /* ------------
