@@ -25,43 +25,134 @@
     <script type="text/javascript" href="js/login.js"></script>
   </head>
   <body>
-    <header>
-      <div class="logo"><a href=""><img src="images/logo.jpeg" alt="Lazada logo"></a></div>
-      <!-- <div class="header-info"></div> -->
-    </header>
 
-    <main>    
-      <div class="page-container">
-        <div class="side-menu">
-          <nav>
-            <ul>
-              <a href="">Home</a>
-              <a href="my-account.html">My Account</a>
-            </ul>
-          </nav>
-        </div>
-        <div class="page-content">
-          <h1 class="role-title">My Account</h1> 
-          
-          <div class="info-container">
-            <div class="profile-pic">
-              <img id="profilePicturePreview" src="images/banners/icon-pet.png" alt="user's picture">
-              <form>
-                <label for="profilePicture" class="form-label">Update your profile picture:</label>
-                <input type="file" name="profilePicture" id="profilePicture" onchange="showImage(this)">
-              </form>
+    <header>
+      <div class="header-top mobile-hide">
+        <div class="container">
+          <div class="wrapper flexitem">
+            <div class="left">
+              <ul class="flexitem main-links">
+                <li><a href="">Log Out</a></li>
+              </ul>
             </div>
-            <div class="profile-data">
-                <!-- take & display data here -->
-                <div class="fullname"><p>Name</p></div>
-                <div class="address"><p>Adress</p></div>
-                <div class="phone-number"><p>Number</p></div>
-                
+            <div class="right">
+              <ul class="flexitem main-links">
+                <li><a href="">VND <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
+                  <ul>
+                    <li><a href="">USD</a></li>
+                    <li class="current"><a href="">VND</a></li>
+                  </ul>
+                </li>
+                <li><a href="">English <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
+                  <ul>
+                    <li class="current"><a href="">English</a></li>
+                    <li><a href="">Vietnamese</a></li>
+                  </ul>
+                </li>  
+              </ul>
             </div>
           </div>
         </div>
       </div>
+      <!-- Header Top -->
+
+      <div class="header-nav">
+        <div class="container">
+          <div class="wrapper flexitem">
+            <a href="" class="trigger desktop-hide"><span><i class="ri-menu-2-line"></i></span></a>
+            <div class="left flexitem">
+              <div class="logo"><a href="/">Lateda`</a></div>
+              <nav class="mobile-hide">
+                <ul class="flexitem second-links">
+                  <li><a href="#">My Profile</a></li>
+                  <li><a href="#">View My Products</a></li>
+                  <li><a href="./add-products-2.html">Add New Products</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="right">
+              <ul class="flexitem second-links">
+                <li class="iscart"><a href="">
+                  <div class="icon-large">
+                    <i class="ri-user-6-line"></i>
+                  </div>
+                  <div class="icon-text">
+                    <div class="mini-text">My account</div>
+                    <div class="cart-total">Burberry</div>
+                  </div>
+                </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Header Nav -->
+
+      <div class="header-main mobile-hide">
+        <div class="container">
+          <div class="search-box">
+              <form action="" class="search">
+                <span class="icon-large"><i class="ri-search-line"></i></span>
+                <input type="search" placeholder="Search for products">
+                <button type="submit">Search</button>
+              </form>
+          </div>
+        </div>
+      </div>
+      <!-- Header Main -->
+
+    </header>
+
+    <main>    
+      <a href="my-account.html"><h1>My Account</h1></a>
+      <div class="page-container">
+
+        <div class="side-menu">
+          <nav>
+            <ul>
+              <li><a href="index.html" class="active">Home</a></li>
+              <li><a href="my-account.html">My Account</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Notifications</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="page-content">
+          <div class="info-container">
+            <div class="profile-container">
+              <div class="profile-upper">
+                <div class="profile-picture">
+                  <img id="profilePicturePreview" src="images/banners/icon-pet.png" alt="user's picture">
+                </div>
+                <div class="profile-info">
+                  <h2 class="fullname" id="fullname">Full Name</h2>
+                  <p class="username" id="username">Username</p>
+                </div>
+              </div>
+              <div class="profile-bottom">
+                <form>
+                  <label for="profilePicture" class="profile-label">Update your profile picture:</label>
+                  <input type="file" name="profilePicture" id="profilePicture" onchange="showImage(this)">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="profile-data">
+          <!-- take & display data here -->
+          <div class="fullname"><p>Name</p></div>
+          <div class="address"><p>Address</p></div>
+          <div class="phone-number"><p>Number</p></div>
+        </div>
+      </div>
+        
+
       <button type="" class="logout-btn">LOG OUT</button>
+
     </main>
 
     <footer>
