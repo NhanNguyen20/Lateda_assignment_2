@@ -4,13 +4,19 @@ const Order = require('./Order')
 
 // Define DistributionHub Schema
 const distributionHubSchema = new mongoose.Schema({
-    name: {},
-    address: {},
+    name: {
+        type: String,
+        enum: ['Hub1', 'Hub2', 'Hub3'],
+        required: true
+    },
+    address: {
+        type: String
+    },
     order: [{
         type: mongoose.Schema.Types.ObjectID,
         ref: 'Order'
     }]
-})
+});
 
 // Define DistributionHub Model
 const DistributionHub = db.model('DistributionHub', distributionHubSchema);

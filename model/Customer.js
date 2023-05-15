@@ -27,16 +27,19 @@ const customerSchema = new mongoose.Schema({
     password: {
         type: String,
         minlength: 8,
-        maxlength: 15,
-        match: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]*$/,
         required: true
     }, 
     profilePicture: {
-        type: String
+        type: String,
+        default: 'defaultUserPic.jpeg'
     }, 
     name: {
         type: String,
         minlength: 5,
+        required: true
+    },
+    address: {
+        type: String,
         required: true
     },
     cart: [{

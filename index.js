@@ -50,8 +50,9 @@ app.post('/customer/register', profilePicUpload.single('profilePicture'), async 
   const { username, password, ...otherProperties } = req.body;
   const hashedPassword = await bcrypt.hash(password, 5);    // waiting for generating hash password
   const customer = new Customer({
-    username, password: hashedPassword,
-    profilePicture: req.file.filename,
+    username, 
+    password: hashedPassword,
+    profilePicture: req.file ? req.file.filename : Customer.schema.paths.profilePicture.default(),
     ...otherProperties
   });
   customer.save()
@@ -77,7 +78,7 @@ app.post('/vendor/register', profilePicUpload.single('profilePicture'), async (r
   const hashedPassword = await bcrypt.hash(password, 5);
   const vendor = new Vendor({
     username, password: hashedPassword,
-    profilePicture: req.file.filename,
+    profilePicture: req.file ? req.file.filename : Vendor.schema.paths.profilePicture.default(),
     ...otherProperties
   });
   vendor.save()
@@ -102,7 +103,7 @@ app.post('/shipper/register', profilePicUpload.single('profilePicture'), async (
   const hashedPassword = await bcrypt.hash(password, 5);
   const shipper = new Shipper({
     username, password: hashedPassword,
-    profilePicture: req.file.filename,
+    profilePicture: req.file ? req.file.filename : Vendor.schema.paths.profilePicture.default(),
     ...otherProperties
   });
   shipper.save()

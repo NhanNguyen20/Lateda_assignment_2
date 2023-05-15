@@ -27,12 +27,11 @@ const shipperSchema = new mongoose.Schema({
     password: {
         type: String,
         minlength: 8,
-        maxlength: 15,
-        match: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]*$/,
         required: true
     }, 
     profilePicture: {
-        type: String
+        type: String,
+        default: 'defaultUserPic.jpeg'
     },
     distributionHub: {
         type: mongoose.Schema.Types.ObjectID,
