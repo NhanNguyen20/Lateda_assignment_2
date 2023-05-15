@@ -2448,6 +2448,9 @@ SCREEN MODIFICATION
         padding-left: 2.5em;
         margin-top: 0;
     }
+    .all-products .products.cart .form-cart {
+        width: 100%;
+    }
 }
 
 

@@ -1,4 +1,4 @@
-<!-- RMIT University Vietnam
+  <!-- RMIT University Vietnam
   Course: COSC2430 Web Programming
   Semester: 2023A
   Assessment: Assignment 2
@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lateda` | Lategroup1</title>
+    <title>Lateda` | Shipper | Lategroup1</title>
     <!-- CSS Link -->
     <link rel="stylesheet" href="/public/css/style.css">
     <!-- Icon Link -->
@@ -78,12 +78,11 @@
             <div class="wrapper flexitem">
               <a href="" class="trigger desktop-hide"><span><i class="ri-menu-2-line"></i></span></a>
               <div class="left flexitem">
-                <div class="logo"><a href="/">Lateda`</a></div>
+                <div class="logo"><a href="./index.html">Lateda`</a></div>
                 <nav class="mobile-hide">
                   <ul class="flexitem second-links">
                     <li><a href="#">My Profile</a></li>
-                    <li><a href="#">View My Products</a></li>
-                    <li><a href="#">Add New Products</a></li>
+                    <li><a href="#">View All Orders</a></li>
                   </ul>
                 </nav>
               </div>
@@ -95,7 +94,7 @@
                     </div>
                     <div class="icon-text">
                       <div class="mini-text">My account</div>
-                      <div class="cart-total">Burberry</div>
+                      <div class="cart-total">Giao Hang Tiet Kiem</div>
                     </div>
                   </a>
                   </li>
@@ -111,7 +110,7 @@
             <div class="search-box">
                 <form action="" class="search">
                   <span class="icon-large"><i class="ri-search-line"></i></span>
-                  <input type="search" placeholder="Search for products">
+                  <input type="search" placeholder="Search for orders">
                   <button type="submit">Search</button>
                 </form>
             </div>
@@ -123,50 +122,162 @@
       <!-- Header -->
   
       <main>
-        <div class="add-products">
+        <div class="all-products">
             <div class="container">
               <div class="wrapper">
                 <div class="sectop flexitem">
-                    <h2><span class="circle"></span><span>Add New Products</span></h2>
+                    <h2><span class="circle"></span><span>All Active Orders</span></h2>
                 </div>
-                <div class="checkout flexwrap">
-                  <div class="item left styled">
-                    <h1>Product Information</h1>
-                    <form action="">
-                      <p>
-                        <label for="productName" class="form-label">Product Name <span></span></label>
-                        <input type="text" name="name" id="productName" class="form-input" required>
-                      </p>
-                      <p>
-                        <label for="productPrice" class="form-label">Product Price <span></span></label>
-                        <input type="number" name="price" id="productPrice" min="0" step="1000" class="form-input" placeholder="VND" required>
-                      </p>
-                      <p>
-                        <label for="category" class="form-label">Product Category <span></span></label>
-                        <select name="category" id="category">
-                            <option value="beauty">Beauty</option>
-                            <option value="electronic">Electronic</option>
-                            <option value="women">Women</option>
-                            <option value="men">Men</option>
-                        </select>
-                      </p>
-                      <p>
-                        <label for="productImage" class="form-label">Product Image <span></span></label>
-                        <input type="file" name="image" id="productImage" accept="images" required>
-                      </p>
-                      <p>
-                        <label for="prodDescription">Product Description</label>
-                        <textarea name="description" id="prodDescription" class="form-input" required></textarea>
-                      </p>
+                <div class="products one cart">
+                  <div class="flexwrap">
+                    <form action="" class="form-cart">
+                      <div class="item">
+                        <table id="cart-table">
+                          <thead>
+                            <tr>
+                              <th>Order ID</th>
+                              <th>Date Ordered</th>
+                              <th>Customer</th>
+                              <th>Total Price</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="flexitem">
+                                <div class="thumbnail object-cover">
+                                  <a href=""><img src="/public/assets/products/home2.jpg" alt=""></a>
+                                </div>
+                                <div class="content">
+                                  <strong><a href="./order-details.html">#001</a></strong>
+                                  <p><a href="">(4 Items)</a></p>
+                                </div>
+                              </td>
+                              <td>16/05/2023</td>
+                              <td>Nhan Nguyen</td>
+                              <td>14.530.000 VND</td>
+                              <td><a href="./order-details.html">View order <i class="ri-arrow-right-line"></i></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="flexitem">
+                                  <div class="thumbnail object-cover">
+                                    <a href=""><img src="/public/assets/products/electronic5.jpg" alt=""></a>
+                                  </div>
+                                  <div class="content">
+                                    <strong><a href="">#002</a></strong>
+                                    <p><a href="">(1 Items)</a></p>
+                                  </div>
+                                </td>
+                                <td>15/05/2023</td>
+                                <td>Man Ong</td>
+                                <td>15.530.000 VND</td>
+                                <td><a href="">View order <i class="ri-arrow-right-line"></i></i></a></td>
+                            </tr>
+                            <tr>
+                              <td class="flexitem">
+                                <div class="thumbnail object-cover">
+                                  <a href=""><img src="/public/assets/products/wf3.webp" alt=""></a>
+                                </div>
+                                <div class="content">
+                                  <strong><a href="">#001</a></strong>
+                                  <p><a href="">(2 Items)</a></p>
+                                </div>
+                              </td>
+                              <td>14/05/2023</td>
+                              <td>Hai Nguyen</td>
+                              <td>4.530.000 VND</td>
+                              <td><a href="">View order <i class="ri-arrow-right-line"></i></i></a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </form>
-                    <div class="primary-checkout">
-                      <button class="primary-button">Add Product</button>
-                    </div>
+                    <!-- <div class="cart-summary styled">
+                      <div class="item">
+                        <div class="coupon">
+                          <input type="text" name="" id="" placeholder="Enter Coupon Here">
+                          <button>Apply</button>
+                        </div>
+                        <div class="shipping-rate collapse">
+                          <div class="has-child expand">
+                            <a href="" class="icon-small">Estimate Shipping and Tax</a>
+                            <div class="content">
+                              <div class="countries">
+                                <form action="">
+                                  <label for="country">Country</label>
+                                  <select name="country" id="country">
+                                    <option value="">Select country</option>
+                                    <option value="1">United State</option>
+                                    <option value="2">Australia</option>
+                                    <option value="3" selected="selected">Vietnam</option>
+                                  </select>
+                                </form>
+                              </div>
+                              <div class="states">
+                                <form action="">
+                                  <label for="state">State / Province</label>
+                                  <select name="state" id="state">
+                                    <option value="">Select a region, state or province</option>
+                                    <option value="1">Ha Noi</option>
+                                    <option value="2">Hai Phong</option>
+                                    <option value="3" selected="selected">Ho Chi Minh</option>
+                                  </select>
+                                </form>
+                              </div>
+                              <div class="postal-code">
+                                <form action="">
+                                  <label for="postal">Zip / Postal Code</label>
+                                  <input type="number" name="postal" id="postal">
+                                </form>
+                              </div>
+                              <div class="rate-options variant">
+                                <form action="">
+                                  <p>
+                                    <span>Flat: $10.00</span>
+                                    <input type="radio" name="rate-option" id="flat" checked>
+                                    <label for="flat" class="circle"></label>
+                                  </p>
+                                  <p>
+                                    <span>Best: $0.00</span>
+                                    <input type="radio" name="rate-option" id="best">
+                                    <label for="best" class="circle"></label>
+                                  </p>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-total">
+                          <table>
+                            <tbody>
+                              <tr>
+                                <th>Subtotal</th>
+                                <td>$2155.95</td>
+                              </tr>
+                              <tr>
+                                <th>Discount</th>
+                                <td>-$100.00</td>
+                              </tr>
+                              <tr>
+                                <th>Shipping <span class="mini-text">(Flat)</span></th>
+                                <td>$10.00</td>
+                              </tr>
+                              <tr class="grand-total">
+                                <th>TOTAL</th>
+                                <td><strong>$2065.95</strong></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <a href="/public/checkout.html" class="secondary-button">Checkout</a>
+                        </div>
+                      </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
             </div>
         </div>
+
       </main>
       <!-- Main -->
   
