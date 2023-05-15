@@ -74,7 +74,7 @@ app.get('/customer/:id/myaccount', (req, res) => {
       if (!customer) {
         return res.send("Cannot found customer ID!");
       }
-      res.render('my-account', { customer });
+      res.render('my-account', { user: customer });
     })
     .catch((error) => res.send(error));
 });
@@ -106,7 +106,7 @@ app.get('/vendor/:id/myaccount', (req, res) => {
       if (!vendor) {
         return res.send("Cannot found vendor ID!");
       }
-      res.render('my-account', { vendor });
+      res.render('my-account', { user: vendor });
     })
     .catch((error) => res.send(error));
 });
@@ -138,7 +138,7 @@ app.get('/shipper/:id/myaccount', (req, res) => {
       if (!shipper) {
         return res.send("Cannot found customer ID!");
       }
-      res.render('my-account', { shipper });
+      res.render('my-account', { user: shipper });
     })
     .catch((error) => res.send(error));
 });
@@ -189,7 +189,7 @@ app.post('/login', (req, res) => {
     .catch((error) => { res.send(error.message) })
 })
 
-// GET request for Vendor homepage   (haven't test)
+// GET request for Vendor homepage   
 app.get('vendor/:id/add-product', (req, res) => {
   Vendor.findById(req.params.id)
     .then((vendor) => {
@@ -201,6 +201,7 @@ app.get('vendor/:id/add-product', (req, res) => {
     .catch((error) => res.send(error));
 });
 
+// create a new product with vendor's id
 app.post('/vendor/add-product', productUpload.single('image'), (req, res)=> {
   const product = new Product({
     ...req.body,
@@ -210,6 +211,25 @@ app.post('/vendor/add-product', productUpload.single('image'), (req, res)=> {
   .then((product) => {res.send(product)}) 
   .catch((error) => {res.send(error.message)})
 });
+
+app.get('/vendor/:id/view-products', (req, res)=>{
+  Product.find({vendor: req.params.id})
+  .then((matchedProducts) => {
+    if (!matchedProducts) {
+      return res.send("Cannot found any product!");
+    }
+    res.render('view-products', {matchedProducts})
+  })
+  .catch((error)=> res.send(error));
+});
+
+app.get('/login', (req, res)=>{
+  res.render('login');
+})
+
+app.get('/', (req, res)=> {
+  res.render('homepage');
+})
 
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);

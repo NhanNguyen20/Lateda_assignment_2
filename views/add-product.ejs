@@ -44,7 +44,7 @@
         </div>
         <div class="page-content">
             <h1 class="role-title">Add New Products</h1>
-            <form action="/vendor/add-product" method="POST">
+            <form action="/vendor/add-product" method="POST" enctype="multipart/form-data">
                 <h3>Add a new product here:</h3>
                 <input type="hidden" name="vendor" id="vendor" value="<%= vendor.id %>">
                 <div class="form-section">

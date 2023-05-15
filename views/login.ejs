@@ -1,0 +1,119 @@
+<!-- RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Authors: 
+  Nguyen Le Thu Nhan - s3932151
+  Ong Gia Man - s3938231
+  Nguyen Ngoc Minh Thu - s3941327
+  Nguyen Tuan Duong - s3965530
+  Nguyen Pham Tien Hai - s3979239
+  Chau The Kien - s3790421
+  Acknowledgement: Acknowledge the resources that you use here. -->
+
+  <!-- Home page -->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.jpeg" type="images/icon type">
+    <link rel="stylesheet" href="css/login.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Login</title>
+    <script src="js/login.js"></script>
+    
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo"><a href="index.html"><span class="circle"></span>Lateda`</a></div>
+        <div class="navbar-right">
+          <ul class="navbar-list">
+            <li><a href="index.html"><i class="fa-solid fa-home"></i></a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="box">
+        <!--login form-->
+
+        <div class="wrapper">
+            <div class="form-box login">
+                <h2>Welcome to Lateda</h2>
+                <h4>Please login to your account!</h4>
+                <form action="/login" method="POST">
+                  <div class="input-box" id="email-input">
+                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="text" required id="username" name="username">
+                    <label for="username">Usernameeeeeee</label>
+                  </div>
+                    <div class="input-box" id="password-input">
+                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                            <input type="password" required id="password" name="password">
+                            <label for="password">Password</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox" id="rememberme">Remember me</label>
+                        <a href="#">Forgot password</a>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="login-register">
+                        <p>Don't have an account? <a href="register-role.html" class="register-link">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+  
+
+    <footer>
+      <div class="wavy-effect ">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
+ 
+    <div class="footer-container">
+
+        <div class="logo2">
+        <a href="/">
+          <span class="circle"></span>
+          <h3>Lateda`</h3>
+          </a>
+        </div>
+      <p>Experience the world of shopping without borders - explore, discover and connect with our e-commerce website.</p>
+      <ul class="socials">
+        <li class="s-icon"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+        <li class="s-icon"><a href="#"><i class="fa-brands fa-twitter"></i></a></li> 
+        <li class="s-icon"><a href="#"><i class="fa-brands fa-instagram"></i></a></li> 
+        <li class="s-icon"><a href="#"><i class="fa-brands fa-linkedin"></i></a></li> 
+      </ul>
+      <ul class="quick-link">
+        <li class="quick-item"><a href="index.html">Home</a></li>
+        <li class="quick-item"><a href="index.html">Products</a></li>
+        <li class="quick-item"><a href="help.html">Help</a></li>
+        <li class="quick-item"><a href="privacy.html">Privacy</a></li>
+        <li class="quick-item"><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer-bottom">
+        <p>Copyright &copy;2023 Lateda`, design by Late Group 1</p>
+      </div>
+    </div>  
+    </footer>
+     <!-- </div>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Copyright</a></li>
+            <li><a href="">Privacy</a></li>
+            <li><a href="">Help links</a></li>
+          </ul>
+        </nav>
+      </footer> -->
+
+
+</body>
