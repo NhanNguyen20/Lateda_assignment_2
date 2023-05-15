@@ -30,7 +30,7 @@
           
           <div class="info-container">
             <div class="profile-pic">
-                <img src="/assets/profilePics/<%= customer.profilePicture%>" alt="user's picture">
+                <img src="/assets/profilePics/<%= user.profilePicture%>" alt="user's picture">
                 <form action="">
                     <label for="profilePicture" class="form-label">Update your profile picture:</label>
                     <input type="file" name="profilePicture" id="profilePicture">
@@ -38,8 +38,8 @@
             </div>
             <div class="profile-data">
                 <!-- take & display data here -->
-                <div class="info-data"><p><%= customer.name%></p></div>
-                <div class="info-data"><p><%= customer.username%></p></div>
+                <div class="info-data"><p><%= user.name%></p></div>
+                <div class="info-data"><p><%= user.username%></p></div>
                 <div class="info-data"><p>data</p></div>
                 <button type="" class="logout-btn">LOG OUT</button>
             </div>

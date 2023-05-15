@@ -21,12 +21,12 @@ const productSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        enum: ['woman', 'man', 'electronics']
+        enum: ['beauty', 'electronic', 'women', 'men']
     },
-    vendor: [{
+    vendor: {
         type: mongoose.Schema.Types.ObjectID,
         ref: 'Vendor'
-    }]
+    }
 })
 
 // Define Product Model

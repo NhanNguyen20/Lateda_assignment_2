@@ -42,10 +42,15 @@ const customerSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    cart: [{
-        type: mongoose.Schema.Types.ObjectID,
-        ref: 'Product'
-    }],
+    cart: [
+        {
+          productId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Product',
+            required: true,
+          }
+        },
+      ],
     role: {
         type: String,
         default: 'customer'
