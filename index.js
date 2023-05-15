@@ -48,6 +48,13 @@ app.use(session({
 // Customer Registration
 app.post('/customer/register', profilePicUpload.single('profilePicture'), async (req, res) => {
   const { username, password, ...otherProperties } = req.body;
+  // Validate user's password before transform to hashed 
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$/;
+  if (!passwordRegex.test(password)) {
+    return res.status(400).send({message:'Invalid password. Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character from the set !@#$%^&*. Length from 8 to 20 characters long.'})
+  }
+
+  // Create hashed password
   const hashedPassword = await bcrypt.hash(password, 5);    // waiting for generating hash password
   const customer = new Customer({
     username, 
@@ -75,6 +82,13 @@ app.get('/customer/:id/myaccount', (req, res) => {
 // Vendor Registration
 app.post('/vendor/register', profilePicUpload.single('profilePicture'), async (req, res) => {
   const { username, password, ...otherProperties } = req.body;
+  // Validate user's password before transform to hashed 
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$/;
+  if (!passwordRegex.test(password)) {
+    return res.status(400).send({message:'Invalid password. Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character from the set !@#$%^&*. Length from 8 to 20 characters long.'})
+  }
+
+  // Create hashed password
   const hashedPassword = await bcrypt.hash(password, 5);
   const vendor = new Vendor({
     username, password: hashedPassword,
@@ -100,6 +114,13 @@ app.get('/vendor/:id/myaccount', (req, res) => {
 // Shipper Registration
 app.post('/shipper/register', profilePicUpload.single('profilePicture'), async (req, res) => {
   const { username, password, ...otherProperties } = req.body;
+  // Validate user's password before transform to hashed 
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$/;
+  if (!passwordRegex.test(password)) {
+    return res.status(400).send({message:'Invalid password. Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character from the set !@#$%^&*. Length from 8 to 20 characters long.'})
+  }
+
+  // Create hashed password
   const hashedPassword = await bcrypt.hash(password, 5);
   const shipper = new Shipper({
     username, password: hashedPassword,
