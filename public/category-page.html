@@ -635,27 +635,6 @@
                                         </ul>
                                     </div>
                                     <div class="filter-block products">
-                                        <h4>Activity</h4>
-                                        <ul>
-                                            <li>
-                                                <input type="checkbox" name="checkbox" id="outdoor">
-                                                <label for="outdoor">
-                                                    <span class="checked"></span>
-                                                    <span>Outdoor</span>
-                                                </label>
-                                                <span class="count">2</span>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" name="checkbox" id="travel">
-                                                <label for="travel">
-                                                    <span class="checked"></span>
-                                                    <span>Travel</span>
-                                                </label>
-                                                <span class="count">7</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="filter-block products">
                                         <h4>Brands</h4>
                                         <ul>
                                             <li>
@@ -708,15 +687,14 @@
                                     <div class="filter-block pricing">
                                         <h4>Price</h4>
                                         <div class="byprice">
-                                            <div class="range-track">
-                                                <input type="range" value="25000" min="0" max="100000">
-                                            </div>
                                             <div class="price-range">
-                                                <span class="price-from">$50</span>
-                                                <span class="price-to">$500</span>
-                                                <form action="/category/<%= categoryName%>/filter" method="POST">
-                                                  <input type="range" name="priceRange" min="1000" max="1000000000" id="price">
-                                                  <button type="submit">Filter Price!</button>
+                                              <span class="price-from">1,000 VND</span>
+                                              <span class="price-to">100,000,000 VND</span>
+                                            </div>
+                                            <div class="range-track">
+                                                <form action="/category/<%= categoryName%>/filter" method="POST" class="range-track">
+                                                  <input type="range" name="priceRange" min="1000" max="100000000" id="price">
+                                                  <button type="submit" class="primary-button">Filter Price!</button>
                                                 </form>
                                             </div>
                                         </div>
