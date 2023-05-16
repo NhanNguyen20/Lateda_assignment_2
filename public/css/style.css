@@ -243,7 +243,12 @@ h4 {
 14. CHECKOUT PAGE
 15. MODAL
 16. ORDER DETAILS PAGE
-17. MEDIA QUERY
+17. MY ACCOUNT PAGE
+18. STATIC PAGES
+    a. Privacy
+    b. Help
+    c. Contact Us
+19. MEDIA QUERY
 -------------------------------------------------------------- */
 
 /* ------------
@@ -2145,7 +2150,103 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 /* ------------
-17. RESPONSIVE | MEDIA QUERY
+17. MY ACCOUNT PAGE
+------------ */ 
+.my-account h1 {
+    font-weight: var(--fw3);
+    margin-bottom: 1.5em;
+}
+.my-account .content li {
+    display: flex;
+    justify-content: space-between;
+}
+.my-account ul {
+    line-height: 2.5;
+}
+.profile-upper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile-bottom {
+   display:  flex;
+   justify-content: center;
+   text-align: center;
+}
+  
+.profile-bottom form {
+    font-size: 12px;
+}
+  
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #0a021c;
+    box-shadow: 0 2px 4px rgba(0, 35, 91, 0.3);
+    margin-top: 10px;
+}
+  
+.file-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: #00235B;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.file-label:hover {
+    background-color: #647abbda;
+}
+  
+.file-label svg {
+    vertical-align: middle;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.file-input-container {
+    margin-top: 20px
+}
+  
+/* ------------
+18. STATIC PAGES
+------------ */ 
+
+
+    /* ------------
+    18. STATIC PAGES
+    a. Privacy
+    ------------ */ 
+
+    
+    /* ------------
+    18. STATIC PAGES
+    b. Help
+    ------------ */ 
+
+
+    /* ------------
+    18. STATIC PAGES
+    a. About Us
+    ------------ */ 
+
+
+/* ------------
+19. RESPONSIVE | MEDIA QUERY
 ------------ */   
 @media only screen and (min-width: 481px) and (max-width: 767px) {
     .products.main .item {
