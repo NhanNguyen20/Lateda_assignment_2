@@ -253,12 +253,11 @@ app.get('/cart', (req, res) => {
 });
 
 
-
 // ADD PRODUCT TO CART
-app.post('/cart/add', (req, res) => {
+app.post('/cart/add/:productID', (req, res) => {
   // Get customer ID from the session and product ID from the request
   const customerID = req.session.user._id;
-  const productID = req.body.productID;
+  const productID = req.params.productID;
 
   // Find the customer in Customer database and add the product to their cart
   Customer.findByIdAndUpdate(
@@ -271,24 +270,20 @@ app.post('/cart/add', (req, res) => {
 })
 
 // REMOVE PRODUCT FROM CART
-app.post('/cart/remove/:productID', (req, res) => {
+app.post('/cart/remove', (req, res) => {
   // Get customer ID from the session and product ID from the request parameters
   const customerID = req.session.user._id;
-  const productID = req.params.productID;
+  const productID = req.body.productID;
 
   // Find the customer in the Customer database and delete the product from their cart
   Customer.findByIdAndUpdate(customerID, { $pull: { cart: productID } }, { new: true })
     .then((customer) => {
       if (!customer) {
-        return res.send('Cannot find customer');
+        res.send('Cannot find customer');
       }
-
-      if (customer.cart.length === 0) {
-        // If the cart becomes empty, render the empty cart page
-        return res.redirect('empty-cart-page');
-      } else {
+      else {
         // If the cart still has items, redirect to the cart page
-        return res.redirect('/cart');
+        res.redirect('/cart');
       }
     })
     .catch((error) => {
@@ -296,9 +291,6 @@ app.post('/cart/remove/:productID', (req, res) => {
     });
 });
 
-app.get('/empty-cart-page', (req, res) => {
-  res.render('empty-cart-page')
-})
 
 // GET request for showing product detail
 app.get('/product/:id', (req, res) => {

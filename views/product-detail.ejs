@@ -625,8 +625,8 @@
                               <input type="text" value="1">
                               <button class="plus circle">+</button>
                             </div>
-                            <form class="button-cart" action="/cart/add" method="POST">
-                                <input type="hidden" name="productID" id="productID" value="<%= product.id %>">
+                            <form class="button-cart" action="/cart/add/<%= product.id %>" method="POST">
+                                <!-- <input type="hidden" name="productID" id="productID" value=""> -->
                                 <button type="submit" class="primary-button">Add to cart</button>
                             </form>
                             <div class="wish-share">
