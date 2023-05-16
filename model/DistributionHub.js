@@ -12,7 +12,7 @@ const distributionHubSchema = new mongoose.Schema({
     address: {
         type: String
     },
-    order: [{
+    orders: [{
         type: mongoose.Schema.Types.ObjectID,
         ref: 'Order'
     }]

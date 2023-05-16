@@ -346,6 +346,81 @@ app.post('/category/:category/filter', (req, res) => {
   .catch((error)=> res.send(error));
 })
 
+// Function for render the homepage type (default )
+function renderHome(req, res, fileName) {
+  const trendAmount = 8;
+  const featuredAmount = 6;
+  // Find 6 featured products
+  Product.find().limit(featuredAmount)
+  .then((pickedProducts) => {
+    // Get the total count of products in the database
+    Product.countDocuments()
+    .then((totalProduct) => {
+      // Generate random indices within the range of available products
+      const randomIndices = [];
+      while (randomIndices.length < trendAmount) {
+        const randomIndex = Math.floor(Math.random() * totalProduct);
+        // If the index haven't included, add to index array
+        if (!randomIndices.includes(randomIndex)) {
+          randomIndices.push(randomIndex);
+        }
+      }
+      // Find the products based on the random indices
+      Product.aggregate([
+        { $sample: { size: trendAmount } },
+      ])
+        .then((randomProducts) => {
+          const randomLeft = randomProducts.slice(0,4);
+          const randomRight = randomProducts.slice(4,8);
+          res.render(fileName, {randomLeft, randomRight, pickedProducts});
+        })
+        .catch((error) => {
+          res.send(error.message);
+        });
+    })
+  .catch((error) => {
+    res.send(error.message);
+  });
+  })
+  .catch((error) => {
+    res.send(error.message);
+  });
+}
+
+// Generate random products for homepage
+app.get('/', (req, res) => {
+  renderHome(req, res, 'homepage')
+});
+// Generate random products for customer page
+app.get('/customer-page', (req, res) => {
+  renderHome(req, res, 'customer-page')
+});
+
+
+// See Checkout page
+app.get('/checkout', (req, res) => {
+  const customerID = req.session.user._id;
+  
+})
+
+// Place Order (create Order)
+app.post('/checkout', (req, res) => {
+  const customerId = req.session.user._id;
+  const randomHub = 
+  Customer.findById(customerId)
+  .then((customer) => {
+    const order = new Order({
+      ...req.body,
+      customerID: customerId,
+      product: customer.cart  // assign cart of customer for order's products
+    });
+    order.save()
+    .then((order) => {res.send(order)}) 
+    .catch((error) => {res.send(error.message)})
+  })
+  .catch((error) => res.send(error.message));
+})
+
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
 });
