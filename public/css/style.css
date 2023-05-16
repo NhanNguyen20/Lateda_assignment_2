@@ -1663,6 +1663,18 @@ input[type="range"]::-webkit-slider-thumb {
     color: var(--light-text-color);
     margin-top: 0.5em;
 }
+.byprice input#price {
+    border: none;
+}
+.range-track button.primary-button {
+    display: block;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    width: var(--percent100);
+    max-width: 380px;
+    margin: 3em auto o;
+}
 
     /* ------------
     11. PAGE CATEGORY
