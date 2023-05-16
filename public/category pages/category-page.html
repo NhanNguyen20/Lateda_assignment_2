@@ -714,6 +714,10 @@
                                             <div class="price-range">
                                                 <span class="price-from">$50</span>
                                                 <span class="price-to">$500</span>
+                                                <form action="/category/<%= categoryName%>/filter" method="POST">
+                                                  <input type="range" name="priceRange" min="1000" max="1000000000" id="price">
+                                                  <button type="submit">Filter Price!</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
