@@ -610,34 +610,6 @@
                         </thead>
                         <tbody>
 
-                            <%cart.forEach((item) => { %>
-                          <tr>
-                            <td class="flexitem">
-                              <div class="thumbnail object-cover">
-                                <a href="/products/<%= item._id %>"><img src="/public/assets/products/home2.jpg" alt=""></a>
-                              </div>
-                              <div class="content">
-                                <strong><a href="/products/<%= item._id %>"><%=item.name%></a></strong>
-                                <p>Color: Gold</p>
-                              </div>
-                            </td>
-                            <td><%=item.price%></td>
-                            <td>
-                              <div class="qty-control flexitem">
-                                <button class="minus">-</button>
-                                <input type="text" value="1" min="1">
-                                <button class="plus">+</button>
-                              </div>
-                            </td>
-                            <td><%=item.price%></td>
-                            <td><form action="/cart/remove/<%= item._id %>" method="POST">
-                              <button type="submit" class="item-remove">
-                                <i class="ri-close-line"></i>
-                              </button>
-                            </form></td>
-                          </tr>
-                            <% }) %>
-
                           <!-- <tr>
                             <td class="flexitem">
                               <div class="thumbnail object-cover">

@@ -233,18 +233,26 @@ app.get('/', (req, res)=> {
 
 // DISPLAY CART PAGE 
 app.get('/cart', (req, res) => {
-  // Get customer's user ID in the session
+  // Get customer's user ID from the session
   const customerID = req.session.user._id;
 
   // Retrieve customer's document and populate the shopping cart
   Customer.findById(customerID)
-    .populate('cart.product')
+    .populate('cart') // Populate the 'cart' field with actual product objects
     .then((foundCustomer) => {
-      if (!foundCustomer) { res.send('No customer found') }
-      // If found, render the cart page with the retrieved productID in the customer cart
-      res.render('cart', { cart: foundCustomer.cart })
+      if (!foundCustomer) {
+        res.send('No customer found');
+      }
+      // If found, render the cart page with the retrieved products in the customer's cart
+      res.render('cart-page', { cart: foundCustomer.cart });
     })
-})
+    .catch((error) => {
+      console.log(error);
+      res.send('Error retrieving customer data');
+    });
+});
+
+
 
 // ADD PRODUCT TO CART
 app.post('/cart/add', (req, res) => {
@@ -254,27 +262,42 @@ app.post('/cart/add', (req, res) => {
 
   // Find the customer in Customer database and add the product to their cart
   Customer.findByIdAndUpdate(
-    customerID, { $addToSet: { cart: { product: productID } } }, { new: true })
+    customerID, { $addToSet: { cart: productID } }, { new: true })
     .then((customer) => {
       if (!customer) { res.send('Cannot find customer') }
-      // add what to do here 
+      res.redirect('/cart')
     })
     .catch((error) => { res.send(error.message) })
 })
 
 // REMOVE PRODUCT FROM CART
 app.post('/cart/remove/:productID', (req, res) => {
-  // Get customer ID from the session and product ID from the request
+  // Get customer ID from the session and product ID from the request parameters
   const customerID = req.session.user._id;
   const productID = req.params.productID;
 
-  // Find the customer in Customer database and delete the product in their cart
-  Customer.findByIdAndUpdate(customerID, { $pull: { cart: { product: productID } } }, { new: true })
+  // Find the customer in the Customer database and delete the product from their cart
+  Customer.findByIdAndUpdate(customerID, { $pull: { cart: productID } }, { new: true })
     .then((customer) => {
-      if (!customer) { res.send('Cannot find customer') }
-      // add what to do here 
+      if (!customer) {
+        return res.send('Cannot find customer');
+      }
+
+      if (customer.cart.length === 0) {
+        // If the cart becomes empty, render the empty cart page
+        return res.redirect('empty-cart-page');
+      } else {
+        // If the cart still has items, redirect to the cart page
+        return res.redirect('/cart');
+      }
     })
-    .catch((error) => { res.send(error.message) })
+    .catch((error) => {
+      res.send(error.message);
+    });
+});
+
+app.get('/empty-cart-page', (req, res) => {
+  res.render('empty-cart-page')
 })
 
 // GET request for showing product detail

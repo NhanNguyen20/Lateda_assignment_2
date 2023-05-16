@@ -44,10 +44,8 @@ const customerSchema = new mongoose.Schema({
     },
     cart: [
         {
-          product: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Product',
-          }
         },
       ],
     role: {
