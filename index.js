@@ -272,6 +272,48 @@ app.post('/cart/remove/:productID', (req, res) => {
   Customer.findByIdAndUpdate(customerID, {$pull})
 })
 
+// GET request for category pages
+app.get('/category-page/:category', (req, res) => {
+  const categoryName = req.params.category;
+  Product.find( {category: req.params.category})
+  .then((matchedProducts) => {
+    if (!matchedProducts) {
+      return res.send("Cannot found any product!");
+    }
+    res.render('category-page', {matchedProducts, categoryName});
+  })
+  .catch((error)=> res.send(error));
+})
+
+// Search products for customer
+app.post('/customer/search', (req, res)=> {
+  const searchItem = req.body.searchItem;
+  Product.find({ name: { $regex: searchItem, $options: 'i' } })  // condition for searching item
+  .then((matchedProducts) => {
+    if (!matchedProducts) {
+      return res.send("Cannot found any product!");
+    }
+    res.render('search-result', {matchedProducts})
+  })
+  .catch((error) => res.send(error));
+});
+
+// Filter products for category pages
+app.post('/category/:category/filter', (req, res) => {
+  const categoryName = req.params.category;
+  const filterPrice = req.body.priceRange;
+  Product.find({
+    category: req.params.category,
+    price: { $lte: filterPrice } })  // find products that less than or equal to the inputted price
+  .then((matchedProducts) => {
+    if (!matchedProducts) {
+      return res.send("Cannot found any product below that price!");
+    }
+    res.render('category-page', {matchedProducts, categoryName});
+  })
+  .catch((error)=> res.send(error));
+})
+
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
 });
