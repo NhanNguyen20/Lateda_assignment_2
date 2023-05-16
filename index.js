@@ -238,12 +238,12 @@ app.get('/cart', (req, res) => {
 
   // Retrieve customer's document and populate the shopping cart
   Customer.findById(customerID)
-  .populate('cart.product')
-  .then((foundCustomer) => {
-    if (!foundCustomer) {res.send('No customer found')}
-    // If found, render the cart page with the retrieved productID in the customer cart
-    res.render('cart-page', {cart: foundCustomer.cart})
-  })
+    .populate('cart.product')
+    .then((foundCustomer) => {
+      if (!foundCustomer) { res.send('No customer found') }
+      // If found, render the cart page with the retrieved productID in the customer cart
+      res.render('cart', { cart: foundCustomer.cart })
+    })
 })
 
 // ADD PRODUCT TO CART
@@ -254,12 +254,12 @@ app.post('/cart/add', (req, res) => {
 
   // Find the customer in Customer database and add the product to their cart
   Customer.findByIdAndUpdate(
-    customerID, {$addToSet: {cart: {productId: productID}}})
-  .then((foundCustomer) => {
-    if (!foundCustomer) {res.send('Cannot find customer')}
-    // add what to do here 
-  })
-  .catch((error) => {res.send(error.message)})
+    customerID, { $addToSet: { cart: { product: productID } } }, { new: true })
+    .then((customer) => {
+      if (!customer) { res.send('Cannot find customer') }
+      // add what to do here 
+    })
+    .catch((error) => { res.send(error.message) })
 })
 
 // REMOVE PRODUCT FROM CART
@@ -269,7 +269,12 @@ app.post('/cart/remove/:productID', (req, res) => {
   const productID = req.params.productID;
 
   // Find the customer in Customer database and delete the product in their cart
-  Customer.findByIdAndUpdate(customerID, {$pull})
+  Customer.findByIdAndUpdate(customerID, { $pull: { cart: { product: productID } } }, { new: true })
+    .then((customer) => {
+      if (!customer) { res.send('Cannot find customer') }
+      // add what to do here 
+    })
+    .catch((error) => { res.send(error.message) })
 })
 
 // GET request for showing product detail
