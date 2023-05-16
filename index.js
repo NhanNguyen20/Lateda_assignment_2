@@ -238,7 +238,7 @@ app.get('/cart', (req, res) => {
 
   // Retrieve customer's document and populate the shopping cart
   Customer.findById(customerID)
-  .populate('cart.productID')
+  .populate('cart.product')
   .then((foundCustomer) => {
     if (!foundCustomer) {res.send('No customer found')}
     // If found, render the cart page with the retrieved productID in the customer cart
@@ -248,16 +248,28 @@ app.get('/cart', (req, res) => {
 
 // ADD PRODUCT TO CART
 app.post('/cart/add', (req, res) => {
+  // Get customer ID from the session and product ID from the request
   const customerID = req.session.user._id;
-  const productID = req.body.productId;
+  const productID = req.body.productID;
 
   // Find the customer in Customer database and add the product to their cart
   Customer.findByIdAndUpdate(
     customerID, {$addToSet: {cart: {productId: productID}}})
   .then((foundCustomer) => {
     if (!foundCustomer) {res.send('Cannot find customer')}
+    // add what to do here 
   })
   .catch((error) => {res.send(error.message)})
+})
+
+// REMOVE PRODUCT FROM CART
+app.post('/cart/remove/:productID', (req, res) => {
+  // Get customer ID from the session and product ID from the request
+  const customerID = req.session.user._id;
+  const productID = req.params.productID;
+
+  // Find the customer in Customer database and delete the product in their cart
+  Customer.findByIdAndUpdate(customerID, {$pull})
 })
 
 app.listen(port, () => {
