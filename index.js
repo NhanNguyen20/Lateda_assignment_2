@@ -242,7 +242,7 @@ app.get('/cart', (req, res) => {
   .then((foundCustomer) => {
     if (!foundCustomer) {res.send('No customer found')}
     // If found, render the cart page with the retrieved productID in the customer cart
-    res.render('cart', {cart: foundCustomer.cart})
+    res.render('cart-page', {cart: foundCustomer.cart})
   })
 })
 
@@ -270,6 +270,18 @@ app.post('/cart/remove/:productID', (req, res) => {
 
   // Find the customer in Customer database and delete the product in their cart
   Customer.findByIdAndUpdate(customerID, {$pull})
+})
+
+// GET request for showing product detail
+app.get('/product/:id', (req, res) => {
+  Product.findById( req.params.id )
+  .then((product) => {
+    if (!product) {
+      return res.send("Cannot found any product!");
+    }
+    res.render('product-detail', {product});
+  })
+  .catch((error)=> res.send(error)); 
 })
 
 // GET request for category pages
