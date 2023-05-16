@@ -123,6 +123,67 @@
       <!-- Header -->
   
       <main>
+        <div class="my-account">
+          <div class="container">
+            <div class="wrapper">
+              <div class="sectop flexitem">
+                <h2><span class="circle"></span><span>My Account | Vendor</span></h2>
+              </div>
+              <div class="column">
+                <div class="banner flexwrap">
+                  <div class="row">
+                    <div class="item">
+                      <h1>Profile Image</h1>
+                      <div class="profile-upper">
+                        <div class="profile-picture">
+                          <img id="profilePicturePreview" src="./assets/banner/banner1.jpg" alt="user's picture">
+                        </div>
+                      </div>
+                      <div class="profile-bottom">
+                        <form>
+                          <label for="profilePicture" class="profile-label">Update your profile picture:</label>
+                          <div class="file-input-container">
+                            <input type="file" name="profilePicture" id="profilePicture" accept="image/*" style="display: none;" onchange="showImage(this)">
+                            <label for="profilePicture" class="file-label">
+                              <span>Choose File</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                              </svg>
+                            </label>
+                            <span id="selectedFileName"></span>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="item">
+                      <h1>Information</h1>
+                      <ul class="content">
+                        <li>
+                          <span>Username</span>
+                          <span>Burberry</span>
+                        </li>
+                        <li>
+                          <span>Business Name</span>
+                          <span>Burberry</span>
+                        </li>
+                        <li>
+                          <span>Business Address</span>
+                          <span>Burberry</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- Banner -->
+  
+              </div>
+            </div>
+          </div>
+        </div>
         
       </main>
       <!-- Main -->

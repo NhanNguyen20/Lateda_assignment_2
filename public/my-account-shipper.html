@@ -1,0 +1,361 @@
+  <!-- RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Authors: 
+  Nguyen Le Thu Nhan - s3932151
+  Ong Gia Man - s3938231
+  Nguyen Ngoc Minh Thu - s3941327
+  Nguyen Tuan Duong - s3965530
+  Nguyen Pham Tien Hai - s3979239
+  Chau The Kien - s3790421
+  Acknowledgement: Acknowledge the resources that you use here. -->
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lateda` | Shipper | Lategroup1</title>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="/public/css/style.css">
+    <!-- Icon Link -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Slider Link -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <div id="page" class="site page-category">
+      <aside class="site-off desktop-hide">
+        <div class="off-canvas">
+          <div class="canvas-head flexitem">
+            <div class="logo"><a href="/">Lateda`</a></div>
+            <a href="" class="t-close flexcenter"><i class="ri-close-line"></i></a>
+          </div>
+          <div class="departments"></div>
+          <nav></nav>
+          <div class="thetop-nav"></div>
+        </div>
+      </aside>
+      <!-- Aside -->
+
+      <header>
+        <div class="header-top mobile-hide">
+          <div class="container">
+            <div class="wrapper flexitem">
+              <div class="left">
+                <ul class="flexitem main-links">
+                  <li><a href="">Log Out</a></li>
+                </ul>
+              </div>
+              <div class="right">
+                <ul class="flexitem main-links">
+                  <li><a href="">VND <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
+                    <ul>
+                      <li><a href="">USD</a></li>
+                      <li class="current"><a href="">VND</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="">English <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
+                    <ul>
+                      <li class="current"><a href="">English</a></li>
+                      <li><a href="">Vietnamese</a></li>
+                    </ul>
+                  </li>  
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Header Top -->
+  
+        <div class="header-nav">
+          <div class="container">
+            <div class="wrapper flexitem">
+              <a href="" class="trigger desktop-hide"><span><i class="ri-menu-2-line"></i></span></a>
+              <div class="left flexitem">
+                <div class="logo"><a href="./index.html">Lateda`</a></div>
+                <nav class="mobile-hide">
+                  <ul class="flexitem second-links">
+                    <li><a href="#">My Profile</a></li>
+                    <li><a href="#">View All Orders</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="right">
+                <ul class="flexitem second-links">
+                  <li class="iscart"><a href="">
+                    <div class="icon-large">
+                      <i class="ri-user-6-line"></i>
+                    </div>
+                    <div class="icon-text">
+                      <div class="mini-text">My account</div>
+                      <div class="cart-total">Giao Hang Tiet Kiem</div>
+                    </div>
+                  </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Header Nav -->
+  
+        <div class="header-main mobile-hide">
+          <div class="container">
+            <div class="search-box">
+                <form action="" class="search">
+                  <span class="icon-large"><i class="ri-search-line"></i></span>
+                  <input type="search" placeholder="Search for orders">
+                  <button type="submit">Search</button>
+                </form>
+            </div>
+          </div>
+        </div>
+        <!-- Header Main -->
+  
+      </header>
+      <!-- Header -->
+  
+      <main>
+        <div class="my-account">
+            <div class="container">
+              <div class="wrapper">
+                <div class="sectop flexitem">
+                  <h2><span class="circle"></span><span>My Account | Shipper</span></h2>
+                </div>
+                <div class="column">
+                  <div class="banner flexwrap">
+                    <div class="row">
+                      <div class="item">
+                        <h1>Profile Image</h1>
+                        <div class="profile-upper">
+                          <div class="profile-picture">
+                            <img id="profilePicturePreview" src="./assets/banner/banner1.jpg" alt="user's picture">
+                          </div>
+                        </div>
+                        <div class="profile-bottom">
+                          <form>
+                            <label for="profilePicture" class="profile-label">Update your profile picture:</label>
+                            <div class="file-input-container">
+                              <input type="file" name="profilePicture" id="profilePicture" accept="image/*" style="display: none;" onchange="showImage(this)">
+                              <label for="profilePicture" class="file-label">
+                                <span>Choose File</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload">
+                                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                  <polyline points="17 8 12 3 7 8"></polyline>
+                                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                              </label>
+                              <span id="selectedFileName"></span>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="item">
+                        <h1>Information</h1>
+                        <ul class="content">
+                          <li>
+                            <span>Username</span>
+                            <span>Giao Hang Tiet Kiem</span>
+                          </li>
+                          <li>
+                            <span>Distribution Hub</span>
+                            <span>Ho Chi Minh</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </main>
+      <!-- Main -->
+  
+      <footer>
+        <div class="newsletter">
+          <div class="container">
+            <div class="wrapper">
+              <div class="box">
+                <div class="content">
+                  <h3>Receive Our Newsletter</h3>
+                  <p>Get E-mail updates about our latest shop and <strong>special offers</strong></p>
+                </div>
+                <form action="" class="search">
+                  <span class="icon-large"><i class="ri-mail-line"></i></span>
+                  <input type="mail" placeholder="Your email address" required>
+                  <button type="submit">Send</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Newsletter -->
+  
+        <div class="widgets">
+          <div class="container">
+            <div class="wrapper">
+              <div class="flexwrap">
+                <div class="row">
+                  <div class="item mini-links">
+                    <h4>Help & Contact</h4>
+                    <ul class="flexcol">
+                      <li><a href="">Your Account</a></li>
+                      <li><a href="">Your Orders</a></li>
+                      <li><a href="">Shipping Rates</a></li>
+                      <li><a href="">Returns</a></li>
+                      <li><a href="">Assistant</a></li>
+                      <li><a href="">Help</a></li>
+                      <li><a href="">Contact us</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="item mini-links">
+                    <h4>Product Categories</h4>
+                    <ul class="flexcol">
+                      <li><a href="">Beauty</a></li>
+                      <li><a href="">Electronic</a></li>
+                      <li><a href="">Women's Fashion</a></li>
+                      <li><a href="">Men's Fashion</a></li>
+                      <li><a href="">Girl's Fashion</a></li>
+                      <li><a href="">Boy's Fashion</a></li>
+                      <li><a href="">Health & Household</a></li>
+                      <li><a href="">Home & Kitchen</a></li>
+                      <li><a href="">Pet Supplies</a></li>
+                      <li><a href="">Sports</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="item mini-links">
+                    <h4>Payment Info</h4>
+                    <ul class="flexcol">
+                      <li><a href="">Bussiness Card</a></li>
+                      <li><a href="">Shop with Points</a></li>
+                      <li><a href="">Paypal</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="item mini-links">
+                    <h4>About Us</h4>
+                    <ul class="flexcol">
+                      <li><a href="">About Us</a></li>
+                      <li><a href="">Policy</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Widgets -->
+  
+        <div class="footer-info">
+          <div class="container">
+            <div class="wrapper">
+              <div class="flexcol">
+                <div class="logo">
+                  <a href="">Lateda`</a>
+                </div>
+                <div class="socials">
+                  <ul class="flexitem">
+                    <li><a href=""><i class="ri-twitter-line"></i></a></li>
+                    <li><a href=""><i class="ri-facebook-line"></i></a></li>
+                    <li><a href=""><i class="ri-instagram-line"></i></a></li>
+                    <li><a href=""><i class="ri-linkedin-line"></i></a></li>
+                    <li><a href=""><i class="ri-youtube-line"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <p class="mini-text">Copyright 2023 © Lateda`. All right reserved.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Footer Info -->
+  
+      </footer>
+      <!-- Footer -->
+  
+      <div class="menu-bottom desktop-hide">
+        <div class="container">
+          <div class="wrapper">
+            <nav>
+              <ul class="flexitem">
+                <li>
+                  <a href="./my-account-shipper.html">
+                    <i class="ri-user-6-line"></i>
+                    <span>Account</span>
+                  </a>
+                </li>
+                <li>
+                    <a href="./all-orders.html" class="cart-trigger">
+                      <i class="ri-shopping-cart-line"></i>
+                      <span>All Orders</span>
+                    </a>
+                </li>
+                <li>
+                  <a href="" class="t-search">
+                    <i class="ri-search-line"></i>
+                    <span>Search</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!-- Menu bottom for mobile and tablet -->
+  
+      <div class="search-bottom desktop-hide">
+        <div class="container">
+          <div class="wrapper">
+            <form action="" class="search">
+              <a href="" class="t-close search-close flexcenter"><i class="ri-close-line"></i></a>
+              <span class="icon-large"><i class="ri-search-line"></i></span>
+              <input type="search" placeholder="Search for products">
+              <button type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Search bottom -->
+  
+      <div class="overlay"></div>
+      <!-- Overlay -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.4.1/index.js"></script>
+    <script src="/public/js/script.js"></script>
+    <script>
+        const FtoShow = '.filter';
+        const Fpopup = document.querySelector(FtoShow);
+        const Ftrigger = document.querySelector('.filter-trigger')
+
+        Ftrigger.addEventListener('click', () => {
+            setTimeout(() => {
+                if(!Fpopup.classList.contains('show')) {
+                    Fpopup.classList.add('show')
+                }
+            }, 250 )
+        })
+
+        // auto close by click outside .filter
+        document.addEventListener('click', (e) => {
+            const isClosest = e.target.closest(FtoShow);
+            if(!isClosest && Fpopup.classList.contains('show')) {
+                Fpopup.classList.remove('show')
+            }
+        })
+    </script>
+  </body>
+  </html>
