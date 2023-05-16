@@ -233,31 +233,125 @@ app.get('/', (req, res)=> {
 
 // DISPLAY CART PAGE 
 app.get('/cart', (req, res) => {
-  // Get customer's user ID in the session
+  // Get customer's user ID from the session
   const customerID = req.session.user._id;
 
   // Retrieve customer's document and populate the shopping cart
   Customer.findById(customerID)
-  .populate('cart.productID')
-  .then((foundCustomer) => {
-    if (!foundCustomer) {res.send('No customer found')}
-    // If found, render the cart page with the retrieved productID in the customer cart
-    res.render('cart', {cart: foundCustomer.cart})
-  })
-})
+    .populate('cart') // Populate the 'cart' field with actual product objects
+    .then((foundCustomer) => {
+      if (!foundCustomer) {
+        res.send('No customer found');
+      }
+      // If found, render the cart page with the retrieved products in the customer's cart
+      res.render('cart-page', { cart: foundCustomer.cart });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.send('Error retrieving customer data');
+    });
+});
+
+
 
 // ADD PRODUCT TO CART
 app.post('/cart/add', (req, res) => {
+  // Get customer ID from the session and product ID from the request
   const customerID = req.session.user._id;
-  const productID = req.body.productId;
+  const productID = req.body.productID;
 
   // Find the customer in Customer database and add the product to their cart
   Customer.findByIdAndUpdate(
-    customerID, {$addToSet: {cart: {productId: productID}}})
-  .then((foundCustomer) => {
-    if (!foundCustomer) {res.send('Cannot find customer')}
+    customerID, { $addToSet: { cart: productID } }, { new: true })
+    .then((customer) => {
+      if (!customer) { res.send('Cannot find customer') }
+      res.redirect('/cart')
+    })
+    .catch((error) => { res.send(error.message) })
+})
+
+// REMOVE PRODUCT FROM CART
+app.post('/cart/remove/:productID', (req, res) => {
+  // Get customer ID from the session and product ID from the request parameters
+  const customerID = req.session.user._id;
+  const productID = req.params.productID;
+
+  // Find the customer in the Customer database and delete the product from their cart
+  Customer.findByIdAndUpdate(customerID, { $pull: { cart: productID } }, { new: true })
+    .then((customer) => {
+      if (!customer) {
+        return res.send('Cannot find customer');
+      }
+
+      if (customer.cart.length === 0) {
+        // If the cart becomes empty, render the empty cart page
+        return res.redirect('empty-cart-page');
+      } else {
+        // If the cart still has items, redirect to the cart page
+        return res.redirect('/cart');
+      }
+    })
+    .catch((error) => {
+      res.send(error.message);
+    });
+});
+
+app.get('/empty-cart-page', (req, res) => {
+  res.render('empty-cart-page')
+})
+
+// GET request for showing product detail
+app.get('/product/:id', (req, res) => {
+  Product.findById( req.params.id )
+  .then((product) => {
+    if (!product) {
+      return res.send("Cannot found any product!");
+    }
+    res.render('product-detail', {product});
   })
-  .catch((error) => {res.send(error.message)})
+  .catch((error)=> res.send(error)); 
+})
+
+// GET request for category pages
+app.get('/category-page/:category', (req, res) => {
+  const categoryName = req.params.category;
+  Product.find( {category: req.params.category})
+  .then((matchedProducts) => {
+    if (!matchedProducts) {
+      return res.send("Cannot found any product!");
+    }
+    res.render('category-page', {matchedProducts, categoryName});
+  })
+  .catch((error)=> res.send(error));
+})
+
+// Search products for customer
+app.post('/customer/search', (req, res)=> {
+  const searchItem = req.body.searchItem;
+  Product.find({ name: { $regex: searchItem, $options: 'i' } })  // condition for searching item
+  .then((matchedProducts) => {
+    if (!matchedProducts) {
+      return res.send("Cannot found any product!");
+    }
+    res.render('search-result', {matchedProducts})
+  })
+  .catch((error) => res.send(error));
+});
+
+// Filter products for category pages
+app.post('/category/:category/filter', (req, res) => {
+  const categoryName = req.params.category;
+  const filterPrice = req.body.priceRange;
+  Product.find({
+    category: req.params.category,
+    price: { $lte: filterPrice } })  // find products that less than or equal to the inputted price
+  .then((matchedProducts) => {
+    if (!matchedProducts) {
+      return res.send("Cannot found any product below that price!");
+    }
+    res.render('category-page', {matchedProducts, categoryName});
+  })
+  .catch((error)=> res.send(error));
 })
 
 app.listen(port, () => {

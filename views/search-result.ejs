@@ -582,222 +582,147 @@
       <!-- Header -->
   
       <main>
-        <div class="single-cart">
-          <div class="container">
-            <div class="wrapper">
-              <div class="breadcrumb">
-                <ul class="flexitem">
-                    <li><a href="/public/index.html">Home</a></li>
-                    <li>Cart</li>
-                </ul>
-              </div>
-              <div class="page-title">
-                <h1>Shopping Cart</h1>
-              </div>
-              <div class="products one cart">
-                <div class="flexwrap">
-                  <form action="" class="form-cart">
+        <div class="features">
+            <div class="container">
+              <div class="wrapper">
+                <div class="sectop flexitem">
+                  <h2><span class="circle"></span><span>Search Results</span></h2>
+                </div>
+                <div class="column">
+                  <div class="products main flexwrap">
+                    <% matchedProducts.forEach( (product) => { %>
                     <div class="item">
-                      <table id="cart-table">
-                        <thead>
-                          <tr>
-                            <th>Item</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Subtotal</th>
-                            <th></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td class="flexitem">
-                              <div class="thumbnail object-cover">
-                                <a href=""><img src="/public/assets/products/home2.jpg" alt=""></a>
-                              </div>
-                              <div class="content">
-                                <strong><a href="">Dimmable Ceiling Light Modern</a></strong>
-                                <p>Color: Gold</p>
-                              </div>
-                            </td>
-                            <td>$279.99</td>
-                            <td>
-                              <div class="qty-control flexitem">
-                                <button class="minus">-</button>
-                                <input type="text" value="2" min="1">
-                                <button class="plus">+</button>
-                              </div>
-                            </td>
-                            <td>$559.98</td>
-                            <td><form action="/cart/remove/<%= item._id %>" method="POST">
-                              <button type="submit" class="item-remove">
-                                <i class="ri-close-line"></i>
-                              </button>
-                            </form></td>
-                          </tr>
-                          <tr>
-                            <td class="flexitem">
-                              <div class="thumbnail object-cover">
-                                <a href=""><img src="/public/assets/products/home3.jpg" alt=""></a>
-                              </div>
-                              <div class="content">
-                                <strong><a href="">Modern Storage Cabinet with Door & 3 Drawers</a></strong>
-                                <p>Color: Light</p>
-                              </div>
-                            </td>
-                            <td>$129.99</td>
-                            <td>
-                              <div class="qty-control flexitem">
-                                <button class="minus">-</button>
-                                <input type="text" value="1" min="1">
-                                <button class="plus">+</button>
-                              </div>
-                            </td>
-                            <td>$129.99</td>
-                            <td><form action="/cart/remove/<%= item._id %>" method="POST">
-                              <button type="submit" class="item-remove">
-                                <i class="ri-close-line"></i>
-                              </button>
-                            </form></td>
-                          </tr>
-                          <tr>
-                            <td class="flexitem">
-                              <div class="thumbnail object-cover">
-                                <a href=""><img src="/public/assets/products/home4.jpg" alt=""></a>
-                              </div>
-                              <div class="content">
-                                <strong><a href="">Vonanda Velvet Sofa Couch</a></strong>
-                                <p>Color: Gold</p>
-                              </div>
-                            </td>
-                            <td>$352.99</td>
-                            <td>
-                              <div class="qty-control flexitem">
-                                <button class="minus">-</button>
-                                <input type="text" value="1" min="1">
-                                <button class="plus">+</button>
-                              </div>
-                            </td>
-                            <td>$353.99</td>
-                            <td><form action="/cart/remove/<%= item._id %>" method="POST">
-                              <button type="submit" class="item-remove">
-                                <i class="ri-close-line"></i>
-                              </button>
-                            </form></td>
-                          </tr>
-                          <tr>
-                            <td class="flexitem">
-                              <div class="thumbnail object-cover">
-                                <a href=""><img src="/public/assets/products/home5.jpg" alt=""></a>
-                              </div>
-                              <div class="content">
-                                <strong><a href="">Awesome Bed for a Couple</a></strong>
-                                <p>Color: Red</p>
-                              </div>
-                            </td>
-                            <td>$579.99</td>
-                            <td>
-                              <div class="qty-control flexitem">
-                                <button class="minus">-</button>
-                                <input type="text" value="1" min="1">
-                                <button class="plus">+</button>
-                              </div>
-                            </td>
-                            <td>$579.99</td>
-                            <td><form action="/cart/remove/<%= item._id %>" method="POST">
-                              <button type="submit" class="item-remove">
-                                <i class="ri-close-line"></i>
-                              </button>
-                            </form></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </form>
-                  <div class="cart-summary styled">
-                    <div class="item">
-                      <div class="coupon">
-                        <input type="text" name="" id="" placeholder="Enter Coupon Here">
-                        <button>Apply</button>
-                      </div>
-                      <div class="shipping-rate collapse">
-                        <div class="has-child expand">
-                          <a href="" class="icon-small">Estimate Shipping and Tax</a>
-                          <div class="content">
-                            <div class="countries">
-                              <form action="">
-                                <label for="country">Country</label>
-                                <select name="country" id="country">
-                                  <option value="">Select country</option>
-                                  <option value="1">United State</option>
-                                  <option value="2">Australia</option>
-                                  <option value="3" selected="selected">Vietnam</option>
-                                </select>
-                              </form>
-                            </div>
-                            <div class="states">
-                              <form action="">
-                                <label for="state">State / Province</label>
-                                <select name="state" id="state">
-                                  <option value="">Select a region, state or province</option>
-                                  <option value="1">Ha Noi</option>
-                                  <option value="2">Hai Phong</option>
-                                  <option value="3" selected="selected">Ho Chi Minh</option>
-                                </select>
-                              </form>
-                            </div>
-                            <div class="postal-code">
-                              <form action="">
-                                <label for="postal">Zip / Postal Code</label>
-                                <input type="number" name="postal" id="postal">
-                              </form>
-                            </div>
-                            <div class="rate-options variant">
-                              <form action="">
-                                <p>
-                                  <span>Flat: $10.00</span>
-                                  <input type="radio" name="rate-option" id="flat" checked>
-                                  <label for="flat" class="circle"></label>
-                                </p>
-                                <p>
-                                  <span>Best: $0.00</span>
-                                  <input type="radio" name="rate-option" id="best">
-                                  <label for="best" class="circle"></label>
-                                </p>
-                              </form>
-                            </div>
-                          </div>
+                      <div class="media">
+                        <div class="thumbnail object-cover">
+                          <a href="">
+                            <img src="/assets/products/<%= product.image %>" alt="">
+                          </a>
                         </div>
                       </div>
-                      <div class="cart-total">
-                        <table>
-                          <tbody>
-                            <tr>
-                              <th>Subtotal</th>
-                              <td>$2155.95</td>
-                            </tr>
-                            <tr>
-                              <th>Discount</th>
-                              <td>-$100.00</td>
-                            </tr>
-                            <tr>
-                              <th>Shipping <span class="mini-text">(Flat)</span></th>
-                              <td>$10.00</td>
-                            </tr>
-                            <tr class="grand-total">
-                              <th>TOTAL</th>
-                              <td><strong>$2065.95</strong></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <a href="/public/checkout.html" class="secondary-button">Checkout</a>
+                      <div class="content">
+                        <div class="rating">
+                          <div class="stars"></div>
+                          <span class="mini-text">(2,548)</span>
+                        </div>
+                        <h3 class="main-links"><a href=""><%= product.name %></a></h3>
+                        <div class="price">
+                          <span class="current"><%= product.price %> VND</span>
+                        </div>
                       </div>
                     </div>
+                    <% }) %>
                   </div>
                 </div>
               </div>
             </div>
+        </div>
+        <!--Products -->
+  
+        <div class="banners">
+          <div class="container">
+            <div class="wrapper">
+              <div class="column">
+                <div class="banner flexwrap">
+                  <div class="row">
+                    <div class="item">
+                      <div class="image">
+                        <img src="/public/assets/banner/banner1.jpg" alt="">
+                      </div>
+                      <div class="text-content flexcol">
+                        <h4>Mega Sale!</h4>
+                        <h3><span>Get the deal in here</span><br>Living Room Chair</h3>
+                        <a href="" class="primary-button">Buy It Now</a>
+                      </div>
+                      <a href="" class="over-link"></a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="item get-gray">
+                      <div class="image">
+                        <img src="/public/assets/banner/banner2.jpg" alt="">
+                      </div>
+                      <div class="text-content flexcol">
+                        <h4>Mega Sale!</h4>
+                        <h3><span>Discount everyday</span><br>Office Outfit</h3>
+                        <a href="" class="primary-button">Buy It Now</a>
+                      </div>
+                      <a href="" class="over-link"></a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Banner -->
+  
+                <div class="product-categories flexwrap">
+                  <div class="row">
+                    <div class="item">
+                      <div class="image">
+                        <a href="">
+                          <img src="/public/assets/banner/procat1.jpg" alt="">
+                        </a>
+                      </div>
+                      <div class="content mini-links">
+                        <h4><a href="">Beauty</a></h4>
+                        <ul class="flexcol">
+                          <li><a href="">Makeup</a></li>
+                          <li><a href="">Skin Care</a></li>
+                          <li><a href="">Hair Care</a></li>
+                          <li><a href="">Body Care</a></li>
+                        </ul>
+                        <div class="second-links">
+                          <a href="" class="view-all">View all<i class="ri-arrow-right-line"></i>
+                          </a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="item">
+                      <div class="image">
+                        <a href="">
+                          <img src="/public/assets/banner/procat2.jpg" alt="">
+                        </a>
+                      </div>
+                      <div class="content mini-links">
+                        <h4><a href="">Electronic</a></h4>
+                        <ul class="flexcol">
+                          <li><a href="">Smart-phones</a></li>
+                          <li><a href="">Laptop</a></li>
+                          <li><a href="">Smart-watches</a></li>
+                          <li><a href="">Headphones</a></li>
+                        </ul>
+                        <div class="second-links">
+                          <a href="" class="view-all">View all<i class="ri-arrow-right-line"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="item">
+                      <div class="image">
+                        <a href="">
+                          <img src="/public/assets/banner/procat3.jpg" alt="">
+                        </a>
+                      </div>
+                      <div class="content mini-links">
+                        <h4><a href="">Home Decor</a></h4>
+                        <ul class="flexcol">
+                          <li><a href="">Kitchen</a></li>
+                          <li><a href="">Dining Room</a></li>
+                          <li><a href="">Pantry</a></li>
+                          <li><a href="">Great Room</a></li>
+                        </ul>
+                        <div class="second-links">
+                          <a href="" class="view-all">View all<i class="ri-arrow-right-line"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
           </div>
         </div>
+        <!-- Banners -->
   
       </main>
       <!-- Main -->

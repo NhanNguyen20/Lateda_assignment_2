@@ -1,93 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700;800&family=Rubik:wght@300;400;500;600&display=swap');
+/* Fonts:
+Poppins: 300, 400, 600, 700, 800
+Rubik: 300, 400, 500, 600 */
+
+:root {
+    --primary-color: #EE1D52;
+    --secondary-color: #127087;
+    --secondary-dark-color: #020847;
+
+    --white-color: #fff;
+    --light-bg-color: #f2f3f5;
+    --light-text-color: #7c899a;
+    --border-color: #e5e8ec;
+    --dark-color: #0a021c;
+
+    --font-small: 13px;
+    --font-smaller: 11px;
+
+    --percent100: 100%;
+    --percent50: 50%;
+
+    --fw3: 300;
+    --fw5: 500;
+    --fw6: 600;
+    --fw7: 700;
+    --fw8: 800;
+
+    --trans-background-color: background-color .3s, color .3s;
+    --trans-background: background-color .3s;
+    --trans-color: color .3s;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
 /* Reset default margin and padding */
 * {
     margin: 0;
     padding: 0;
-  }
-  
-  /* Set box-sizing to border-box for easier layout calculations */
-  *,
-  *::before,
-  *::after {
     box-sizing: border-box;
   }
   
-  /* Main container styles */
-  .page-container {
+  /*<--header-->*/
+header {
+    background-color: #127087;
+}
+    /*<--header-->*/
+
+/*<--main-->*/
+  /* Set styles for the main container */
+main {
     display: flex;
-  }
-  
-  /* Side menu styles */
-  .side-menu {
-    width: 200px;
-    background-color: #f1f1f1;
-  }
-  
-  .side-menu nav ul {
-    list-style: none;
+    flex-direction: column;
     padding: 20px;
+    background-color: #F0F0F0;
+    height: 120vh;
   }
-  
-  .side-menu nav a {
-    display: block;
-    margin-bottom: 10px;
-    color: #333;
+
+  .acc-title {
+    margin-top: 80px;
+    margin-left: 210px;
+  }
+
+  .acc-title2 {
     text-decoration: none;
+    font-family: ' Poppins', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.3em;
   }
-  
-  .side-menu nav a:hover {
-    text-decoration: underline;
+
+  .acc-title h1{
+    text-decoration:  none;
+    color: #00235B;
   }
-  
-  /* Page content styles */
-  .page-content {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .role-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .info-container {
+  /* Set styles for the page container */
+.page-container {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    margin-top: -10px;
+    padding: 30px 30px;
   }
   
-  .profile-pic {
+  /* Set styles for the side menu */
+  .side-menu {
+    margin-top: 20px;
+    background-color:;
+    padding: 20px 20px;
+    height: 30em;
+    width: 10em;
+    margin-left: 20px;
     margin-right: 20px;
   }
-  
-  .profile-pic img {
-    width: 100px;
-    height: 100px;
+
+  .side-menu ul li a{
+    margin-top: 10px;
+    margin-left: -15px;
+    text-decoration: none;
+    font-family: 'poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
   }
   
-  .form-label {
-    margin-bottom: 10px;
+  /* Set styles for the navigation menu */
+  .side-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: -20px;
   }
   
-  /* Profile data styles */
+  .side-menu ul a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .side-menu ul a:hover {
+    background-color:  #F3E99F;
+  }
+  
+  /* Set styles for the page content */
+
+
+
+  
+  .profile-container {
+    font-family: 'poppins',sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px 20px;
+    height: 30em;
+    width: 30em;
+  }
+  
+  .profile-upper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .username {
+    opacity: 0.7;
+  }
+
+  .profile-bottom {
+   dixsplay:  flex;
+   justify-content: center;
+   text-align: center;
+  }
+  
+  .profile-bottom form {
+    font-size: 12px;
+  }
+  
+  .profile-bottom form input {
+     margin-left: 70px;
+     margin-top: 20px;
+  }
+  
+  .profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #0a021c;
+    box-shadow: 0 2px 4px rgba(0, 35, 91, 0.3);
+    margin-top: 10px;
+  }
+  
+  .file-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: #00235B;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .file-label:hover {
+    background-color: #647abbda;
+  }
+  
+  .file-label span {
+    margin-right: 8px;
+  }
+  
+  .file-label svg {
+    vertical-align: middle;
+  }
+
+  .profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profile-info {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .profile-fullname {
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .profile-username {
+    margin: 0;
+    opacity: 0.7;
+    font-size: smaller;
+  }
+  
   .profile-data {
     display: flex;
     flex-direction: column;
+    background: #fff;
+    width: 60em;
+    height: 30em;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 20px 20px;
+    margin-top: 20px;
+    font-family: "poppins", sans-serif;
+  }
+
+  .profile-data h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 25px;
+
+  }
+
+  #fullname-static,
+  #username-static,
+  #address-static,
+  #birthday-static,
+  #gender-static {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .file-input-container {
+    margin-top: 20px
   }
   
-  .info-data {
-    margin-bottom: 10px;
-  }
-  
-  /* Logout button styles */
   .logout-btn {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
+    position: absolute;
+    right: 0;
+    margin-right: 65px;
+    height: 70px;
+    width: 180px;
+    padding: 15px 25px;
+    font-family: "poppins", sans-serif;
+    font-weight: 400;
+    font-size: 17px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 3px;
+    color: #fff;
+    background: #FF6D60;
+
   }
-  
+
   .logout-btn:hover {
-    background-color: #555;
+    background: #FFB4B4;
   }
-  
+
+/*<--main-->*/
