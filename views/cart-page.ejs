@@ -596,7 +596,7 @@
               </div>
               <div class="products one cart">
                 <div class="flexwrap">
-                  <form action="" class="form-cart">
+                  <!-- <form action="" class="form-cart"> -->
                     <div class="item">
                       <table id="cart-table">
                         <thead>
@@ -610,7 +610,7 @@
                         </thead>
                         <tbody>
 
-                            <%cart.forEach((item) => { %>
+                            <% cart.forEach((item) => { %>
                           <tr>
                             <td class="flexitem">
                               <div class="thumbnail object-cover">
@@ -630,7 +630,8 @@
                               </div>
                             </td>
                             <td><%=item.price%></td>
-                            <td><form action="/cart/remove/<%= item._id %>" method="POST">
+                            <td><form action="/cart/remove" method="POST">
+                              <input type="hidden" name="productID" value="<%= item._id %>" id="">
                               <button type="submit" class="item-remove">
                                 <i class="ri-close-line"></i>
                               </button>
@@ -704,7 +705,7 @@
                         </tbody>
                       </table>
                     </div>
-                  </form>
+                  <!-- </form> -->
                   <div class="cart-summary styled">
                     <div class="item">
                       <div class="coupon">
