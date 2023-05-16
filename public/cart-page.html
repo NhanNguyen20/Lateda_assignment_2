@@ -596,7 +596,7 @@
               </div>
               <div class="products one cart">
                 <div class="flexwrap">
-                  <form action="" class="form-cart">
+                  <div class="form-cart">
                     <div class="item">
                       <table id="cart-table">
                         <thead>
@@ -628,11 +628,11 @@
                               </div>
                             </td>
                             <td>$559.98</td>
-                            <td><form action="/cart/remove/<%= item._id %>" method="POST">
-                              <button type="submit" class="item-remove">
-                                <i class="ri-close-line"></i>
-                              </button>
-                            </form></td>
+                            <td>
+                              <form action="/cart/remove/<%= item._id %>" method="POST">
+                                <button type="submit" class="item-remove"><i class="ri-close-line"></i></button>
+                              </form>
+                            </td>
                           </tr>
                           <tr>
                             <td class="flexitem">
@@ -653,11 +653,11 @@
                               </div>
                             </td>
                             <td>$129.99</td>
-                            <td><form action="/cart/remove/<%= item._id %>" method="POST">
-                              <button type="submit" class="item-remove">
-                                <i class="ri-close-line"></i>
-                              </button>
-                            </form></td>
+                            <td>
+                              <form action="/cart/remove/<%= item._id %>" method="POST">
+                                <button type="submit" class="item-remove"><i class="ri-close-line"></i></button>
+                              </form>
+                            </td>
                           </tr>
                           <tr>
                             <td class="flexitem">
@@ -678,11 +678,11 @@
                               </div>
                             </td>
                             <td>$353.99</td>
-                            <td><form action="/cart/remove/<%= item._id %>" method="POST">
-                              <button type="submit" class="item-remove">
-                                <i class="ri-close-line"></i>
-                              </button>
-                            </form></td>
+                            <td>
+                              <form action="/cart/remove/<%= item._id %>" method="POST">
+                                <button type="submit" class="item-remove"><i class="ri-close-line"></i></button>
+                              </form>
+                            </td>
                           </tr>
                           <tr>
                             <td class="flexitem">
@@ -703,16 +703,16 @@
                               </div>
                             </td>
                             <td>$579.99</td>
-                            <td><form action="/cart/remove/<%= item._id %>" method="POST">
-                              <button type="submit" class="item-remove">
-                                <i class="ri-close-line"></i>
-                              </button>
-                            </form></td>
+                            <td>
+                              <form action="/cart/remove/<%= item._id %>" method="POST">
+                                <button type="submit" class="item-remove"><i class="ri-close-line"></i></button>
+                              </form>
+                            </td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
-                  </form>
+                  </div>
                   <div class="cart-summary styled">
                     <div class="item">
                       <div class="coupon">
