@@ -55,61 +55,81 @@ main {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: #7c899a;
+    background-color: #F0F0F0;
+    height: 120vh;
+  }
+
+  .acc-title {
+    margin-top: 80px;
+    margin-left: 210px;
+  }
+
+  .acc-title2 {
+    text-decoration: none;
+    font-family: ' Poppins', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.3em;
+  }
+
+  .acc-title h1{
+    text-decoration:  none;
+    color: #00235B;
   }
   /* Set styles for the page container */
 .page-container {
     display: flex;
-    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+    margin-top: -10px;
+    padding: 30px 30px;
   }
   
   /* Set styles for the side menu */
   .side-menu {
     margin-top: 20px;
-    background-color: #fff;
+    background-color:;
     padding: 20px 20px;
     height: 30em;
     width: 10em;
     margin-left: 20px;
     margin-right: 20px;
   }
-  
-  /* Set styles for the navigation menu */
-  nav ul {
-    list-style-type: none;
-    padding: 0;
+
+  .side-menu ul li a{
+    margin-top: 10px;
+    margin-left: -15px;
+    text-decoration: none;
+    font-family: 'poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
   }
   
-  nav ul a {
+  /* Set styles for the navigation menu */
+  .side-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: -20px;
+  }
+  
+  .side-menu ul a {
     display: block;
     padding: 10px;
     text-decoration: none;
     color: #333;
   }
   
-  nav ul a:hover {
-    background-color: #f5f5f5;
+  .side-menu ul a:hover {
+    background-color:  #F3E99F;
   }
   
   /* Set styles for the page content */
-  .page-content {
-    flex: 1;
-    max-width: 100%;
-    display: flex;
-  }
-  
-  .role-title {
-    margin-bottom: 20px;
-  }
-  
-  .info-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    justify-content: space-between;
-  }
+
+
+
   
   .profile-container {
+    font-family: 'poppins',sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -117,7 +137,7 @@ main {
     background-color: #fff;
     padding: 20px 20px;
     height: 30em;
-    width: 18em;
+    width: 30em;
   }
   
   .profile-upper {
@@ -126,6 +146,26 @@ main {
     align-items: center;
     margin-bottom: 20px;
     justify-content: center;
+    text-align: center;
+  }
+
+  .username {
+    opacity: 0.7;
+  }
+
+  .profile-bottom {
+   dixsplay:  flex;
+   justify-content: center;
+   text-align: center;
+  }
+  
+  .profile-bottom form {
+    font-size: 12px;
+  }
+  
+  .profile-bottom form input {
+     margin-left: 70px;
+     margin-top: 20px;
   }
   
   .profile-picture {
@@ -134,8 +174,34 @@ main {
     border-radius: 50%;
     overflow: hidden;
     border: 1px solid #0a021c;
+    box-shadow: 0 2px 4px rgba(0, 35, 91, 0.3);
+    margin-top: 10px;
   }
   
+  .file-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: #00235B;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .file-label:hover {
+    background-color: #647abbda;
+  }
+  
+  .file-label span {
+    margin-right: 8px;
+  }
+  
+  .file-label svg {
+    vertical-align: middle;
+  }
+
   .profile-picture img {
     width: 100%;
     height: 100%;
@@ -162,17 +228,54 @@ main {
     display: flex;
     flex-direction: column;
     background: #fff;
-    width: 100%;
+    width: 60em;
     height: 30em;
     margin-left: 10px;
     margin-right: 10px;
     padding: 20px 20px;
     margin-top: 20px;
+    font-family: "poppins", sans-serif;
   }
 
-  .profile-data ul li a{
-    font-size: 20px;
-    font-weight: 800;
+  .profile-data h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 25px;
+
+  }
+
+  #fullname-static,
+  #username-static,
+  #address-static,
+  #birthday-static,
+  #gender-static {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .file-input-container {
+    margin-top: 20px
   }
   
+  .logout-btn {
+    position: absolute;
+    right: 0;
+    margin-right: 65px;
+    height: 70px;
+    width: 180px;
+    padding: 15px 25px;
+    font-family: "poppins", sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    background: #FF6D60;
+
+  }
+
+  .logout-btn:hover {
+    background: #FFB4B4;
+  }
+
 /*<--main-->*/

@@ -68,3 +68,25 @@ function showImage(input) {
   reader.readAsDataURL(input.files[0]);
 }
 
+/*my account*/ 
+
+function toggleInput(inputId) {
+  var inputElement = document.getElementById(inputId);
+  var labelElement = document.getElementById(inputId + "-label");
+  var isReadOnly = inputElement.getAttribute('readonly') === 'readonly';
+
+  if (isReadOnly) {
+    inputElement.removeAttribute('readonly');
+    inputElement.focus();
+    labelElement.style.display = "none";
+  } else {
+    inputElement.setAttribute('readonly', 'readonly');
+    labelElement.style.display = "inline";
+  }
+}
+
+function updateLabel(labelId) {
+  var labelElement = document.getElementById(labelId + "-label");
+  var inputElement = document.getElementById(labelId + "-input");
+  labelElement.textContent = inputElement.value;
+}

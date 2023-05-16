@@ -104,53 +104,71 @@
 
     </header>
 
-    <main>    
-      <a href="my-account.html"><h1>My Account</h1></a>
+    <main>
+    <div >    
+      <div class="acc-title"><a class="acc-title2" href="my-account.html"><h1>My Account</h1></a></div>
+
       <div class="page-container">
 
         <div class="side-menu">
           <nav>
             <ul>
               <li><a href="index.html" class="active">Home</a></li>
-              <li><a href="my-account.html">My Account</a></li>
+              <li><a href="my-account-user.html">My Account</a></li>
               <li><a href="#">Settings</a></li>
               <li><a href="#">Notifications</a></li>
               <li><a href="privacy.html">Privacy</a></li>
             </ul>
           </nav>
         </div>
+      
 
-        <div class="page-content">
-          <div class="info-container">
-            <div class="profile-container">
-              <div class="profile-upper">
-                <div class="profile-picture">
-                  <img id="profilePicturePreview" src="images/banners/icon-pet.png" alt="user's picture">
+        <div class="profile-container">
+
+                <div class="profile-upper">
+                  <div class="profile-picture">
+                    <img id="profilePicturePreview" src="" alt="user's picture">
+                  </div>
+                  <div class="profile-info">
+                    <h2 class="fullname" id="fullname">Full Name</h2>
+                    <p class="username" id="username">Username</p>
+                  </div>
                 </div>
-                <div class="profile-info">
-                  <h2 class="fullname" id="fullname">Full Name</h2>
-                  <p class="username" id="username">Username</p>
+                <div class="profile-bottom">
+                  <form>
+                    <label for="profilePicture" class="profile-label">Update your profile picture:</label>
+                    <div class="file-input-container">
+                      <input type="file" name="profilePicture" id="profilePicture" accept="image/*" style="display: none;" onchange="showImage(this)">
+                      <label for="profilePicture" class="file-label">
+                        <span>Choose File</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="17 8 12 3 7 8"></polyline>
+                          <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                      </label>
+                      <span id="selectedFileName"></span>
+                    </div>
+                  </form>
                 </div>
-              </div>
-              <div class="profile-bottom">
-                <form>
-                  <label for="profilePicture" class="profile-label">Update your profile picture:</label>
-                  <input type="file" name="profilePicture" id="profilePicture" onchange="showImage(this)">
-                </form>
-              </div>
-            </div>
+
+        </div>
+
+        <div class="profile-data">
+          <div class="my-account-page">
+            <h2>Your profile</h2>
+            <div id="fullname-static">Name: </div>
+            <div id="username-static">Username: </div>
+            <div id="address-static">Address: </div>
+            <div id="birthday-static">Birthday: </div>
+            <div id="gender-static">Gender: </div>
           </div>
+          
         </div>
 
-      <div class="profile-data">
-          <!-- take & display data here -->
-          <div class="fullname"><p>Name</p></div>
-          <div class="address"><p>Address</p></div>
-          <div class="phone-number"><p>Number</p></div>
-        </div>
-      </div>
-        
+      </div>  
 
+        <br>
       <button type="" class="logout-btn">LOG OUT</button>
 
     </main>
@@ -164,7 +182,7 @@
           <li><a href="">Help links</a></li>
         </ul>
       </nav>
-    </footer>
+    </footer
 
     <script src="js/script.js"></scrip>
   </body>
