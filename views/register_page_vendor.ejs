@@ -19,7 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/logo.jpeg" type="images/icon type">
-    <link rel="stylesheet" href="css/register.css" type="text/css">
+    <link rel="stylesheet" href="/css/register.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Sign up - Vendor</title>
     <script type="text/javascript" src="js/login.js" ></script>
@@ -44,7 +44,7 @@
             <div class="form-box register">
                 <h2>Create your Lateda` account</h2>
                 <h1>Vendor</h1>
-                <form action="/vendor/register">
+                <form action="/vendor/register" method="POST">
                   <div class="user-detail">
 
                     <div class="input-box">
@@ -69,11 +69,11 @@
                     </div>
                     <div class="input-box">
                       <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
-                          <input type="text" required id="businessAddress">
+                          <input type="text" required id="businessAddress" name="businessAddress">
                           <label for="businessAddress">Enter your business address:</label>
                     </div>
                     <div class="input-box">
-                      <input name="image" type="file" id="image">
+                      <input name="profilePicture" type="file" id="image">
                       <label for="image">Upload your profile picture :</label>
                     </div>
                   </div>
@@ -116,25 +116,6 @@
                       </div>
                     </div>
                     </div>
-                    
-                    <!-- <div class="category-selector">
-                      <label for="category">Select Sales Category:</label>
-                      <select id="category">
-                        <option value="beauty">Beauty</option>
-                        <option value="electronics">Electronics</option>
-                        <option value="women-fashion">Women's Fashion</option>
-                        <option value="men-fashion">Men's Fashion</option>
-                        <option value="girls-fashion">Girls' Fashion</option>
-                        <option value="boys-fashion">Boys' Fashion</option>
-                        <option value="health-household">Health & Household</option>
-                        <option value="home-kitchen">Home & Kitchen</option>
-                        <option value="pet-supplies">Pet Supplies</option>
-                        <option value="other-products">Other Products</option>
-                        Add more category options as needed
-                      </select>
-                    </div> -->
-                  
-
                     <div class="terms">
                         <label><input type="checkbox">I agree with all terms of use and privacy policy</label>
                     </div>
@@ -143,13 +124,10 @@
 
                     <button type="submit" class="btn" >Sign up</button>
 
-                  
-                    
                     <div class="login-register">
                         <p>Already have an account? <a href="/login" class="login-link">Login now</a></p>
                     </div>
 
-             
                 </form>
             </div>
         </div>

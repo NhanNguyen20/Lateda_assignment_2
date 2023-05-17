@@ -1,4 +1,4 @@
-<!-- RMIT University Vietnam
+  <!-- RMIT University Vietnam
   Course: COSC2430 Web Programming
   Semester: 2023A
   Assessment: Assignment 2
@@ -17,9 +17,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lateda` | Lategroup1</title>
+    <title>Lateda` | Shipper | Lategroup1</title>
     <!-- CSS Link -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- Icon Link -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Slider Link -->
@@ -78,12 +78,11 @@
             <div class="wrapper flexitem">
               <a href="" class="trigger desktop-hide"><span><i class="ri-menu-2-line"></i></span></a>
               <div class="left flexitem">
-                <div class="logo"><a href="/">Lateda`</a></div>
+                <div class="logo"><a href="/shipper-page">Lateda`</a></div>
                 <nav class="mobile-hide">
                   <ul class="flexitem second-links">
-                    <li><a href="#">My Profile</a></li>
-                    <li><a href="#">View My Products</a></li>
-                    <li><a href="#">Add New Products</a></li>
+                    <li><a href="/shipper-page">My Profile</a></li>
+                    <li><a href="#">View All Orders</a></li>
                   </ul>
                 </nav>
               </div>
@@ -95,7 +94,7 @@
                     </div>
                     <div class="icon-text">
                       <div class="mini-text">My account</div>
-                      <div class="cart-total">Burberry</div>
+                      <div class="cart-total">Giao Hang Tiet Kiem</div>
                     </div>
                   </a>
                   </li>
@@ -111,7 +110,7 @@
             <div class="search-box">
                 <form action="" class="search">
                   <span class="icon-large"><i class="ri-search-line"></i></span>
-                  <input type="search" placeholder="Search for products">
+                  <input type="search" placeholder="Search for orders">
                   <button type="submit">Search</button>
                 </form>
             </div>
@@ -123,45 +122,57 @@
       <!-- Header -->
   
       <main>
-        <div class="add-products">
+        <div class="my-account">
             <div class="container">
               <div class="wrapper">
                 <div class="sectop flexitem">
-                    <h2><span class="circle"></span><span>Add New Products</span></h2>
+                  <h2><span class="circle"></span><span>My Account | Shipper</span></h2>
                 </div>
-                <div class="checkout flexwrap">
-                  <div class="item left styled">
-                    <h1>Product Information</h1>
-                    <form action="/vendor/add-product" method="POST" enctype="multipart/form-data">
-                      <p>
-                        <label for="productName" class="form-label">Product Name <span></span></label>
-                        <input type="text" name="name" id="productName" class="form-input" required>
-                      </p>
-                      <p>
-                        <label for="productPrice" class="form-label">Product Price <span></span></label>
-                        <input type="number" name="price" id="productPrice" min="0" step="1000" class="form-input" placeholder="VND" required>
-                      </p>
-                      <p>
-                        <label for="category" class="form-label">Product Category <span></span></label>
-                        <select name="category" id="category">
-                            <option value="beauty">Beauty</option>
-                            <option value="electronic">Electronic</option>
-                            <option value="women">Women</option>
-                            <option value="men">Men</option>
-                        </select>
-                      </p>
-                      <p>
-                        <label for="productImage" class="form-label">Product Image <span></span></label>
-                        <input type="file" name="image" id="productImage" accept="images" required>
-                      </p>
-                      <p>
-                        <label for="prodDescription">Product Description</label>
-                        <textarea name="description" id="prodDescription" class="form-input" required></textarea>
-                      </p>
-                      <div class="primary-checkout">
-                        <button type="submit" class="primary-button">Add Product</button>
+                <div class="column">
+                  <div class="banner flexwrap">
+                    <div class="row">
+                      <div class="item">
+                        <h1>Profile Image</h1>
+                        <div class="profile-upper">
+                          <div class="profile-picture">
+                            <img id="profilePicturePreview" src="/assets/profilePics/<%= shipper.profilePicture%>" alt="user's picture">
+                          </div>
+                        </div>
+                        <div class="profile-bottom">
+                            <form action="/changeProfilePic" method="POST" enctype="multipart/form-data">
+                                <label for="profilePicture" class="profile-label">Update your profile picture:</label>
+                                <div class="file-input-container">
+                                  <input type="file" name="profilePicture" id="profilePicture" accept="image/*" style="display: none;" onchange="showImage(this)">
+                                  <label class="file-label" for="profilePicture" >
+                                    <span>Choose File</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload">
+                                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                      <polyline points="17 8 12 3 7 8"></polyline>
+                                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                                    </svg>
+                                  </label>
+                                  <span id="selectedFileName"></span>
+                                </div>
+                                <button type="submit" class="file-label">Submit</button>
+                              </form>
+                        </div>
                       </div>
-                    </form>
+                    </div>
+                    <div class="row">
+                      <div class="item">
+                        <h1>Information</h1>
+                        <ul class="content">
+                          <li>
+                            <span>Username</span>
+                            <span><%= shipper.username %></span>
+                          </li>
+                          <li>
+                            <span>Distribution Hub</span>
+                            <span><%= shipper.distributionHub %></span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -282,22 +293,16 @@
             <nav>
               <ul class="flexitem">
                 <li>
-                  <a href="./my-account-vendor.html">
+                  <a href="./my-account-shipper.html">
                     <i class="ri-user-6-line"></i>
                     <span>Account</span>
                   </a>
                 </li>
                 <li>
-                    <a href="./my-products.html" class="cart-trigger">
+                    <a href="./all-orders.html" class="cart-trigger">
                       <i class="ri-shopping-cart-line"></i>
-                      <span>My Products</span>
+                      <span>All Orders</span>
                     </a>
-                </li>
-                <li>
-                  <a href="./add-products.html">
-                    <i class="ri-add-box-line"></i>
-                    <span>Add Products</span>
-                  </a>
                 </li>
                 <li>
                   <a href="" class="t-search">
