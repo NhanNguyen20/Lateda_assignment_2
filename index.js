@@ -45,7 +45,7 @@ app.use(session({
   }
 }))
 
-// Customer Registration
+// CUSTOMER REGISTRATION
 app.post('/customer/register', profilePicUpload.single('profilePicture'), async (req, res) => {
   const { username, password, ...otherProperties } = req.body;
   // Validate user's password before transform to hashed 
@@ -67,7 +67,7 @@ app.post('/customer/register', profilePicUpload.single('profilePicture'), async 
     .catch((error) => { res.send(error.message) })
 });
 
-// My Account for Customer
+// MY ACCOUNT FOR CUSTOMER
 app.get('/customer/:id/myaccount', (req, res) => {
   Customer.findById(req.params.id)
     .then((customer) => {
@@ -79,7 +79,7 @@ app.get('/customer/:id/myaccount', (req, res) => {
     .catch((error) => res.send(error));
 });
 
-// Vendor Registration
+// VENDOR REGISTRATION
 app.post('/vendor/register', profilePicUpload.single('profilePicture'), async (req, res) => {
   const { username, password, ...otherProperties } = req.body;
   // Validate user's password before transform to hashed 
@@ -99,7 +99,7 @@ app.post('/vendor/register', profilePicUpload.single('profilePicture'), async (r
     .then((vendor) => { res.send(vendor) }) // Test
     .catch((error) => { res.send(error.message) })
 });
-// My Account for Vendor
+// MY ACCOUNT FOR VENDOR
 app.get('/vendor/:id/myaccount', (req, res) => {
   Vendor.findById(req.params.id)
     .then((vendor) => {
@@ -111,7 +111,7 @@ app.get('/vendor/:id/myaccount', (req, res) => {
     .catch((error) => res.send(error));
 });
 
-// Shipper Registration
+// SHIPPER REGISTRATION
 app.post('/shipper/register', profilePicUpload.single('profilePicture'), async (req, res) => {
   const { username, password, ...otherProperties } = req.body;
   // Validate user's password before transform to hashed 
@@ -131,7 +131,7 @@ app.post('/shipper/register', profilePicUpload.single('profilePicture'), async (
     .then((shipper) => { res.send(shipper) }) // Test
     .catch((error) => { res.send(error.message) })
 });
-// My Account for Shipper
+// MY ACCOUNT FOR SHIPPER 
 app.get('/shipper/:id/myaccount', (req, res) => {
   Shipper.findById(req.params.id)
     .then((shipper) => {
@@ -143,7 +143,7 @@ app.get('/shipper/:id/myaccount', (req, res) => {
     .catch((error) => res.send(error));
 });
 
-// Login
+// LOGIN
 app.post('/login', (req, res) => {
   const { username, password } = req.body
 
@@ -177,11 +177,11 @@ app.post('/login', (req, res) => {
 
           // Redirect the user to the appropriate page based on their role
           if (user.role === 'customer') {
-            res.render('customer-page', { user });
+            res.redirect('/customer-page');
           } else if (user.role === 'vendor') {
-            res.render('vendor-page', { user });
+            res.redirect('/vendor-page');
           } else if (user.role === 'shipper') {
-            res.render('shipper-page', { user });
+            res.redirect('/shipper-page');
           }
         })
         .catch((error) => { res.send(error.message) })
@@ -189,9 +189,13 @@ app.post('/login', (req, res) => {
     .catch((error) => { res.send(error.message) })
 })
 
-// GET request for Vendor homepage   
-app.get('vendor/:id/add-product', (req, res) => {
-  Vendor.findById(req.params.id)
+app.get('/vendor-page', (req, res) => {
+  res.render('vendor-page')
+})
+
+// GET REQUEST FOR VENDOR HOMEPAGE   
+app.get('/vendor/add-product', (req, res) => {
+  Vendor.findById(req.session.user._id)
     .then((vendor) => {
       if (!vendor) {
         return res.send("Cannot found vendor ID!");
@@ -201,7 +205,7 @@ app.get('vendor/:id/add-product', (req, res) => {
     .catch((error) => res.send(error));
 });
 
-// create a new product with vendor's id
+// CREATE A NEW PRODUCT
 app.post('/vendor/add-product', productUpload.single('image'), (req, res) => {
   const product = new Product({
     ...req.body,
@@ -212,8 +216,9 @@ app.post('/vendor/add-product', productUpload.single('image'), (req, res) => {
     .catch((error) => { res.send(error.message) })
 });
 
-app.get('/vendor/:id/view-products', (req, res) => {
-  Product.find({ vendor: req.params.id })
+// VENDOR VIEW THEIR PRODUCTS
+app.get('/vendor/view-products', (req, res) => {
+  Product.find({ vendor: req.session.user._id })
     .then((matchedProducts) => {
       if (!matchedProducts) {
         return res.send("Cannot found any product!");
@@ -223,6 +228,7 @@ app.get('/vendor/:id/view-products', (req, res) => {
     .catch((error) => res.send(error));
 });
 
+// DISPLAY LOGIN FORM
 app.get('/login', (req, res) => {
   res.render('login');
 })
@@ -300,7 +306,7 @@ app.get('/product/:id', (req, res) => {
     .catch((error) => res.send(error));
 })
 
-// GET request for category pages
+// GET REQUEST FOR CATEGORY PAGE 
 app.get('/category-page/:category', (req, res) => {
   const categoryName = req.params.category;
   Product.find({ category: req.params.category })
@@ -313,7 +319,7 @@ app.get('/category-page/:category', (req, res) => {
     .catch((error) => res.send(error));
 })
 
-// Search products for customer
+// SEARCH PRODUCT FOR CUSTOMER
 app.post('/customer/search', (req, res) => {
   const searchItem = req.body.searchItem;
   Product.find({ name: { $regex: searchItem, $options: 'i' } })  // condition for searching item
@@ -326,7 +332,7 @@ app.post('/customer/search', (req, res) => {
     .catch((error) => res.send(error));
 });
 
-// Filter products for category pages
+// FILTER PRODUCT FOR CUSTOMER
 app.post('/category/:category/filter', (req, res) => {
   const categoryName = req.params.category;
   const filterPrice = req.body.priceRange;
@@ -343,7 +349,7 @@ app.post('/category/:category/filter', (req, res) => {
     .catch((error) => res.send(error));
 })
 
-// Function for render the homepage type (default )
+// FUNCTION FOR RENDER THE HOMEPAGE TYPE (DEFAULT)
 function renderHome(req, res, fileName) {
   const trendAmount = 8;
   const featuredAmount = 6;
@@ -384,17 +390,17 @@ function renderHome(req, res, fileName) {
     });
 }
 
-// Generate random products for homepage
+// GENERATE RANDOM PRODUCT FOR HOMEPAGE
 app.get('/', (req, res) => {
   renderHome(req, res, 'homepage')
 });
-// Generate random products for customer page
+// GENERATE RANDOM PRODUCT FOR CUSTOMER PAGE
 app.get('/customer-page', (req, res) => {
   renderHome(req, res, 'customer-page')
 });
 
 
-// See Checkout page
+// GET CHECKOUT PAGE
 app.get('/checkout', (req, res) => {
   const customerID = req.session.user._id;
   Customer.findById(customerID)
@@ -406,7 +412,7 @@ app.get('/checkout', (req, res) => {
     .catch((error) => { res.send(error.message) })
 })
 
-// Place Order (create Order)
+// PLACE ORDER (CREATE ORDER)
 app.post('/checkout', (req, res) => {
   const customerId = req.session.user._id;
   const randomHub = Math.floor(Math.random() * 3);
