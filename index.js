@@ -18,11 +18,11 @@ const profileStorage = multer.diskStorage({
 const productStorage = multer.diskStorage({
   destination: 'public/assets/products',
   filename: function (req, file, cb) {
-    cb(null, file.originalname); 
+    cb(null, file.originalname);
   }
 });
 const profilePicUpload = multer({ storage: profileStorage });
-const productUpload = multer({storage: productStorage});
+const productUpload = multer({ storage: productStorage });
 
 // Import Model Modules
 const Product = require('./model/Product');
@@ -51,13 +51,13 @@ app.post('/customer/register', profilePicUpload.single('profilePicture'), async 
   // Validate user's password before transform to hashed 
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$/;
   if (!passwordRegex.test(password)) {
-    return res.status(400).send({message:'Invalid password. Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character from the set !@#$%^&*. Length from 8 to 20 characters long.'})
+    return res.status(400).send({ message: 'Invalid password. Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character from the set !@#$%^&*. Length from 8 to 20 characters long.' })
   }
 
   // Create hashed password
   const hashedPassword = await bcrypt.hash(password, 5);    // waiting for generating hash password
   const customer = new Customer({
-    username, 
+    username,
     password: hashedPassword,
     profilePicture: req.file ? req.file.filename : Customer.schema.paths.profilePicture.default(),
     ...otherProperties
@@ -85,7 +85,7 @@ app.post('/vendor/register', profilePicUpload.single('profilePicture'), async (r
   // Validate user's password before transform to hashed 
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$/;
   if (!passwordRegex.test(password)) {
-    return res.status(400).send({message:'Invalid password. Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character from the set !@#$%^&*. Length from 8 to 20 characters long.'})
+    return res.status(400).send({ message: 'Invalid password. Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character from the set !@#$%^&*. Length from 8 to 20 characters long.' })
   }
 
   // Create hashed password
@@ -117,7 +117,7 @@ app.post('/shipper/register', profilePicUpload.single('profilePicture'), async (
   // Validate user's password before transform to hashed 
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$/;
   if (!passwordRegex.test(password)) {
-    return res.status(400).send({message:'Invalid password. Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character from the set !@#$%^&*. Length from 8 to 20 characters long.'})
+    return res.status(400).send({ message: 'Invalid password. Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character from the set !@#$%^&*. Length from 8 to 20 characters long.' })
   }
 
   // Create hashed password
@@ -202,32 +202,32 @@ app.get('vendor/:id/add-product', (req, res) => {
 });
 
 // create a new product with vendor's id
-app.post('/vendor/add-product', productUpload.single('image'), (req, res)=> {
+app.post('/vendor/add-product', productUpload.single('image'), (req, res) => {
   const product = new Product({
     ...req.body,
     image: req.file.filename
   });
   product.save()
-  .then((product) => {res.send(product)}) 
-  .catch((error) => {res.send(error.message)})
+    .then((product) => { res.send(product) })
+    .catch((error) => { res.send(error.message) })
 });
 
-app.get('/vendor/:id/view-products', (req, res)=>{
-  Product.find({vendor: req.params.id})
-  .then((matchedProducts) => {
-    if (!matchedProducts) {
-      return res.send("Cannot found any product!");
-    }
-    res.render('view-products', {matchedProducts})
-  })
-  .catch((error)=> res.send(error));
+app.get('/vendor/:id/view-products', (req, res) => {
+  Product.find({ vendor: req.params.id })
+    .then((matchedProducts) => {
+      if (!matchedProducts) {
+        return res.send("Cannot found any product!");
+      }
+      res.render('view-products', { matchedProducts })
+    })
+    .catch((error) => res.send(error));
 });
 
-app.get('/login', (req, res)=>{
+app.get('/login', (req, res) => {
   res.render('login');
 })
 
-app.get('/', (req, res)=> {
+app.get('/', (req, res) => {
   res.render('homepage');
 })
 
@@ -294,40 +294,40 @@ app.post('/cart/remove', (req, res) => {
 
 // GET request for showing product detail
 app.get('/product/:id', (req, res) => {
-  Product.findById( req.params.id )
-  .then((product) => {
-    if (!product) {
-      return res.send("Cannot found any product!");
-    }
-    res.render('product-detail', {product});
-  })
-  .catch((error)=> res.send(error)); 
+  Product.findById(req.params.id)
+    .then((product) => {
+      if (!product) {
+        return res.send("Cannot found any product!");
+      }
+      res.render('product-detail', { product });
+    })
+    .catch((error) => res.send(error));
 })
 
 // GET request for category pages
 app.get('/category-page/:category', (req, res) => {
   const categoryName = req.params.category;
-  Product.find( {category: req.params.category})
-  .then((matchedProducts) => {
-    if (!matchedProducts) {
-      return res.send("Cannot found any product!");
-    }
-    res.render('category-page', {matchedProducts, categoryName});
-  })
-  .catch((error)=> res.send(error));
+  Product.find({ category: req.params.category })
+    .then((matchedProducts) => {
+      if (!matchedProducts) {
+        return res.send("Cannot found any product!");
+      }
+      res.render('category-page', { matchedProducts, categoryName });
+    })
+    .catch((error) => res.send(error));
 })
 
 // Search products for customer
-app.post('/customer/search', (req, res)=> {
+app.post('/customer/search', (req, res) => {
   const searchItem = req.body.searchItem;
   Product.find({ name: { $regex: searchItem, $options: 'i' } })  // condition for searching item
-  .then((matchedProducts) => {
-    if (!matchedProducts) {
-      return res.send("Cannot found any product!");
-    }
-    res.render('search-result', {matchedProducts})
-  })
-  .catch((error) => res.send(error));
+    .then((matchedProducts) => {
+      if (!matchedProducts) {
+        return res.send("Cannot found any product!");
+      }
+      res.render('search-result', { matchedProducts })
+    })
+    .catch((error) => res.send(error));
 });
 
 // Filter products for category pages
@@ -336,14 +336,15 @@ app.post('/category/:category/filter', (req, res) => {
   const filterPrice = req.body.priceRange;
   Product.find({
     category: req.params.category,
-    price: { $lte: filterPrice } })  // find products that less than or equal to the inputted price
-  .then((matchedProducts) => {
-    if (!matchedProducts) {
-      return res.send("Cannot found any product below that price!");
-    }
-    res.render('category-page', {matchedProducts, categoryName});
-  })
-  .catch((error)=> res.send(error));
+    price: { $lte: filterPrice }
+  })  // find products that less than or equal to the inputted price
+    .then((matchedProducts) => {
+      if (!matchedProducts) {
+        return res.send("Cannot found any product below that price!");
+      }
+      res.render('category-page', { matchedProducts, categoryName });
+    })
+    .catch((error) => res.send(error));
 })
 
 // Function for render the homepage type (default )
@@ -352,39 +353,39 @@ function renderHome(req, res, fileName) {
   const featuredAmount = 6;
   // Find 6 featured products
   Product.find().limit(featuredAmount)
-  .then((pickedProducts) => {
-    // Get the total count of products in the database
-    Product.countDocuments()
-    .then((totalProduct) => {
-      // Generate random indices within the range of available products
-      const randomIndices = [];
-      while (randomIndices.length < trendAmount) {
-        const randomIndex = Math.floor(Math.random() * totalProduct);
-        // If the index haven't included, add to index array
-        if (!randomIndices.includes(randomIndex)) {
-          randomIndices.push(randomIndex);
-        }
-      }
-      // Find the products based on the random indices
-      Product.aggregate([
-        { $sample: { size: trendAmount } },
-      ])
-        .then((randomProducts) => {
-          const randomLeft = randomProducts.slice(0,4);
-          const randomRight = randomProducts.slice(4,8);
-          res.render(fileName, {randomLeft, randomRight, pickedProducts});
+    .then((pickedProducts) => {
+      // Get the total count of products in the database
+      Product.countDocuments()
+        .then((totalProduct) => {
+          // Generate random indices within the range of available products
+          const randomIndices = [];
+          while (randomIndices.length < trendAmount) {
+            const randomIndex = Math.floor(Math.random() * totalProduct);
+            // If the index haven't included, add to index array
+            if (!randomIndices.includes(randomIndex)) {
+              randomIndices.push(randomIndex);
+            }
+          }
+          // Find the products based on the random indices
+          Product.aggregate([
+            { $sample: { size: trendAmount } },
+          ])
+            .then((randomProducts) => {
+              const randomLeft = randomProducts.slice(0, 4);
+              const randomRight = randomProducts.slice(4, 8);
+              res.render(fileName, { randomLeft, randomRight, pickedProducts });
+            })
+            .catch((error) => {
+              res.send(error.message);
+            });
         })
         .catch((error) => {
           res.send(error.message);
         });
     })
-  .catch((error) => {
-    res.send(error.message);
-  });
-  })
-  .catch((error) => {
-    res.send(error.message);
-  });
+    .catch((error) => {
+      res.send(error.message);
+    });
 }
 
 // Generate random products for homepage
@@ -400,26 +401,33 @@ app.get('/customer-page', (req, res) => {
 // See Checkout page
 app.get('/checkout', (req, res) => {
   const customerID = req.session.user._id;
-  
+  Customer.findById(customerID)
+    .populate('cart')
+    .then((customer) => {
+      if (!customer) { return res.send('No customer found') }
+      res.render('checkout', { cart: customer.cart })
+    })
+    .catch((error) => { res.send(error.message) })
 })
 
 // Place Order (create Order)
 app.post('/checkout', (req, res) => {
   const customerId = req.session.user._id;
-  const randomHub = 
-  Customer.findById(customerId)
-  .then((customer) => {
-    const order = new Order({
-      ...req.body,
-      customerID: customerId,
-      product: customer.cart  // assign cart of customer for order's products
-    });
-    order.save()
-    .then((order) => {res.send(order)}) 
-    .catch((error) => {res.send(error.message)})
-  })
-  .catch((error) => res.send(error.message));
+  const randomHub =
+    Customer.findById(customerId)
+      .then((customer) => {
+        const order = new Order({
+          ...req.body,
+          customerID: customerId,
+          product: customer.cart  // assign cart of customer for order's products
+        });
+        order.save()
+          .then((order) => { res.send(order) })
+          .catch((error) => { res.send(error.message) })
+      })
+      .catch((error) => res.send(error.message));
 })
+
 
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);

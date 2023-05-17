@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lateda` | Lategroup1</title>
     <!-- CSS Link -->
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- Icon Link -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Slider Link -->
@@ -634,36 +634,38 @@
                       <ul>
                         <li>
                           <span>Subtotal</span>
-                          <span>$2155.95</span>
+                          <span></span>
                         </li>
                         <li>
                           <span>Discount</span>
-                          <span>-$100.00</span>
+                          <span>0</span>
                         </li>
                         <li>
                           <span>Shipping: Flat</span>
-                          <span>$10.00</span>
+                          <span>0</span>
                         </li>
                         <li>
                           <span>Total</span>
-                          <strong>$2065.95</strong>
+                          <strong><%cart.reduce((accumulator, product) => {return accumulator + product.price}, 0).toFixed(2)%></strong>
                         </li>
                       </ul>
                     </div>
                     <ul class="products mini">
+                      <%cart.forEach((item) => {%>
                       <li class="item">
                         <div class="thumbnail object-cover">
-                          <img src="/public/assets/products/home2.jpg" alt="">
+                          <img src="/public/assets/products/<%=item.image%>" alt="<%=item.name%>">
                         </div>
                         <div class="item-content">
-                          <p>Dimmable Ceiling Light Modern</p>
+                          <p><%=item.name%></p>
                           <span class="price">
-                            <span>$279.99</span>
-                            <span>x 2</span>
+                            <span><%=item.price%></span>
+                            <span>x 1</span>
                           </span>
                         </div>
                       </li>
-                      <li class="item">
+                      <%})%>
+                      <!-- <li class="item">
                         <div class="thumbnail object-cover">
                           <img src="/public/assets/products/home3.jpg" alt="">
                         </div>
@@ -698,7 +700,7 @@
                             <span>x 1</span>
                           </span>
                         </div>
-                      </li>
+                      </li> -->
                     </ul>
                   </div>
                 </div>
