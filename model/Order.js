@@ -48,6 +48,9 @@ const orderSchema = new mongoose.Schema({
         type: String,
         enum: ['active', 'delivered', 'canceled'],
         default: 'active'
+    },
+    totalPrice: {
+        type: Number
     }
 });
 

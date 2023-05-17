@@ -591,7 +591,7 @@
                   <form action="/checkout" method="POST">
                     <p>
                       <label for="email">Email Address</label>
-                      <input type="email" name="email" id="email" autocomplete="off" required>
+                      <input type="email" name="emailAddress" id="email" autocomplete="off" required>
                     </p>
                     <p>
                       <label for="name">Your Full Name</label>
@@ -609,9 +609,9 @@
                       <label for="country"> Country <span></span></label>
                       <select name="country" id="country">
                         <option value=""></option>
-                        <option value="1">United State</option>
-                        <option value="2">Australia</option>
-                        <option value="3" selected="selected">Vietnam</option>
+                        <option value="United State">United State</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Vietnam" selected="selected">Vietnam</option>
                       </select>
                     </p>
                     <p>
@@ -634,7 +634,7 @@
                       <ul>
                         <li>
                           <span>Subtotal</span>
-                          <span></span>
+                          <span><%= cart.reduce((accumulator, product) => {return accumulator + product.price}, 0).toFixed(2)%></span>
                         </li>
                         <li>
                           <span>Discount</span>
@@ -646,7 +646,7 @@
                         </li>
                         <li>
                           <span>Total</span>
-                          <strong><%cart.reduce((accumulator, product) => {return accumulator + product.price}, 0).toFixed(2)%></strong>
+                          <strong><%= cart.reduce((accumulator, product) => {return accumulator + product.price}, 0).toFixed(2)%></strong>
                         </li>
                       </ul>
                     </div>

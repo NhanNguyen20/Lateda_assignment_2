@@ -227,10 +227,6 @@ app.get('/login', (req, res) => {
   res.render('login');
 })
 
-app.get('/', (req, res) => {
-  res.render('homepage');
-})
-
 // DISPLAY CART PAGE 
 app.get('/cart', (req, res) => {
   // Get customer's user ID from the session
@@ -413,20 +409,46 @@ app.get('/checkout', (req, res) => {
 // Place Order (create Order)
 app.post('/checkout', (req, res) => {
   const customerId = req.session.user._id;
-  const randomHub =
-    Customer.findById(customerId)
-      .then((customer) => {
-        const order = new Order({
-          ...req.body,
-          customerID: customerId,
-          product: customer.cart  // assign cart of customer for order's products
+  const randomHub = Math.floor(Math.random() * 3);
+  let totalPrice = 0;
+  Customer.findById(customerId)
+  .populate('cart')
+    .then((customer) => {
+      if (!customer) {
+        return res.send('Customer not found');
+      }
+      for (let i = 0; i < customer.cart.length; i++) {
+        totalPrice += customer.cart[i].price;
+      }
+      const order = new Order({
+        ...req.body,
+        customerID: customerId,
+        product: customer.cart,
+        distributionHub: Order.schema.path('distributionHub').enumValues[randomHub],
+        totalPrice: totalPrice
+      });
+      order.save()
+        .then(() => {
+          // Clear the cart after creating the order
+          Customer.findByIdAndUpdate(customerId, { $set: { cart: [] }}, { new: true })
+          .then((customerUpdate) => {
+            if (!customerUpdate) {
+              return res.send('Customer not found');
+            }
+            res.redirect('/customer-page')
+          })
+            .catch((error) => {
+              res.send(error.message);
+            });
+        })
+        .catch((error) => {
+          res.send(error.message);
         });
-        order.save()
-          .then((order) => { res.send(order) })
-          .catch((error) => { res.send(error.message) })
-      })
-      .catch((error) => res.send(error.message));
-})
+    })
+    .catch((error) => {
+      res.send(error.message);
+    });
+});
 
 
 app.listen(port, () => {
