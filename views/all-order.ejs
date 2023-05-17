@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lateda` | Shipper | Lategroup1</title>
     <!-- CSS Link -->
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- Icon Link -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Slider Link -->
@@ -78,7 +78,7 @@
             <div class="wrapper flexitem">
               <a href="" class="trigger desktop-hide"><span><i class="ri-menu-2-line"></i></span></a>
               <div class="left flexitem">
-                <div class="logo"><a href="/">Lateda`</a></div>
+                <div class="logo"><a href="./index.html">Lateda`</a></div>
                 <nav class="mobile-hide">
                   <ul class="flexitem second-links">
                     <li><a href="#">My Profile</a></li>
@@ -94,7 +94,7 @@
                     </div>
                     <div class="icon-text">
                       <div class="mini-text">My account</div>
-                      <div class="cart-total"><%=shipperName%></div>
+                      <div class="cart-total">Giao Hang Tiet Kiem</div>
                     </div>
                   </a>
                   </li>
@@ -122,126 +122,83 @@
       <!-- Header -->
   
       <main>
-        <div class="order-details">
+        <div class="all-products">
             <div class="container">
               <div class="wrapper">
-                <div class="breadcrumb">
-                    <ul class="flexitem">
-                        <li><a href="/public/all-orders.html">All Active Orders</a></li>
-                        <li><%=order._id%></li>
-                    </ul>
-                </div>
                 <div class="sectop flexitem">
-                    <h2><span class="circle"></span><span>Order Details</span></h2>
+                    <h2><span class="circle"></span><span><%=shipperName%></span></h2>
                 </div>
-                <div class="checkout flexwrap">
-                  <div class="item left styled">
-                    <h1>Shipping Address</h1>
-                    <ul class="content">
-                        <li><span>Order ID</span> <span><%=order._id%></span></li>
-                        <li><span>Email Address</span> <span><%=order.emailAddress%></span></li>
-                        <li><span>Customer Name</span> <span><%=order.custName%></span></li>
-                        <li><span>Address</span> <span><%=order.address%></span></li>
-                        <li><span>Zip / Postal Code</span> <span><%=order.postal%></span></li>
-                        <li><span>Country</span> <span><%=order.country%></span></li>
-                        <li><span>Phone Number</span> <span><%=order.phone%></span></li>
-                        <li><span>Order Notes</span><span>None</span></li>
-                    </ul>
-                    <form action="/order-status" method="POST">
-                      <input type="hidden" name="orderID" value="<%=order._id%>">
-                      <h2></h2>
-                      <p>
-                        <label for="orderStatus">Order Status:</label>
-                        <select name="orderStatus" id="orderStatus">
-                            <option value="active">Active</option>
-                            <option value="delivered">Delivered</option>
-                            <option value="canceled">Canceled</option>
-                        </select>
-                      </p>
-                      <div class="primary-checkout">
-                        <button type="submit" class="primary-button">Confirm Update</button>
+                <div class="products one cart">
+                  <div class="flexwrap">
+                    <form action="" class="form-cart">
+                      <div class="item">
+                        <table id="cart-table">
+                          <thead>
+                            <tr>
+                              <th>Order ID</th>
+                              <!-- <th>Date Ordered</th> -->
+                              <th>Customer</th>
+                              <th>Total Price</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <%orders.forEach((order) => {%>
+                            <tr>
+                              <td class="flexitem">
+                                <div class="thumbnail object-cover">
+                                  <a href=""><img src="/public/assets/products/<%=order.product[0].image%>" alt="<%=order.product[0].name%>"></a>
+                                </div>
+                                <div class="content">
+                                  <strong><a href="./order-details.html"><%=order._id%></a></strong>
+                                  <p><a href="">(<%=order.product.length%> items)</a></p>
+                                </div>
+                              </td>
+                              <!-- <td>14/05/2023</td> -->
+                              <td><%=order.custName%></td>
+                              <td><%=order.totalPrice%></td>
+                              <td><a href="/order/<%=order._id%>">View order <i class="ri-arrow-right-line"></i></i></a></td>
+                            </tr>
+                            <!-- <tr>
+                                <td class="flexitem">
+                                  <div class="thumbnail object-cover">
+                                    <a href=""><img src="/public/assets/products/electronic5.jpg" alt=""></a>
+                                  </div>
+                                  <div class="content">
+                                    <strong><a href="">#002</a></strong>
+                                    <p><a href="">(1 Items)</a></p>
+                                  </div>
+                                </td>
+                                <td>15/05/2023</td>
+                                <td>Man Ong</td>
+                                <td>15.530.000 VND</td>
+                                <td><a href="">View order <i class="ri-arrow-right-line"></i></i></a></td>
+                            </tr>
+                            <tr>
+                              <td class="flexitem">
+                                <div class="thumbnail object-cover">
+                                  <a href=""><img src="/public/assets/products/wf3.webp" alt=""></a>
+                                </div>
+                                <div class="content">
+                                  <strong><a href="">#003</a></strong>
+                                  <p><a href="">(2 Items)</a></p>
+                                </div>
+                              </td>
+                              <td>16/05/2023</td>
+                              <td>Hai Nguyen</td>
+                              <td>4.530.000 VND</td>
+                              <td><a href="">View order <i class="ri-arrow-right-line"></i></i></a></td>
+                            </tr> -->
+                          </tbody>
+                        </table>
                       </div>
                     </form>
-                  </div>
-                  <div class="item right">
-                    <h2>Order Summary</h2>
-                    <div class="summary-order is_sticky">
-                      <div class="summary-totals">
-                        <ul>
-                          <li>
-                            <span>Subtotal</span>
-                            <span>$2155.95</span>
-                          </li>
-                          <li>
-                            <span>Discount</span>
-                            <span>-$100.00</span>
-                          </li>
-                          <li>
-                            <span>Shipping: Flat</span>
-                            <span>$10.00</span>
-                          </li>
-                          <li>
-                            <span>Total</span>
-                            <strong>$2065.95</strong>
-                          </li>
-                        </ul>
-                      </div>
-                      <ul class="products mini">
-                        <li class="item">
-                          <div class="thumbnail object-cover">
-                            <img src="/public/assets/products/home2.jpg" alt="">
-                          </div>
-                          <div class="item-content">
-                            <p>Dimmable Ceiling Light Modern</p>
-                            <span class="price">
-                              <span>$279.99</span>
-                              <span>x 2</span>
-                            </span>
-                          </div>
-                        </li>
-                        <li class="item">
-                          <div class="thumbnail object-cover">
-                            <img src="/public/assets/products/home3.jpg" alt="">
-                          </div>
-                          <div class="item-content">
-                            <p>Modern Storage Cabinet with Door & 3 Drawers</p>
-                            <span class="price">
-                              <span>$129.99</span>
-                              <span>x 1</span>
-                            </span>
-                          </div>
-                        </li>
-                        <li class="item">
-                          <div class="thumbnail object-cover">
-                            <img src="/public/assets/products/home4.jpg" alt="">
-                          </div>
-                          <div class="item-content">
-                            <p>Vonanda Velvet Sofa Couch</p>
-                            <span class="price">
-                              <span>$252.99</span>
-                              <span>x 1</span>
-                            </span>
-                          </div>
-                        </li>
-                        <li class="item">
-                          <div class="thumbnail object-cover">
-                            <img src="/public/assets/products/home5.jpg" alt="">
-                          </div>
-                          <div class="item-content">
-                            <p>Awesome Bed for a Couple</p>
-                            <span class="price">
-                              <span>$579.00</span>
-                              <span>x 1</span>
-                            </span>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
         </div>
+
       </main>
       <!-- Main -->
   
@@ -400,7 +357,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.4.1/index.js"></script>
-    <script src="/public/js/script.js"></script>
+    <script src="js/script.js"></script>
     <script>
         const FtoShow = '.filter';
         const Fpopup = document.querySelector(FtoShow);

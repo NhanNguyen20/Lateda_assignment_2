@@ -34,8 +34,7 @@ const shipperSchema = new mongoose.Schema({
         default: 'defaultUserPic.jpeg'
     },
     distributionHub: {
-        type: mongoose.Schema.Types.ObjectID,
-        ref: 'DistributionHub'
+        type: String
     },
     role: {
         type: String,

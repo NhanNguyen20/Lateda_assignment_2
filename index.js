@@ -418,7 +418,7 @@ app.post('/checkout', (req, res) => {
   const randomHub = Math.floor(Math.random() * 3);
   let totalPrice = 0;
   Customer.findById(customerId)
-  .populate('cart')
+    .populate('cart')
     .then((customer) => {
       if (!customer) {
         return res.send('Customer not found');
@@ -436,13 +436,13 @@ app.post('/checkout', (req, res) => {
       order.save()
         .then(() => {
           // Clear the cart after creating the order
-          Customer.findByIdAndUpdate(customerId, { $set: { cart: [] }}, { new: true })
-          .then((customerUpdate) => {
-            if (!customerUpdate) {
-              return res.send('Customer not found');
-            }
-            res.redirect('/customer-page')
-          })
+          Customer.findByIdAndUpdate(customerId, { $set: { cart: [] } }, { new: true })
+            .then((customerUpdate) => {
+              if (!customerUpdate) {
+                return res.send('Customer not found');
+              }
+              res.redirect('/customer-page')
+            })
             .catch((error) => {
               res.send(error.message);
             });
@@ -456,6 +456,63 @@ app.post('/checkout', (req, res) => {
     });
 });
 
+// VIEW ACTIVE ORDER BASED ON DISTRIBUTION HUB
+app.get('/active-order', (req, res) => {
+  const shipperHub = req.session.user.distributionHub
+  const shipperName = req.session.user.username
+
+  // Find the order(s) having the same hub as the shipper
+  Order.find({ distributionHub: shipperHub })
+    .populate('product')
+    // .populate('customerID')
+    .then((orders) => {
+      res.render('all-order', { orders, shipperName })
+    })
+    .catch((error) => { res.send(error.message) })
+})
+
+// VIEW ORDER DETAIL
+app.get('/order/:id', (req, res) => {
+  const orderID = req.params.id;
+  const shipperName = req.session.user.username;
+
+  // Find the order matching the orderID
+  Order.findById(orderID)
+    .then((order) => {
+      if (!order) { res.render('No Order Match') }
+      res.render('order-details', { order, shipperName })
+    })
+})
+
+// CHANGE ORDER STATUS 
+app.post('/order-status', (req, res) => {
+  const orderStatus = req.body.orderStatus;
+  const orderID = req.body.orderID;
+
+  // Find the order with this ID and delete it in the Order database when the status change
+  if (orderStatus != 'active') {
+    Order.findByIdAndDelete(orderID)
+      .then((deletedOrder) => {
+        if (deletedOrder) { res.redirect('/active-order') }
+        res.send('No Order Found')
+      })
+      .catch((error) => { res.send(error.message) })
+  }
+  else { res.send('Invalid Order Status') }
+})
+
+// LOGOUT
+app.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error destroying session:', err);
+      res.sendStatus(500);
+    } else {
+      // Redirect the user to the login page or any other desired destination
+      res.redirect('/');
+    }
+  });
+});
 
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
