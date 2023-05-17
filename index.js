@@ -6,7 +6,7 @@ const port = 3000;
 const bcrypt = require('bcrypt');
 // Import Session Module
 const session = require('express-session')
-
+const fs = require('fs');
 
 const multer = require('multer');
 const profileStorage = multer.diskStorage({
@@ -187,10 +187,6 @@ app.post('/login', (req, res) => {
         .catch((error) => { res.send(error.message) })
     })
     .catch((error) => { res.send(error.message) })
-})
-
-app.get('/vendor-page', (req, res) => {
-  res.render('vendor-page')
 })
 
 // GET REQUEST FOR VENDOR HOMEPAGE   
@@ -512,6 +508,69 @@ app.get('/logout', (req, res) => {
       res.redirect('/');
     }
   });
+});
+
+// vendor register page
+app.get('/vendor/register', (req, res) => {
+  res.render('register_page_vendor')
+})
+
+app.get('/vendor-page', (req, res) => {
+  const vendorId = req.session.user._id;
+  Vendor.findById(vendorId)
+  .then((vendor) => {
+    if (!vendor) {
+      return res.send("Cannot found vendor ID!");
+    }
+    res.render('vendor-page', {vendor})
+  })
+  .catch((error) => { res.send(error.message) })
+})
+
+app.get('/shipper-page', (req, res) => {
+  const shipperId = req.session.user._id;
+  Vendor.findById(shipperId)
+  .then((shipper) => {
+    if (!shipper) {
+      return res.send("Cannot found vendor ID!");
+    }
+    res.render('shipper-page', {shipper})
+  })
+  .catch((error) => { res.send(error.message) })
+})
+
+// Change profile picture for user
+app.post('/changeProfilePic', profilePicUpload.single('profilePicture'), (req, res) => {
+  const userId = req.session.user._id;
+  Promise.all([
+    Customer.findOne({ _id: userId }),
+    Vendor.findOne({ _id: userId }),
+    Shipper.findOne({ _id: userId })
+  ])
+    .then(([customer, vendor, shipper]) => {
+      // Check if the user already exist (any of the value is not falsy, add that value to the user var)
+      const user = customer || vendor || shipper
+      const currentPicture = user.profilePicture; 
+      // delete the current profile picture except the default one
+      fs.unlink(`public/assets/profilePics/${currentPicture}`, (error) => {
+        if (error) {
+          console.log('Error deleting profile picture:', error);
+        }
+      });
+      // Update the profile picture with the new uploaded picture
+      user.updateOne({$set: { profilePicture: req.file ? req.file.filename: req.body.profilePicture }})
+      .then(() => {
+        if (user.role === 'customer') {
+          res.redirect('/customer-page');
+        } else if (user.role === 'vendor') {
+          res.redirect('/vendor-page');
+        } else if (user.role === 'shipper') {
+          res.redirect('/shipper-page');
+        }
+      })
+      .catch((error) => res.send(error.message)) 
+  })
+  .catch((error) => res.send(error.message));
 });
 
 app.listen(port, () => {
