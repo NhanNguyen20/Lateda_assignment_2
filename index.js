@@ -63,21 +63,13 @@ app.post('/customer/register', profilePicUpload.single('profilePicture'), async 
     ...otherProperties
   });
   customer.save()
-    .then((customer) => { res.send(customer) }) // Test
+    .then(() => { res.redirect('/login') }) 
     .catch((error) => { res.send(error.message) })
 });
 
-// MY ACCOUNT FOR CUSTOMER
-app.get('/customer/:id/myaccount', (req, res) => {
-  Customer.findById(req.params.id)
-    .then((customer) => {
-      if (!customer) {
-        return res.send("Cannot found customer ID!");
-      }
-      res.render('my-account', { user: customer });
-    })
-    .catch((error) => res.send(error));
-});
+app.get('/customer/register', (req, res) => {
+  res.render('register_page_customer')
+})
 
 // VENDOR REGISTRATION
 app.post('/vendor/register', profilePicUpload.single('profilePicture'), async (req, res) => {
@@ -96,19 +88,8 @@ app.post('/vendor/register', profilePicUpload.single('profilePicture'), async (r
     ...otherProperties
   });
   vendor.save()
-    .then((vendor) => { res.send(vendor) }) // Test
+    .then(() => { res.redirect('/login') }) 
     .catch((error) => { res.send(error.message) })
-});
-// MY ACCOUNT FOR VENDOR
-app.get('/vendor/:id/myaccount', (req, res) => {
-  Vendor.findById(req.params.id)
-    .then((vendor) => {
-      if (!vendor) {
-        return res.send("Cannot found vendor ID!");
-      }
-      res.render('my-account', { user: vendor });
-    })
-    .catch((error) => res.send(error));
 });
 
 // SHIPPER REGISTRATION
@@ -128,20 +109,13 @@ app.post('/shipper/register', profilePicUpload.single('profilePicture'), async (
     ...otherProperties
   });
   shipper.save()
-    .then((shipper) => { res.send(shipper) }) // Test
+    .then(() => { res.redirect('/login')}) // Test
     .catch((error) => { res.send(error.message) })
 });
-// MY ACCOUNT FOR SHIPPER 
-app.get('/shipper/:id/myaccount', (req, res) => {
-  Shipper.findById(req.params.id)
-    .then((shipper) => {
-      if (!shipper) {
-        return res.send("Cannot found customer ID!");
-      }
-      res.render('my-account', { user: shipper });
-    })
-    .catch((error) => res.send(error));
-});
+
+app.get('/shipper/register', (req, res) => {
+  res.render('register_page_shipper')
+})
 
 // LOGIN
 app.post('/login', (req, res) => {
@@ -292,7 +266,6 @@ app.post('/cart/remove', (req, res) => {
     });
 });
 
-
 // GET request for showing product detail
 app.get('/product/:id', (req, res) => {
   Product.findById(req.params.id)
@@ -386,7 +359,7 @@ function renderHome(req, res, fileName) {
     })
     .catch((error) => {
       res.send(error.message);
-    });
+  });
 }
 
 // GENERATE RANDOM PRODUCT FOR HOMEPAGE
@@ -397,7 +370,6 @@ app.get('/', (req, res) => {
 app.get('/customer-page', (req, res) => {
   renderHome(req, res, 'customer-page')
 });
-
 
 // GET CHECKOUT PAGE
 app.get('/checkout', (req, res) => {

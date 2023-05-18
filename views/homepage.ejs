@@ -57,9 +57,9 @@
                   <li><a href="#">Sign Up <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
                     <ul>
                       <li class="current"><a href="">Sign Up</a></li>
-                      <li><a href="customer/register">Customer</a></li>
-                      <li><a href="vendor/register">Vendor</a></li>
-                      <li><a href="shipper/register">Shipper</a></li>
+                      <li><a href="/customer/register">Customer</a></li>
+                      <li><a href="/vendor/register">Vendor</a></li>
+                      <li><a href="/shipper/register">Shipper</a></li>
                     </ul>
                   </li>
                   <li><a href="/login">Sign In</a></li>
@@ -1018,10 +1018,10 @@
       <div class="search-bottom desktop-hide">
         <div class="container">
           <div class="wrapper">
-            <form action="" class="search">
+            <form action="/customer/search" method="POST" class="search">
               <a href="" class="t-close search-close flexcenter"><i class="ri-close-line"></i></a>
               <span class="icon-large"><i class="ri-search-line"></i></span>
-              <input type="search" placeholder="Search for products">
+              <input name="searchItem" type="text" placeholder="Search for products">
               <button type="submit">Search</button>
             </form>
           </div>
