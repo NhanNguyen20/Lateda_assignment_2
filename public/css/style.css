@@ -117,6 +117,9 @@ h4 {
     display: flex;
     align-items: center;
 }
+.flexitem li {
+    text-transform: capitalize;
+}
 .flexcol {
     display: flex;
     flex-direction: column;
@@ -1687,6 +1690,7 @@ input[type="range"]::-webkit-slider-thumb {
     ------------ */ 
 .page-title {
     margin-bottom: 3em;
+    text-transform: capitalize;
 }
 .cat-description p {
     font-weight: var(--fw3);

@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lateda` | Lategroup1</title>
+    <title>Lateda` | Add Product</title>
     <!-- CSS Link -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- Icon Link -->
@@ -49,7 +49,7 @@
             <div class="wrapper flexitem">
               <div class="left">
                 <ul class="flexitem main-links">
-                  <li><a href="">Log Out</a></li>
+                  <li><a href="/logout">Log Out</a></li>
                 </ul>
               </div>
               <div class="right">
@@ -81,9 +81,9 @@
                 <div class="logo"><a href="/">Lateda`</a></div>
                 <nav class="mobile-hide">
                   <ul class="flexitem second-links">
-                    <li><a href="#">My Profile</a></li>
-                    <li><a href="#">View My Products</a></li>
-                    <li><a href="#">Add New Products</a></li>
+                    <li><a href="/">My Profile</a></li>
+                    <li><a href="/vendor/view-products">View My Products</a></li>
+                    <li><a href="/vendor/add-product">Add New Products</a></li>
                   </ul>
                 </nav>
               </div>
@@ -94,8 +94,8 @@
                       <i class="ri-user-6-line"></i>
                     </div>
                     <div class="icon-text">
-                      <div class="mini-text">My account</div>
-                      <div class="cart-total">Burberry</div>
+                      <!-- <div class="mini-text"></div> -->
+                      <div class="cart-total">My account</div>
                     </div>
                   </a>
                   </li>
@@ -109,9 +109,9 @@
         <div class="header-main mobile-hide">
           <div class="container">
             <div class="search-box">
-                <form action="" class="search">
+                <form action="/vendor/search" method="POST" class="search">
                   <span class="icon-large"><i class="ri-search-line"></i></span>
-                  <input type="search" placeholder="Search for products">
+                  <input name="searchItem" type="text" placeholder="Search for products">
                   <button type="submit">Search</button>
                 </form>
             </div>
@@ -198,7 +198,7 @@
                   <div class="item mini-links">
                     <h4>Help & Contact</h4>
                     <ul class="flexcol">
-                      <li><a href="">Your Account</a></li>
+                      <li><a href="#">Your Account</a></li>
                       <li><a href="">Your Orders</a></li>
                       <li><a href="">Shipping Rates</a></li>
                       <li><a href="">Returns</a></li>
@@ -255,7 +255,7 @@
             <div class="wrapper">
               <div class="flexcol">
                 <div class="logo">
-                  <a href="">Lateda`</a>
+                  <a href="/">Lateda`</a>
                 </div>
                 <div class="socials">
                   <ul class="flexitem">
@@ -282,19 +282,19 @@
             <nav>
               <ul class="flexitem">
                 <li>
-                  <a href="./my-account-vendor.html">
+                  <a href="/">
                     <i class="ri-user-6-line"></i>
                     <span>Account</span>
                   </a>
                 </li>
                 <li>
-                    <a href="./my-products.html" class="cart-trigger">
+                    <a href="/vendor/view-products" class="cart-trigger">
                       <i class="ri-shopping-cart-line"></i>
                       <span>My Products</span>
                     </a>
                 </li>
                 <li>
-                  <a href="./add-products.html">
+                  <a href="/vendor/add-product">
                     <i class="ri-add-box-line"></i>
                     <span>Add Products</span>
                   </a>
@@ -315,10 +315,10 @@
       <div class="search-bottom desktop-hide">
         <div class="container">
           <div class="wrapper">
-            <form action="" class="search">
+            <form action="/vendor/search" method="POST" class="search">
               <a href="" class="t-close search-close flexcenter"><i class="ri-close-line"></i></a>
               <span class="icon-large"><i class="ri-search-line"></i></span>
-              <input type="search" placeholder="Search for products">
+              <input name="searchItem" type="text" placeholder="Search for products">
               <button type="submit">Search</button>
             </form>
           </div>
@@ -331,7 +331,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.4.1/index.js"></script>
-    <script src="/public/js/script.js"></script>
+    <script src="js/script.js"></script>
     <script>
         const FtoShow = '.filter';
         const Fpopup = document.querySelector(FtoShow);

@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lateda` | Lategroup1</title>
+    <title>Lateda` | My Account</title>
     <!-- CSS Link -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Icon Link -->
@@ -54,7 +54,7 @@
               </div>
               <div class="right">
                 <ul class="flexitem main-links">
-                  <li><a href="">My Account</a></li>
+                  <li><a href="/my-account-user">My Account</a></li>
                   <li><a href="">Order Tracking</a></li>
                   <li><a href="">USD <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
                     <ul>
@@ -84,9 +84,9 @@
                 <nav class="mobile-hide">
                   <ul class="flexitem second-links">
                     <li><a href="/">Home</a></li>
-                    <li><a href="#">Shop</a></li>
+                    <li><a href="/">Shop</a></li>
                     <li class="has-child">
-                      <a href="#">Women
+                      <a href="/category-page/women">Women
                         <div class="icon-small"><i class="ri-arrow-down-s-line"></i></div>
                       </a>
                       <div class="mega">
@@ -145,7 +145,7 @@
                                 <div class="media">
                                   <div class="thumbnail object-cover">
                                     <a href="">
-                                      <img src="/public/assets/products/apparel3.jpg" alt="">
+                                      <img src="/assets/products/apparel3.jpg" alt="product image">
                                     </a>
                                   </div>
                                 </div>
@@ -160,7 +160,7 @@
                       </div>
                     </li>
                     <li class="has-child">
-                      <a href="#">Men
+                      <a href="/category-page/men">Men
                         <div class="icon-small"><i class="ri-arrow-down-s-line"></i></div>
                       </a>
                       <div class="mega">
@@ -217,7 +217,7 @@
                                 <div class="media">
                                   <div class="thumbnail object-cover">
                                     <a href="">
-                                      <img src="/public/assets/products/apparel1.jpg" alt="">
+                                      <img src="/assets/products/apparel1.jpg" alt="product image">
                                     </a>
                                   </div>
                                 </div>
@@ -232,7 +232,7 @@
                       </div>
                     </li>
                     <li class="has-child">
-                      <a href="#">Electronic
+                      <a href="/category-page/electronic">Electronic
                         <div class="icon-small"><i class="ri-arrow-down-s-line"></i></div>
                       </a>
                       <div class="mega">
@@ -332,7 +332,7 @@
                   <div class="dpt-menu">
                     <ul class="second-links">
                       <li class="has-child beauty">
-                        <a href="">
+                        <a href="/category-page/beauty">
                           <div class="icon-large"><i class="ri-bear-smile-line"></i></div>
                           Beauty
                           <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
@@ -346,7 +346,7 @@
                         </ul>
                       </li>
                       <li class="has-child electric">
-                        <a href="">
+                        <a href="/category-page/electronic">
                           <div class="icon-large"><i class="ri-bluetooth-connect-line"></i></div>
                           Electronic
                           <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
@@ -359,7 +359,7 @@
                         </ul>
                       </li>
                       <li class="has-child fashion">
-                        <a href="">
+                        <a href="/category-page/women">
                           <div class="icon-large"><i class="ri-t-shirt-line"></i></div>
                           Women's Fashion
                           <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
@@ -482,11 +482,11 @@
               </div>
               <div class="right">
                 <div class="search-box">
-                  <form action="" class="search">
-                    <span class="icon-large"><i class="ri-search-line"></i></span>
-                    <input type="search" placeholder="Search for products">
-                    <button type="submit">Search</button>
-                  </form>
+                    <form action="/customer/search" method="POST" class="search">
+                        <span class="icon-large"><i class="ri-search-line"></i></span>
+                        <input name="searchItem" type="text" placeholder="Search for products">
+                        <button type="submit">Search</button>
+                    </form>
                 </div>
               </div>
             </div>
@@ -732,7 +732,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.4.1/index.js"></script>
-    <script src="/public/js/script.js"></script>
+    <script src="js/script.js"></script>
     <script>
         const FtoShow = '.filter';
         const Fpopup = document.querySelector(FtoShow);
