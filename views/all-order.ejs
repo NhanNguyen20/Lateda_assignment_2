@@ -49,7 +49,7 @@
             <div class="wrapper flexitem">
               <div class="left">
                 <ul class="flexitem main-links">
-                  <li><a href="">Log Out</a></li>
+                  <li><a href="/logout">Log Out</a></li>
                 </ul>
               </div>
               <div class="right">
@@ -126,7 +126,7 @@
             <div class="container">
               <div class="wrapper">
                 <div class="sectop flexitem">
-                    <h2><span class="circle"></span><span><%=shipperName%></span></h2>
+                    <h2><span class="circle"></span><span>All Active Orders</span></h2>
                 </div>
                 <div class="products one cart">
                   <div class="flexwrap">
@@ -150,7 +150,7 @@
                                   <a href=""><img src="/public/assets/products/<%=order.product[0].image%>" alt="<%=order.product[0].name%>"></a>
                                 </div>
                                 <div class="content">
-                                  <strong><a href="./order-details.html"><%=order._id%></a></strong>
+                                  <strong><a href="/order-detail">#<%=order._id%></a></strong>
                                   <p><a href="">(<%=order.product.length%> items)</a></p>
                                 </div>
                               </td>
@@ -158,7 +158,7 @@
                               <td><%=order.custName%></td>
                               <td><%=order.totalPrice%></td>
                               <td><a href="/order/<%=order._id%>">View order <i class="ri-arrow-right-line"></i></i></a></td>
-                            </tr>
+                            </tr> <%})%>
                             <!-- <tr>
                                 <td class="flexitem">
                                   <div class="thumbnail object-cover">

@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lateda` | Shipper | Lategroup1</title>
     <!-- CSS Link -->
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <!-- Icon Link -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Slider Link -->
@@ -49,7 +49,7 @@
             <div class="wrapper flexitem">
               <div class="left">
                 <ul class="flexitem main-links">
-                  <li><a href="">Log Out</a></li>
+                  <li><a href="/logout">Log Out</a></li>
                 </ul>
               </div>
               <div class="right">
@@ -78,7 +78,7 @@
             <div class="wrapper flexitem">
               <a href="" class="trigger desktop-hide"><span><i class="ri-menu-2-line"></i></span></a>
               <div class="left flexitem">
-                <div class="logo"><a href="/">Lateda`</a></div>
+                <div class="logo"><a href="./index.html">Lateda`</a></div>
                 <nav class="mobile-hide">
                   <ul class="flexitem second-links">
                     <li><a href="#">My Profile</a></li>
@@ -140,12 +140,11 @@
                     <ul class="content">
                         <li><span>Order ID</span> <span><%=order._id%></span></li>
                         <li><span>Email Address</span> <span><%=order.emailAddress%></span></li>
-                        <li><span>Customer Name</span> <span><%=order.custName%></span></li>
-                        <li><span>Address</span> <span><%=order.address%></span></li>
+                        <li><span>Name</span> <span><%=order.custName%></span></li>                        <li><span>Street Address</span> <span>12</span></li>
                         <li><span>Zip / Postal Code</span> <span><%=order.postal%></span></li>
                         <li><span>Country</span> <span><%=order.country%></span></li>
                         <li><span>Phone Number</span> <span><%=order.phone%></span></li>
-                        <li><span>Order Notes</span><span>None</span></li>
+                        <li><span>Order Notes</span> <span></span></li>
                     </ul>
                     <form action="/order-status" method="POST">
                       <input type="hidden" name="orderID" value="<%=order._id%>">
@@ -170,36 +169,37 @@
                         <ul>
                           <li>
                             <span>Subtotal</span>
-                            <span>$2155.95</span>
+                            <span><%=order.totalPrice%>VND</span>
                           </li>
                           <li>
                             <span>Discount</span>
-                            <span>-$100.00</span>
+                            <span>0VND</span>
                           </li>
                           <li>
                             <span>Shipping: Flat</span>
-                            <span>$10.00</span>
+                            <span>0VND</span>
                           </li>
                           <li>
                             <span>Total</span>
-                            <strong>$2065.95</strong>
+                            <strong><%=order.totalPrice%>VND</strong>
                           </li>
                         </ul>
                       </div>
                       <ul class="products mini">
+                        <%order.product.forEach((product) => {%>
                         <li class="item">
                           <div class="thumbnail object-cover">
-                            <img src="/public/assets/products/home2.jpg" alt="">
+                            <img src="/public/assets/products/<%=product.image%>" alt="<%=product.name%>">
                           </div>
                           <div class="item-content">
-                            <p>Dimmable Ceiling Light Modern</p>
+                            <p><%=product.name%></p>
                             <span class="price">
-                              <span>$279.99</span>
-                              <span>x 2</span>
+                              <span><%=product.price%></span>
+                              <span>x 1</span>
                             </span>
                           </div>
-                        </li>
-                        <li class="item">
+                        </li> <%})%>
+                        <!-- <li class="item">
                           <div class="thumbnail object-cover">
                             <img src="/public/assets/products/home3.jpg" alt="">
                           </div>
@@ -234,7 +234,7 @@
                               <span>x 1</span>
                             </span>
                           </div>
-                        </li>
+                        </li> -->
                       </ul>
                     </div>
                   </div>
@@ -400,7 +400,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.4.1/index.js"></script>
-    <script src="/public/js/script.js"></script>
+    <script src="/js/script.js"></script>
     <script>
         const FtoShow = '.filter';
         const Fpopup = document.querySelector(FtoShow);
