@@ -381,8 +381,33 @@ function renderHome(req, res, fileName) {
 
 // GENERATE RANDOM PRODUCT FOR HOMEPAGE
 app.get('/', (req, res) => {
-  renderHome(req, res, 'homepage')
+  if (req.session.user) {
+    const userId = req.session.user._id;
+    Promise.all([Customer, Vendor,Shipper].map(Model => Model.findOne({ _id: userId })))
+    .then(([customer, vendor, shipper]) => {
+      const user = customer || vendor || shipper;
+      if (!user) {
+        return res.status(404).send({ message: 'User not found.' });
+      }
+      const userRole = user.role;
+      res.redirect(`/${userRole}-page`)
+    })
+    .catch((error) => res.send(error.message))
+  }
+  else {renderHome(req, res, 'homepage')}
 });
+
+// CUSTOMER VIEW MYACCOUNT PAGE
+app.get('/my-account-user', (req, res) => {
+  const userId = req.session.user._id;
+  Customer.findById(userId)
+  .then((customer) => {
+    if (!customer) {return res.send('No user found')}
+    res.render('my-account-user', {customer})
+  })
+  .catch((error) => res.send(error.message));
+}) 
+
 // GENERATE RANDOM PRODUCT FOR CUSTOMER PAGE
 app.get('/customer-page', (req, res) => {
   renderHome(req, res, 'customer-page')
@@ -554,7 +579,7 @@ app.post('/changeProfilePic', profilePicUpload.single('profilePicture'), (req, r
       user.updateOne({ $set: { profilePicture: req.file ? req.file.filename : req.body.profilePicture } })
         .then(() => {
           if (user.role === 'customer') {
-            res.redirect('/customer-page');
+            res.redirect('/my-account-user');
           } else if (user.role === 'vendor') {
             res.redirect('/vendor-page');
           } else if (user.role === 'shipper') {
