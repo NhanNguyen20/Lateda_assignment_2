@@ -203,12 +203,15 @@ app.get('/vendor/add-product', (req, res) => {
 
 // CREATE A NEW PRODUCT
 app.post('/vendor/add-product', productUpload.single('image'), (req, res) => {
+  const vendorID = req.session.user._id;
   const product = new Product({
     ...req.body,
-    image: req.file.filename
+    image: req.file.filename,
+    vendor: vendorID
   });
   product.save()
-    .then((product) => { res.send(product) })
+    .then(() => { 
+    res.redirect('/vendor/view-products') })
     .catch((error) => { res.send(error.message) })
 });
 
