@@ -474,9 +474,10 @@ app.get('/order/:id', (req, res) => {
 
   // Find the order matching the orderID
   Order.findById(orderID)
+    .populate('product')
     .then((order) => {
       if (!order) { res.render('No Order Match') }
-      res.render('order-details', { order, shipperName })
+      res.render('order-detail', { order, shipperName })
     })
 })
 
@@ -489,7 +490,7 @@ app.post('/order-status', (req, res) => {
   if (orderStatus != 'active') {
     Order.findByIdAndDelete(orderID)
       .then((deletedOrder) => {
-        if (deletedOrder) { res.redirect('/active-order') }
+        if (deletedOrder) { return res.redirect('/active-order') }
         res.send('No Order Found')
       })
       .catch((error) => { res.send(error.message) })
@@ -518,25 +519,25 @@ app.get('/vendor/register', (req, res) => {
 app.get('/vendor-page', (req, res) => {
   const vendorId = req.session.user._id;
   Vendor.findById(vendorId)
-  .then((vendor) => {
-    if (!vendor) {
-      return res.send("Cannot found vendor ID!");
-    }
-    res.render('vendor-page', {vendor})
-  })
-  .catch((error) => { res.send(error.message) })
+    .then((vendor) => {
+      if (!vendor) {
+        return res.send("Cannot found vendor ID!");
+      }
+      res.render('vendor-page', { vendor })
+    })
+    .catch((error) => { res.send(error.message) })
 })
 
 app.get('/shipper-page', (req, res) => {
   const shipperId = req.session.user._id;
-  Vendor.findById(shipperId)
-  .then((shipper) => {
-    if (!shipper) {
-      return res.send("Cannot found vendor ID!");
-    }
-    res.render('shipper-page', {shipper})
-  })
-  .catch((error) => { res.send(error.message) })
+  Shipper.findById(shipperId)
+    .then((shipper) => {
+      if (!shipper) {
+        return res.send("Cannot found shipper ID!");
+      }
+      res.render('shipper-page', { shipper })
+    })
+    .catch((error) => { res.send(error.message) })
 })
 
 // Change profile picture for user
@@ -550,7 +551,7 @@ app.post('/changeProfilePic', profilePicUpload.single('profilePicture'), (req, r
     .then(([customer, vendor, shipper]) => {
       // Check if the user already exist (any of the value is not falsy, add that value to the user var)
       const user = customer || vendor || shipper
-      const currentPicture = user.profilePicture; 
+      const currentPicture = user.profilePicture;
       // delete the current profile picture except the default one
       fs.unlink(`public/assets/profilePics/${currentPicture}`, (error) => {
         if (error) {
@@ -558,19 +559,19 @@ app.post('/changeProfilePic', profilePicUpload.single('profilePicture'), (req, r
         }
       });
       // Update the profile picture with the new uploaded picture
-      user.updateOne({$set: { profilePicture: req.file ? req.file.filename: req.body.profilePicture }})
-      .then(() => {
-        if (user.role === 'customer') {
-          res.redirect('/customer-page');
-        } else if (user.role === 'vendor') {
-          res.redirect('/vendor-page');
-        } else if (user.role === 'shipper') {
-          res.redirect('/shipper-page');
-        }
-      })
-      .catch((error) => res.send(error.message)) 
-  })
-  .catch((error) => res.send(error.message));
+      user.updateOne({ $set: { profilePicture: req.file ? req.file.filename : req.body.profilePicture } })
+        .then(() => {
+          if (user.role === 'customer') {
+            res.redirect('/customer-page');
+          } else if (user.role === 'vendor') {
+            res.redirect('/vendor-page');
+          } else if (user.role === 'shipper') {
+            res.redirect('/shipper-page');
+          }
+        })
+        .catch((error) => res.send(error.message))
+    })
+    .catch((error) => res.send(error.message));
 });
 
 app.listen(port, () => {
