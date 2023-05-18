@@ -17,9 +17,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lateda` | Vendor</title>
+    <title>Lateda` | Lategroup1</title>
     <!-- CSS Link -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <!-- Icon Link -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Slider Link -->
@@ -33,7 +33,7 @@
       <aside class="site-off desktop-hide">
         <div class="off-canvas">
           <div class="canvas-head flexitem">
-            <div class="logo"><a href="/">Lateda`</a></div>
+            <div class="logo"><a href="/vendor-page">Lateda`</a></div>
             <a href="" class="t-close flexcenter"><i class="ri-close-line"></i></a>
           </div>
           <div class="departments"></div>
@@ -49,7 +49,7 @@
             <div class="wrapper flexitem">
               <div class="left">
                 <ul class="flexitem main-links">
-                  <li><a href="">Log Out</a></li>
+                  <li><a href="/logout">Log Out</a></li>
                 </ul>
               </div>
               <div class="right">
@@ -74,118 +74,197 @@
         <!-- Header Top -->
   
         <div class="header-nav">
-          <div class="container">
-            <div class="wrapper flexitem">
-              <a href="" class="trigger desktop-hide"><span><i class="ri-menu-2-line"></i></span></a>
-              <div class="left flexitem">
-                <div class="logo"><a href="/">Lateda`</a></div>
-                <nav class="mobile-hide">
+            <div class="container">
+              <div class="wrapper flexitem">
+                <a href="" class="trigger desktop-hide"><span><i class="ri-menu-2-line"></i></span></a>
+                <div class="left flexitem">
+                  <div class="logo"><a href="/vendor-page">Lateda`</a></div>
+                  <nav class="mobile-hide">
+                    <ul class="flexitem second-links">
+                      <li><a href="/vendor-page">My Profile</a></li>
+                      <li><a href="/vendor/view-products">View My Products</a></li>
+                      <li><a href="/vendor/add-product">Add New Products</a></li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="right">
                   <ul class="flexitem second-links">
-                    <li><a href="/vendor-page">My Profile</a></li>
-                    <li><a href="/vendor/view-products">View My Products</a></li>
-                    <li><a href="/vendor/add-product">Add New Products</a></li>
+                    <li class="iscart"><a href="">
+                      <div class="icon-large">
+                        <i class="ri-user-6-line"></i>
+                      </div>
+                      <div class="icon-text">
+                        <div class="mini-text">My account</div>
+                        <div class="cart-total">Burberry</div>
+                      </div>
+                    </a>
+                    </li>
                   </ul>
-                </nav>
-              </div>
-              <div class="right">
-                <ul class="flexitem second-links">
-                  <li class="iscart"><a href="">
-                    <div class="icon-large">
-                      <i class="ri-user-6-line"></i>
-                    </div>
-                    <div class="icon-text">
-                      <div class="mini-text">My account</div>
-                      <div class="cart-total">Burberry</div>
-                    </div>
-                  </a>
-                  </li>
-                </ul>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         <!-- Header Nav -->
   
         <div class="header-main mobile-hide">
-          <div class="container">
-            <div class="search-box">
-                <form action="/vendor/search" method="POST" class="search">
-                  <span class="icon-large"><i class="ri-search-line"></i></span>
-                  <input name="searchItem" type="text" placeholder="Search for products">
-                  <button type="submit">Search</button>
-                </form>
+            <div class="container">
+              <div class="search-box">
+                  <form action="/vendor/search" method="POST" class="search">
+                    <span class="icon-large"><i class="ri-search-line"></i></span>
+                    <input name="searchItem" type="text" placeholder="Search for products">
+                    <button type="submit">Search</button>
+                  </form>
+              </div>
             </div>
           </div>
-        </div>
         <!-- Header Main -->
   
       </header>
       <!-- Header -->
   
       <main>
-        <div class="my-account">
+        <div class="features">
+            <div class="container">
+              <div class="wrapper">
+                <div class="sectop flexitem">
+                  <h2><span class="circle"></span><span>Search Your Products</span></h2>
+                </div>
+                <div class="column">
+                  <div class="products main flexwrap">
+                    <% matchedProducts.forEach( (product) => { %>
+                    <div class="item">
+                      <div class="media">
+                        <div class="thumbnail object-cover">
+                          <a href="">
+                            <img src="/assets/products/<%= product.image %>" alt="">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="content">
+                        <div class="rating">
+                          <div class="stars"></div>
+                          <span class="mini-text">(2,548)</span>
+                        </div>
+                        <h3 class="main-links"><a href=""><%= product.name %></a></h3>
+                        <div class="price">
+                          <span class="current"><%= product.price %> VND</span>
+                        </div>
+                      </div>
+                    </div>
+                    <% }) %>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!--Products -->
+  
+        <div class="banners">
           <div class="container">
             <div class="wrapper">
-              <div class="sectop flexitem">
-                <h2><span class="circle"></span><span>My Account | Vendor</span></h2>
-              </div>
               <div class="column">
                 <div class="banner flexwrap">
                   <div class="row">
                     <div class="item">
-                      <h1>Profile Image</h1>
-                      <div class="profile-upper">
-                        <div class="profile-picture">
-                          <img id="profilePicturePreview" src="/assets/profilePics/<%= vendor.profilePicture%>" alt="user's picture">
-                        </div>
+                      <div class="image">
+                        <img src="/assets/banner/banner1.jpg" alt="">
                       </div>
-                      <div class="profile-bottom">
-                        <form action="/changeProfilePic" method="POST" enctype="multipart/form-data">
-                          <label for="profilePicture" class="profile-label">Update your profile picture:</label>
-                          <div class="file-input-container">
-                            <input type="file" name="profilePicture" id="profilePicture" accept="image/*" style="display: none;" onchange="showImage(this)">
-                            <label class="file-label" for="profilePicture" >
-                              <span>Choose File</span>
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                <polyline points="17 8 12 3 7 8"></polyline>
-                                <line x1="12" y1="3" x2="12" y2="15"></line>
-                              </svg>
-                            </label>
-                            <span id="selectedFileName"></span>
-                          </div>
-                          <button type="submit" class="file-label">Submit</button>
-                        </form>
+                      <div class="text-content flexcol">
+                        <h4>Mega Sale!</h4>
+                        <h3><span>Get the deal in here</span><br>Living Room Chair</h3>
+                        <a href="" class="primary-button">Buy It Now</a>
                       </div>
+                      <a href="" class="over-link"></a>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="item">
-                      <h1>Information</h1>
-                      <ul class="content">
-                        <li>
-                          <span>Username</span>
-                          <span><%= vendor.username %></span>
-                        </li>
-                        <li>
-                          <span>Business Name</span>
-                          <span><%= vendor.businessName %></span>
-                        </li>
-                        <li>
-                          <span>Business Address</span>
-                          <span><%= vendor.businessAddress %></span>
-                        </li>
-                      </ul>
+                    <div class="item get-gray">
+                      <div class="image">
+                        <img src="/assets/banner/banner2.jpg" alt="">
+                      </div>
+                      <div class="text-content flexcol">
+                        <h4>Mega Sale!</h4>
+                        <h3><span>Discount everyday</span><br>Office Outfit</h3>
+                        <a href="" class="primary-button">Buy It Now</a>
+                      </div>
+                      <a href="" class="over-link"></a>
                     </div>
                   </div>
                 </div>
                 <!-- Banner -->
   
+                <div class="product-categories flexwrap">
+                  <div class="row">
+                    <div class="item">
+                      <div class="image">
+                        <a href="">
+                          <img src="/assets/banner/procat1.jpg" alt="">
+                        </a>
+                      </div>
+                      <div class="content mini-links">
+                        <h4><a href="">Beauty</a></h4>
+                        <ul class="flexcol">
+                          <li><a href="">Makeup</a></li>
+                          <li><a href="">Skin Care</a></li>
+                          <li><a href="">Hair Care</a></li>
+                          <li><a href="">Body Care</a></li>
+                        </ul>
+                        <div class="second-links">
+                          <a href="" class="view-all">View all<i class="ri-arrow-right-line"></i>
+                          </a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="item">
+                      <div class="image">
+                        <a href="">
+                          <img src="/assets/banner/procat2.jpg" alt="">
+                        </a>
+                      </div>
+                      <div class="content mini-links">
+                        <h4><a href="">Electronic</a></h4>
+                        <ul class="flexcol">
+                          <li><a href="">Smart-phones</a></li>
+                          <li><a href="">Laptop</a></li>
+                          <li><a href="">Smart-watches</a></li>
+                          <li><a href="">Headphones</a></li>
+                        </ul>
+                        <div class="second-links">
+                          <a href="" class="view-all">View all<i class="ri-arrow-right-line"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="item">
+                      <div class="image">
+                        <a href="">
+                          <img src="/assets/banner/procat3.jpg" alt="">
+                        </a>
+                      </div>
+                      <div class="content mini-links">
+                        <h4><a href="">Home Decor</a></h4>
+                        <ul class="flexcol">
+                          <li><a href="">Kitchen</a></li>
+                          <li><a href="">Dining Room</a></li>
+                          <li><a href="">Pantry</a></li>
+                          <li><a href="">Great Room</a></li>
+                        </ul>
+                        <div class="second-links">
+                          <a href="" class="view-all">View all<i class="ri-arrow-right-line"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
               </div>
             </div>
           </div>
         </div>
-        
+        <!-- Banners -->
+  
       </main>
       <!-- Main -->
   
@@ -301,27 +380,36 @@
             <nav>
               <ul class="flexitem">
                 <li>
-                  <a href="./my-account-vendor.html">
+                  <a href="">
+                    <i class="ri-bar-chart-line"></i>
+                    <span>Trending</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
                     <i class="ri-user-6-line"></i>
                     <span>Account</span>
                   </a>
                 </li>
                 <li>
-                    <a href="./my-products.html" class="cart-trigger">
-                      <i class="ri-shopping-cart-line"></i>
-                      <span>My Products</span>
-                    </a>
-                </li>
-                <li>
-                  <a href="./add-products.html">
-                    <i class="ri-add-box-line"></i>
-                    <span>Add Products</span>
+                  <a href="">
+                    <i class="ri-heart-line"></i>
+                    <span>Wishlist</span>
                   </a>
                 </li>
                 <li>
                   <a href="" class="t-search">
                     <i class="ri-search-line"></i>
                     <span>Search</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="cart-trigger">
+                    <i class="ri-shopping-cart-line"></i>
+                    <span>Cart</span>
+                    <div class="fly-item">
+                      <span class="item-number">5</span>
+                    </div>
                   </a>
                 </li>
               </ul>

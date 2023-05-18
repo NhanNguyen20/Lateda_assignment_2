@@ -304,6 +304,23 @@ app.post('/customer/search', (req, res) => {
     .catch((error) => res.send(error));
 });
 
+// SEARCH PRODUCT FOR VENDOR
+app.post('/vendor/search', (req, res) => {
+  const vendorId = req.session.user._id;
+  const searchItem = req.body.searchItem;
+  Product.find({ 
+    name: { $regex: searchItem, $options: 'i' },
+    vendor: vendorId
+   })  // condition for searching item
+    .then((matchedProducts) => {
+      if (!matchedProducts) {
+        return res.send("Cannot found any product!");
+      }
+      res.render('search-result-vendor', { matchedProducts })
+    })
+    .catch((error) => res.send(error));
+});
+
 // FILTER PRODUCT FOR CUSTOMER
 app.post('/category/:category/filter', (req, res) => {
   const categoryName = req.params.category;
