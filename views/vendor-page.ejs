@@ -49,7 +49,7 @@
             <div class="wrapper flexitem">
               <div class="left">
                 <ul class="flexitem main-links">
-                  <li><a href="">Log Out</a></li>
+                  <li><a href="/logout">Log Out</a></li>
                 </ul>
               </div>
               <div class="right">
@@ -95,7 +95,7 @@
                     </div>
                     <div class="icon-text">
                       <div class="mini-text">My account</div>
-                      <div class="cart-total">Burberry</div>
+                      <div class="cart-total"><%=vendorName%></div>
                     </div>
                   </a>
                   </li>
@@ -136,7 +136,7 @@
                       <h1>Profile Image</h1>
                       <div class="profile-upper">
                         <div class="profile-picture">
-                          <img id="profilePicturePreview" src="/assets/profilePics/<%= vendor.profilePicture%>" alt="user's picture">
+                          <img id="profilePicturePreview" src="/assets/profilePics/<%= vendor.profilePicture%>" alt="<%= vendor.username%>">
                         </div>
                       </div>
                       <div class="profile-bottom">
@@ -217,8 +217,8 @@
                   <div class="item mini-links">
                     <h4>Help & Contact</h4>
                     <ul class="flexcol">
-                      <li><a href="">Your Account</a></li>
-                      <li><a href="">Your Orders</a></li>
+                      <li><a href="/vendor-page">Your Account</a></li>
+                      <!-- <li><a href="">Your Orders</a></li> -->
                       <li><a href="">Shipping Rates</a></li>
                       <li><a href="">Returns</a></li>
                       <li><a href="">Assistant</a></li>
@@ -228,7 +228,7 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="item mini-links">
+                  <!-- <div class="item mini-links">
                     <h4>Product Categories</h4>
                     <ul class="flexcol">
                       <li><a href="">Beauty</a></li>
@@ -242,7 +242,7 @@
                       <li><a href="">Pet Supplies</a></li>
                       <li><a href="">Sports</a></li>
                     </ul>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="row">
                   <div class="item mini-links">
@@ -301,19 +301,19 @@
             <nav>
               <ul class="flexitem">
                 <li>
-                  <a href="./my-account-vendor.html">
+                  <a href="/vendor-page">
                     <i class="ri-user-6-line"></i>
                     <span>Account</span>
                   </a>
                 </li>
                 <li>
-                    <a href="./my-products.html" class="cart-trigger">
+                    <a href="/vendor/view-products" class="cart-trigger">
                       <i class="ri-shopping-cart-line"></i>
                       <span>My Products</span>
                     </a>
                 </li>
                 <li>
-                  <a href="./add-products.html">
+                  <a href="/vendor/add-product">
                     <i class="ri-add-box-line"></i>
                     <span>Add Products</span>
                   </a>

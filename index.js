@@ -185,18 +185,19 @@ app.post('/vendor/add-product', productUpload.single('image'), (req, res) => {
   });
   product.save()
     .then(() => { 
-    res.redirect('/vendor/view-products') })
+    res.redirect('iew-pr/vendor/voducts') })
     .catch((error) => { res.send(error.message) })
 });
 
 // VENDOR VIEW THEIR PRODUCTS
 app.get('/vendor/view-products', (req, res) => {
+  const vendor = req.session.user;
   Product.find({ vendor: req.session.user._id })
     .then((matchedProducts) => {
       if (!matchedProducts) {
         return res.send("Cannot found any product!");
       }
-      res.render('view-products', { matchedProducts })
+      res.render('view-products', { matchedProducts, vendor })
     })
     .catch((error) => res.send(error));
 });
@@ -268,15 +269,16 @@ app.post('/cart/remove', (req, res) => {
 
 // GET request for showing product detail
 app.get('/product/:id', (req, res) => {
+  const userLoggedIn = req.session.user ? true : false;
   Product.findById(req.params.id)
     .then((product) => {
       if (!product) {
         return res.send("Cannot found any product!");
       }
-      res.render('product-detail', { product });
+      res.render('product-detail', { product, userLoggedIn });
     })
     .catch((error) => res.send(error));
-})
+});
 
 // GET REQUEST FOR CATEGORY PAGE 
 app.get('/category-page/:category', (req, res) => {
@@ -294,12 +296,13 @@ app.get('/category-page/:category', (req, res) => {
 // SEARCH PRODUCT FOR CUSTOMER
 app.post('/customer/search', (req, res) => {
   const searchItem = req.body.searchItem;
+  const userLoggedIn = req.session.user ? true : false;
   Product.find({ name: { $regex: searchItem, $options: 'i' } })  // condition for searching item
     .then((matchedProducts) => {
       if (!matchedProducts) {
         return res.send("Cannot found any product!");
       }
-      res.render('search-result', { matchedProducts })
+      res.render('search-result', { matchedProducts, userLoggedIn })
     })
     .catch((error) => res.send(error));
 });
@@ -308,6 +311,7 @@ app.post('/customer/search', (req, res) => {
 app.post('/vendor/search', (req, res) => {
   const vendorId = req.session.user._id;
   const searchItem = req.body.searchItem;
+  const vendor = req.session.user;
   Product.find({ 
     name: { $regex: searchItem, $options: 'i' },
     vendor: vendorId
@@ -316,7 +320,7 @@ app.post('/vendor/search', (req, res) => {
       if (!matchedProducts) {
         return res.send("Cannot found any product!");
       }
-      res.render('search-result-vendor', { matchedProducts })
+      res.render('search-result-vendor', { matchedProducts, vendor })
     })
     .catch((error) => res.send(error));
 });
@@ -395,18 +399,7 @@ app.get('/', (req, res) => {
     .catch((error) => res.send(error.message))
   }
   else {renderHome(req, res, 'homepage')}
-});
-
-// CUSTOMER VIEW MYACCOUNT PAGE
-app.get('/my-account-user', (req, res) => {
-  const userId = req.session.user._id;
-  Customer.findById(userId)
-  .then((customer) => {
-    if (!customer) {return res.send('No user found')}
-    res.render('my-account-user', {customer})
-  })
-  .catch((error) => res.send(error.message));
-}) 
+}); 
 
 // GENERATE RANDOM PRODUCT FOR CUSTOMER PAGE
 app.get('/customer-page', (req, res) => {
@@ -533,19 +526,27 @@ app.get('/vendor/register', (req, res) => {
   res.render('register_page_vendor')
 })
 
-app.get('/vendor-page', (req, res) => {
+// MIDDLEWARE TO CHECK IF USER HAS LOGGED IN
+let isLoggedIn = (req, res) => {
+  if (!req.session.user) {res.redirect('/login')}
+}
+
+// VENDOR VIEW THEIR INFO 
+app.get('/vendor-page', isLoggedIn, (req, res) => {
   const vendorId = req.session.user._id;
+  const vendorName = req.session.user.username
   Vendor.findById(vendorId)
     .then((vendor) => {
       if (!vendor) {
         return res.send("Cannot found vendor ID!");
       }
-      res.render('vendor-page', { vendor })
+      res.render('vendor-page', { vendor, vendorName })
     })
     .catch((error) => { res.send(error.message) })
 })
 
-app.get('/shipper-page', (req, res) => {
+// SHIPPER VIEW THEIR INFO
+app.get('/shipper-page', isLoggedIn, (req, res) => {
   const shipperId = req.session.user._id;
   Shipper.findById(shipperId)
     .then((shipper) => {
@@ -557,7 +558,18 @@ app.get('/shipper-page', (req, res) => {
     .catch((error) => { res.send(error.message) })
 })
 
-// Change profile picture for user
+// CUSTOMER VIEW THEIR INFO
+app.get('/my-account-user', isLoggedIn, (req, res) => {
+  const userId = req.session.user._id;
+  Customer.findById(userId)
+  .then((customer) => {
+    if (!customer) {return res.send('No user found')}
+    res.render('my-account-user', {customer})
+  })
+  .catch((error) => res.send(error.message));
+})
+
+// CHANGE PROFILE PICTURE
 app.post('/changeProfilePic', profilePicUpload.single('profilePicture'), (req, res) => {
   const userId = req.session.user._id;
   Promise.all([

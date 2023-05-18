@@ -44,13 +44,13 @@
             <div class="form-box register">
                 <h2>Create your Lateda` account</h2>
                 <h1>Shipper</h1>
-                <form action="/shipper/register" method="POST">
+                <form action="/shipper/register" method="POST" enctype="multipart/form-data">
                   <div class="user-detail">
 
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-user"></i></span>
                             <input type="text" required id="fullname" name="name">
-                            <label>Enter your full name:</label>
+                            <label>Enter your fullname:</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-user"></i></span>
@@ -81,7 +81,7 @@
                       </select>
                     </div>
                     <div class="input-box">
-                      <input name="image" type="file" id="image">
+                      <input name="profilePicture" type="file" id="image">
                       <label for="image">Upload your profile picture :</label>
                     </div>
                   </div>

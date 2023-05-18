@@ -89,13 +89,13 @@
                 </div>
                 <div class="right">
                   <ul class="flexitem second-links">
-                    <li class="iscart"><a href="">
+                    <li class="iscart"><a href="/vendor-page">
                       <div class="icon-large">
                         <i class="ri-user-6-line"></i>
                       </div>
                       <div class="icon-text">
                         <div class="mini-text">My account</div>
-                        <div class="cart-total">Burberry</div>
+                        <div class="cart-total"><%=vendor.username%></div>
                       </div>
                     </a>
                     </li>
@@ -135,8 +135,8 @@
                     <div class="item">
                       <div class="media">
                         <div class="thumbnail object-cover">
-                          <a href="">
-                            <img src="/assets/products/<%= product.image %>" alt="">
+                          <a href="/product/<%=product._id%>">
+                            <img src="/assets/products/<%= product.image %>" alt="<%= product.name %>">
                           </a>
                         </div>
                       </div>
@@ -145,7 +145,7 @@
                           <div class="stars"></div>
                           <span class="mini-text">(2,548)</span>
                         </div>
-                        <h3 class="main-links"><a href=""><%= product.name %></a></h3>
+                        <h3 class="main-links"><a href="/product/<%=product._id%>"><%= product.name %></a></h3>
                         <div class="price">
                           <span class="current"><%= product.price %> VND</span>
                         </div>
@@ -167,7 +167,7 @@
                   <div class="row">
                     <div class="item">
                       <div class="image">
-                        <img src="/assets/banner/banner1.jpg" alt="">
+                        <img src="/assets/banner/banner1.jpg" alt="banner1">
                       </div>
                       <div class="text-content flexcol">
                         <h4>Mega Sale!</h4>
@@ -180,7 +180,7 @@
                   <div class="row">
                     <div class="item get-gray">
                       <div class="image">
-                        <img src="/assets/banner/banner2.jpg" alt="">
+                        <img src="/assets/banner/banner2.jpg" alt="banner2">
                       </div>
                       <div class="text-content flexcol">
                         <h4>Mega Sale!</h4>
@@ -198,11 +198,11 @@
                     <div class="item">
                       <div class="image">
                         <a href="">
-                          <img src="/assets/banner/procat1.jpg" alt="">
+                          <img src="/assets/banner/procat1.jpg" alt="procat1">
                         </a>
                       </div>
                       <div class="content mini-links">
-                        <h4><a href="">Beauty</a></h4>
+                        <h4><a href="/category-page/beauty">Beauty</a></h4>
                         <ul class="flexcol">
                           <li><a href="">Makeup</a></li>
                           <li><a href="">Skin Care</a></li>
@@ -219,11 +219,11 @@
                     <div class="item">
                       <div class="image">
                         <a href="">
-                          <img src="/assets/banner/procat2.jpg" alt="">
+                          <img src="/assets/banner/procat2.jpg" alt="procat2">
                         </a>
                       </div>
                       <div class="content mini-links">
-                        <h4><a href="">Electronic</a></h4>
+                        <h4><a href="/category-page/electronic">Electronic</a></h4>
                         <ul class="flexcol">
                           <li><a href="">Smart-phones</a></li>
                           <li><a href="">Laptop</a></li>
@@ -240,7 +240,7 @@
                     <div class="item">
                       <div class="image">
                         <a href="">
-                          <img src="/assets/banner/procat3.jpg" alt="">
+                          <img src="/assets/banner/procat3.jpg" alt="procat3">
                         </a>
                       </div>
                       <div class="content mini-links">
@@ -296,8 +296,8 @@
                   <div class="item mini-links">
                     <h4>Help & Contact</h4>
                     <ul class="flexcol">
-                      <li><a href="">Your Account</a></li>
-                      <li><a href="">Your Orders</a></li>
+                      <li><a href="/vendor-page">Your Account</a></li>
+                      <!-- <li><a href="">Your Orders</a></li> -->
                       <li><a href="">Shipping Rates</a></li>
                       <li><a href="">Returns</a></li>
                       <li><a href="">Assistant</a></li>
@@ -310,10 +310,10 @@
                   <div class="item mini-links">
                     <h4>Product Categories</h4>
                     <ul class="flexcol">
-                      <li><a href="">Beauty</a></li>
-                      <li><a href="">Electronic</a></li>
-                      <li><a href="">Women's Fashion</a></li>
-                      <li><a href="">Men's Fashion</a></li>
+                      <li><a href="/category-page/beauty">Beauty</a></li>
+                      <li><a href="/category-page/electronic">Electronic</a></li>
+                      <li><a href="/category-page/women">Women's Fashion</a></li>
+                      <li><a href="/category-page/men">Men's Fashion</a></li>
                       <li><a href="">Girl's Fashion</a></li>
                       <li><a href="">Boy's Fashion</a></li>
                       <li><a href="">Health & Household</a></li>
@@ -386,7 +386,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="">
+                  <a href="/vendor-page">
                     <i class="ri-user-6-line"></i>
                     <span>Account</span>
                   </a>

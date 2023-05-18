@@ -49,7 +49,7 @@
             <div class="wrapper flexitem">
               <div class="left">
                 <ul class="flexitem main-links">
-                  <li><a href="">Log Out</a></li>
+                  <li><a href="/logout">Log Out</a></li>
                 </ul>
               </div>
               <div class="right">
@@ -82,7 +82,7 @@
                 <nav class="mobile-hide">
                   <ul class="flexitem second-links">
                     <li><a href="/vendor-page">My Profile</a></li>
-                    <li><a href="#">View My Products</a></li>
+                    <li><a href="/vendor/view-products">View My Products</a></li>
                     <li><a href="/vendor/add-product">Add New Products</a></li>
                   </ul>
                 </nav>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="icon-text">
                       <div class="mini-text">My account</div>
-                      <div class="cart-total">Burberry</div>
+                      <div class="cart-total"><%=vendor.username%></div>
                     </div>
                   </a>
                   </li>
@@ -109,7 +109,7 @@
         <div class="header-main mobile-hide">
           <div class="container">
             <div class="search-box">
-                <form action="" class="search">
+                <form action="/vendor/search" method="POST" class="search">
                   <span class="icon-large"><i class="ri-search-line"></i></span>
                   <input type="search" placeholder="Search for products">
                   <button type="submit">Search</button>
@@ -136,8 +136,8 @@
                     <div class="item">
                       <div class="media">
                         <div class="thumbnail object-cover">
-                          <a href="">
-                            <img src="/assets/products/<%= item.image %>" alt="">
+                          <a href="/product/<%= item._id %>">
+                            <img src="/assets/products/<%= item.image %>" alt="<%= item.name %>">
                           </a>
                         </div>
                       </div>
@@ -146,7 +146,7 @@
                           <div class="stars"></div>
                           <span class="mini-text">(2,548)</span>
                         </div>
-                        <h3 class="main-links"><a href=""><%= item.name %></a></h3>
+                        <h3 class="main-links"><a href="/product/<%= item._id %>"><%= item.name %></a></h3>
                         <div class="price">
                           <span class="current"><%= item.price %> VND</span>
                         </div>
@@ -192,8 +192,8 @@
                   <div class="item mini-links">
                     <h4>Help & Contact</h4>
                     <ul class="flexcol">
-                      <li><a href="">Your Account</a></li>
-                      <li><a href="">Your Orders</a></li>
+                      <li><a href="/vendor-page">Your Account</a></li>
+                      <!-- <li><a href="">Your Orders</a></li> -->
                       <li><a href="">Shipping Rates</a></li>
                       <li><a href="">Returns</a></li>
                       <li><a href="">Assistant</a></li>
@@ -203,7 +203,7 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="item mini-links">
+                  <!-- <div class="item mini-links">
                     <h4>Product Categories</h4>
                     <ul class="flexcol">
                       <li><a href="">Beauty</a></li>
@@ -217,7 +217,7 @@
                       <li><a href="">Pet Supplies</a></li>
                       <li><a href="">Sports</a></li>
                     </ul>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="row">
                   <div class="item mini-links">
@@ -249,7 +249,7 @@
             <div class="wrapper">
               <div class="flexcol">
                 <div class="logo">
-                  <a href="">Lateda`</a>
+                  <a href="/vendor-page">Lateda`</a>
                 </div>
                 <div class="socials">
                   <ul class="flexitem">
@@ -276,19 +276,19 @@
             <nav>
               <ul class="flexitem">
                 <li>
-                  <a href="./my-account-vendor.html">
+                  <a href="/vendor-page">
                     <i class="ri-user-6-line"></i>
                     <span>Account</span>
                   </a>
                 </li>
                 <li>
-                    <a href="./my-products.html" class="cart-trigger">
+                    <a href="/vendor/view-products" class="cart-trigger">
                       <i class="ri-shopping-cart-line"></i>
                       <span>My Products</span>
                     </a>
                 </li>
                 <li>
-                  <a href="./add-products.html">
+                  <a href="/vendor/add-product">
                     <i class="ri-add-box-line"></i>
                     <span>Add Products</span>
                   </a>
