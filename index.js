@@ -185,7 +185,7 @@ app.post('/vendor/add-product', productUpload.single('image'), (req, res) => {
   });
   product.save()
     .then(() => { 
-    res.redirect('iew-pr/vendor/voducts') })
+    res.redirect('/vendor/view-products') })
     .catch((error) => { res.send(error.message) })
 });
 
@@ -526,13 +526,8 @@ app.get('/vendor/register', (req, res) => {
   res.render('register_page_vendor')
 })
 
-// MIDDLEWARE TO CHECK IF USER HAS LOGGED IN
-let isLoggedIn = (req, res) => {
-  if (!req.session.user) {res.redirect('/login')}
-}
-
 // VENDOR VIEW THEIR INFO 
-app.get('/vendor-page', isLoggedIn, (req, res) => {
+app.get('/vendor-page', (req, res) => {
   const vendorId = req.session.user._id;
   const vendorName = req.session.user.username
   Vendor.findById(vendorId)
@@ -546,7 +541,7 @@ app.get('/vendor-page', isLoggedIn, (req, res) => {
 })
 
 // SHIPPER VIEW THEIR INFO
-app.get('/shipper-page', isLoggedIn, (req, res) => {
+app.get('/shipper-page', (req, res) => {
   const shipperId = req.session.user._id;
   Shipper.findById(shipperId)
     .then((shipper) => {
@@ -559,7 +554,7 @@ app.get('/shipper-page', isLoggedIn, (req, res) => {
 })
 
 // CUSTOMER VIEW THEIR INFO
-app.get('/my-account-user', isLoggedIn, (req, res) => {
+app.get('/my-account-user', (req, res) => {
   const userId = req.session.user._id;
   Customer.findById(userId)
   .then((customer) => {
