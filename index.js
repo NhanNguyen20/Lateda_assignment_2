@@ -163,6 +163,14 @@ app.post('/login', (req, res) => {
     .catch((error) => { res.send(error.message) })
 })
 
+// MIDDLEWARE TO CHECK IF USER IS LOGGED IN WHEN VIEWING PAGES CONTAIN PERSONAL INFORMATION
+let isLoggedIn = (req, res, next) => {
+  if (!req.session.user) {
+    return res.redirect('/login');
+  }
+  next();
+};
+
 // GET REQUEST FOR VENDOR HOMEPAGE   
 app.get('/vendor/add-product', (req, res) => {
   Vendor.findById(req.session.user._id)
@@ -207,30 +215,8 @@ app.get('/login', (req, res) => {
   res.render('login');
 })
 
-// DISPLAY CART PAGE 
-app.get('/cart', (req, res) => {
-  // Get customer's user ID from the session
-  const customerID = req.session.user._id;
-
-  // Retrieve customer's document and populate the shopping cart
-  Customer.findById(customerID)
-    .populate('cart') // Populate the 'cart' field with actual product objects
-    .then((foundCustomer) => {
-      if (!foundCustomer) {
-        res.send('No customer found');
-      }
-      // If found, render the cart page with the retrieved products in the customer's cart
-      res.render('cart-page', { cart: foundCustomer.cart });
-    })
-    .catch((error) => {
-      console.log(error);
-      res.send('Error retrieving customer data');
-    });
-});
-
-
 // ADD PRODUCT TO CART
-app.post('/cart/add/:productID', (req, res) => {
+app.post('/cart/add/:productID', isLoggedIn, (req, res) => {
   // Get customer ID from the session and product ID from the request
   const customerID = req.session.user._id;
   const productID = req.params.productID;
@@ -507,7 +493,7 @@ app.post('/order-status', (req, res) => {
       })
       .catch((error) => { res.send(error.message) })
   }
-  else { res.send('Invalid Order Status') }
+  else { res.redirect('/active-order') }
 })
 
 // LOGOUT
@@ -528,14 +514,26 @@ app.get('/vendor/register', (req, res) => {
   res.render('register_page_vendor')
 })
 
+// DISPLAY CART PAGE 
+app.get('/cart', isLoggedIn, (req, res) => {
+  // Get customer's user ID from the session
+  const customerID = req.session.user._id;
 
-// MIDDLEWARE TO CHECK IF USER IS LOGGED IN WHEN VIEWING PAGES CONTAIN PERSONAL INFORMATION
-let isLoggedIn = (req, res, next) => {
-  if (!req.session.user) {
-    return res.redirect('/login');
-  }
-  next();
-};
+  // Retrieve customer's document and populate the shopping cart
+  Customer.findById(customerID)
+    .populate('cart') // Populate the 'cart' field with actual product objects
+    .then((foundCustomer) => {
+      if (!foundCustomer) {
+        res.send('No customer found');
+      }
+      // If found, render the cart page with the retrieved products in the customer's cart
+      res.render('cart-page', { cart: foundCustomer.cart });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.send('Error retrieving customer data');
+    });
+});
 
 // VENDOR VIEW THEIR INFO
 app.get('/vendor-page', isLoggedIn, (req, res) => {
@@ -591,11 +589,13 @@ app.post('/changeProfilePic', profilePicUpload.single('profilePicture'), (req, r
       const user = customer || vendor || shipper
       const currentPicture = user.profilePicture;
       // delete the current profile picture except the default one
-      fs.unlink(`public/assets/profilePics/${currentPicture}`, (error) => {
-        if (error) {
-          console.log('Error deleting profile picture:', error);
-        }
-      });
+      if (currentPicture != 'defaultUserPic.jpeg') {
+        fs.unlink(`public/assets/profilePics/${currentPicture}`, (error) => {
+          if (error) {
+            console.log('Error deleting profile picture:', error);
+          }
+        });
+      }
       // Update the profile picture with the new uploaded picture
       user.updateOne({ $set: { profilePicture: req.file ? req.file.filename : req.body.profilePicture } })
         .then(() => {

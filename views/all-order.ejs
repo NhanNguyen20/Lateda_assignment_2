@@ -88,7 +88,7 @@
               </div>
               <div class="right">
                 <ul class="flexitem second-links">
-                  <li class="iscart"><a href="">
+                  <li class="iscart"><a href="/">
                     <div class="icon-large">
                       <i class="ri-user-6-line"></i>
                     </div>
@@ -140,10 +140,10 @@
                             <tr>
                               <td class="flexitem">
                                 <div class="thumbnail object-cover">
-                                  <a href=""><img src="/assets/products/<%=order.product[0].image%>" alt="<%=order.product[0].name%>"></a>
+                                  <a href="/order/<%=order._id%>"><img src="/assets/products/<%=order.product[0].image%>" alt="<%=order.product[0].name%>"></a>
                                 </div>
                                 <div class="content">
-                                  <strong><a href="/order-detail">#<%=order._id%></a></strong>
+                                  <strong><a href="/order/<%=order._id%>">#<%=order._id%></a></strong>
                                   <p><a href="">(<%=order.product.length%> items)</a></p>
                                 </div>
                               </td>

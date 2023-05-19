@@ -49,11 +49,7 @@
             <div class="wrapper flexitem">
               <div class="left">
                 <ul class="flexitem main-links">
-                  <%if (!userLoggedIn) {%>
-                    <li><a href="">Blog</a></li>
-                    <%} else {%>
-                      <li><a href="/logout">Log Out</a></li>
-                      <%}%>
+                  
                   <li><a href="">Featured Products</a></li>
                   <li><a href="">Wishlist</a></li>
                 </ul>
@@ -301,7 +297,7 @@
                     <div class="icon-large"><i class="ri-heart-line"></i></div>
                     <div class="fly-item"><span class="item-number">0</span></div>
                   </a></li>
-                  <li class="iscart"><a href="">
+                  <li class="iscart"><a href="/cart">
                     <div class="icon-large">
                       <i class="ri-shopping-cart-line"></i>
                       <div class="fly-item"><span class="item-number">0</span></div>
@@ -720,7 +716,7 @@
                                             <h3 class="main-links"><a href=""><%= product.name %></a></h3>
                                             <div class="price">
                                                 <span class="current"><%= product.price %></span>
-                                                <span class="normal mini-text">$243.99</span>
+                                                <span class="normal mini-text">950000000 VND</span>
                                             </div>
                                         </div>
                                     </div>

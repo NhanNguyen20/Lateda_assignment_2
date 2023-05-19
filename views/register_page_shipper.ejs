@@ -43,15 +43,10 @@
         <div class="wrapper">
             <div class="form-box register">
                 <h2>Create your Lateda` account</h2>
-                <h1>Shipper</h1>
+                <h1>Shipper</h1> <br>
                 <form action="/shipper/register" method="POST" enctype="multipart/form-data">
                   <div class="user-detail">
 
-                    <div class="input-box">
-                        <span class="icon"><i class="fa-solid fa-user"></i></span>
-                            <input type="text" required id="fullname" name="name">
-                            <label>Enter your fullname:</label>
-                    </div>
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-user"></i></span>
                             <input type="text" required id="fullname" name="username">
@@ -62,70 +57,19 @@
                             <input type="password" required id="password" name="password">
                             <label>Enter your password:</label>
                     </div>
-                    <div class="input-box">
-                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                            <input type="password" required id="confirm">
-                            <label>Confirm your password:</label>
-                    </div>
-                    <div class="input-box">
-                      <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                          <input type="email" required id="email">
-                          <label>Enter your email address:</label>
-                    </div>
-                    <div class="input-box">
-                      <label for="distributionHub" class="form-label">Choose your distribution hub:</label>
+                    <div class="-input-box">
+                      <label for="distributionHub" style="display: block;">Choose your distribution hub:</label><br>
                       <select name="distributionHub" id="distributionHub">
-                        <option value="">hub1</option>
-                        <option value="">hub2</option>
-                        <option value="">hub3</option>
+                        <option value="Hub1">Hub1: 170 Tran Hung Dao Street</option>
+                        <option value="Hub2">Hub2: 268 Ly Tu Trong Street</option>
+                        <option value="Hub3">Hub3: 238 Nguyen Hue Street</option>
                       </select>
                     </div>
                     <div class="input-box">
-                      <input name="profilePicture" type="file" id="image">
-                      <label for="image">Upload your profile picture :</label>
+                      <label for="image">Upload your profile picture : <input name="profilePicture" type="file" id="image"></label>
+                    
                     </div>
                   </div>
-
-                    <div class="input-box2">
-                        <div class="blabel">
-                        <p>Please Enter Your Birthday:</p>
-                        </div>
-                    <div class="birthday-form" id="birthday-form">
-                      <label for="day">Day:</label>
-                      <select id="day"></select>
-
-                      <label for="month">Month:</label>
-                      <select id="month"></select>
-
-                      <label for="year">Year:</label>
-                      <select id="year"></select>
-                    </div>
-                    </div>
-                    <br>
-                    <div class="input-box2">
-                    <div class="gender-form" id="gender-form">
-                      <label for="gender">Gender:</label>
-                      <div class="dot-selection">
-                        <label>
-                          <input type="radio" value="male">
-                          <span class="dot"></span>
-                          Male
-                        </label>
-                        <label>
-                          <input type="radio" value="female">
-                          <span class="dot"></span>
-                          Female
-                        </label>
-                        <label>
-                          <input type="radio" value="not-specified">
-                          <span class="dot"></span>
-                          Prefer not to tell
-                        </label>
-                      </div>
-                    </div>
-                    </div>
-                  
-                   
 
                     <div class="terms">
                         <label><input type="checkbox">I agree with all terms of use and privacy policy</label>

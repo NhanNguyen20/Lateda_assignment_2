@@ -146,7 +146,7 @@
                               <div class="media">
                                 <div class="thumbnail object-cover">
                                   <a href="">
-                                    <img src="/public/assets/products/apparel3.jpg" alt="product image">
+                                    <img src="/assets/products/apparel3.jpg" alt="product image">
                                   </a>
                                 </div>
                               </div>
@@ -218,7 +218,7 @@
                               <div class="media">
                                 <div class="thumbnail object-cover">
                                   <a href="">
-                                    <img src="/public/assets/products/apparel1.jpg" alt="product image">
+                                    <img src="/assets/products/apparel1.jpg" alt="product image">
                                   </a>
                                 </div>
                               </div>
@@ -526,7 +526,7 @@
                           <tr>
                             <td class="flexitem">
                               <div class="thumbnail object-cover">
-                                <a href="/products/<%= item._id %>"><img src="/assets/products/<%=item.image%>" alt="<%=item.name%>"></a>
+                                <a href="/product/<%= item._id %>"><img src="/assets/products/<%=item.image%>" alt="<%=item.name%>"></a>
                               </div>
                               <div class="content">
                                 <strong><a href="/products/<%= item._id %>"><%=item.name%></a></strong>
@@ -582,7 +582,7 @@
                           </tr>
                           <tr class="grand-total">
                             <th>TOTAL</th>
-                            <td><strong><%= cart.reduce((accumulator, product) => {return accumulator + product.price}, 0).toFixed(2)%></strong></td>
+                            <td><%= cart.reduce((accumulator, product) => {return accumulator + product.price}, 0).toFixed(2)%> VND</td>
                           </tr>
                         </tbody>
                       </table>
