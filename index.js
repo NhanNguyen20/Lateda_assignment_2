@@ -400,7 +400,7 @@ app.get('/', (req, res) => {
     .catch((error) => res.send(error.message))
   }
   else {renderHome(req, res, 'homepage')}
-}); 
+});
 
 // GENERATE RANDOM PRODUCT FOR CUSTOMER PAGE
 app.get('/customer-page', (req, res) => {
@@ -610,6 +610,15 @@ app.post('/changeProfilePic', profilePicUpload.single('profilePicture'), (req, r
         .catch((error) => res.send(error.message))
     })
     .catch((error) => res.send(error.message));
+});
+
+// CREATING THE DISTRIBUTION HUBS (through Postman)
+app.post('/distributionHub', (req, res) => {
+  const distributionHub = new DistributionHub(req.body);
+  console.log(req.body);  // for testing purpose
+  distributionHub.save()
+  .then(() => { console.log('New Distribution Hub saved');}) 
+  .catch((error) => { console.log(error.message); });
 });
 
 app.listen(port, () => {
