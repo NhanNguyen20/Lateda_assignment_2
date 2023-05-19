@@ -2895,7 +2895,7 @@ form {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #e9e8e8cf;
+    background: linear-gradient(#F8F6F4,#E3F4F4,#D2E9E9,#C4DFDF)
 }
 .head1-container {
     width: 90%;
@@ -2964,6 +2964,7 @@ form {
     border-bottom-left-radius: 0;
     width: 1400px;
     height:550px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
     
 
 }
@@ -3025,4 +3026,91 @@ form {
  
   
 /*--About us--*/
+
+/*--policy-privacy--*/
+.policy-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column ;
+
+    background: linear-gradient(#F9FBE7,#F0EDD4,#ECCDB4,#FEA1A1);
+}
+.policy-title {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+
+}
+
+.policy-title a {
+    margin-top: 30px;
+}
+
+.policy-title p {
+    width: 820px;
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.policy-container ul {
+    display: flex;
+    justify-content: center;
+}
+
+.privacy-policy {
+  font-family: Arial, sans-serif;
+  color: #333;
+  padding: 100px 100px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  border-radius: 5px;
+  background: #fff;
+  width: 80%;
+  margin-bottom: 70px;
+  border-top-left-radius: 400px;
+  border-top-right-radius: 400px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-bottom: 0px;
+}
+
+.privacy-policy h2 {
+  font-size: 60px;
+  margin-bottom: 80px;
+  text-align: center;
+  padding: 10px 10px;
+  margin: 20px;
+  font-size: 30px;
+  color: #00235B;
+  margin-top: 60px;
+}
+
+.privacy-policy h3 {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color:#d41c4a ;
+}
+
+.privacy-policy p {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.privacy-policy a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.privacy-policy a:hover {
+  color: #0056b3;
+}
+
+/* Add any additional CSS styles as needed */
+
+/*--policy-privacy--*/
 
