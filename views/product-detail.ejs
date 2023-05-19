@@ -18,7 +18,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lateda` | Lategroup1</title>
+  <title>Lateda` | Product Detail</title>
   <!-- CSS Link -->
   <link rel="stylesheet" href="/css/style.css">
   <!-- Icon Link -->
@@ -312,7 +312,7 @@
                     <div class="icon-large"><i class="ri-heart-line"></i></div>
                     <div class="fly-item"><span class="item-number">0</span></div>
                   </a></li>
-                <li><a href="" class="iscart">
+                <li><a href="/cart" class="iscart">
                     <div class="icon-large">
                       <i class="ri-shopping-cart-line"></i>
                       <div class="fly-item"><span class="item-number">0</span></div>
@@ -534,19 +534,19 @@
                       <div class="big-image">
                         <div class="big-image-wrapper swiper-wrapper">
                           <div class="image-show swiper-slide">
-                            <a data-fslightbox href="/assets/products/shoe1.jpg"><img
+                            <a data-fslightbox href="/assets/products/<%=product.image%>"><img
+                                src="/assets/products/<%=product.image%>" alt="<%=product.name%>"></a>
+                          </div>
+                          <div class="image-show swiper-slide">
+                            <a data-fslightbox href="/assets/products/<%=product.image%>"><img
                                 src="assets/products/<%=product.image%>" alt="<%=product.name%>"></a>
                           </div>
                           <div class="image-show swiper-slide">
-                            <a data-fslightbox href="/assets/products/shoe1-1.jpg"><img
+                            <a data-fslightbox href="/assets/products/<%=product.image%>"><img
                                 src="assets/products/<%=product.image%>" alt="<%=product.name%>"></a>
                           </div>
                           <div class="image-show swiper-slide">
-                            <a data-fslightbox href="/assets/products/shoe1-2.jpg"><img
-                                src="assets/products/<%=product.image%>" alt="<%=product.name%>"></a>
-                          </div>
-                          <div class="image-show swiper-slide">
-                            <a data-fslightbox href="/assets/products/shoe1-3.jpg"><img
+                            <a data-fslightbox href="/assets/products/<%=product.image%>"><img
                                 src="assets/products/<%=product.image%>" alt="<%=product.name%>"></a>
                           </div>
                         </div>
@@ -590,7 +590,7 @@
                         </div>
                         <div class="price">
                           <span class="current">
-                            <%= product.price %>VND
+                            <%= product.price %> VND
                           </span>
                           <span class="normal">11900000000 VND</span>
                         </div>
@@ -664,21 +664,15 @@
                             <li class="has-child expand">
                               <a href="" class="icon-small">Information</a>
                               <ul class="content">
-                                <li><span>Brands</span> <span>Nike</span></li>
                                 <li><span>Activity</span> <span>Running</span></li>
                                 <li><span>Material</span> <span>Fleece</span></li>
-                                <li><span>Gender</span> <span>Men</span></li>
+                                <li><span>Gender</span> <span>All</span></li>
                               </ul>
                             </li>
                             <li class="has-child">
-                              <a href="" class="icon-small">Details</a>
+                              <a class="icon-small">Details</a>
                               <div class="content">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia error obcaecati,
-                                  aspernatur, architecto tempore atque facilis veniam rem sed distinctio nam. Eius
-                                  magnam deleniti numquam optio commodi, officiis at ad!</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vero delectus pariatur
-                                  commodi, optio placeat iure soluta a corrupti vitae ea cum? Exercitationem itaque
-                                  aliquam facere fugit? Numquam sit nam optio, necessitatibus suscipit molestias.</p>
+                                <p><%= product.description %></p>
                               </div>
                             </li>
                             <li class="has-child">
@@ -1226,7 +1220,7 @@
                 </a>
               </li>
               <li>
-                <a href="">
+                <a href="/cart">
                   <i class="ri-shopping-cart-line"></i>
                   <span>Cart</span>
                   <div class="fly-item">
