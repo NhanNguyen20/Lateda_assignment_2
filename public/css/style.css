@@ -2244,6 +2244,18 @@ input[type="range"]::-webkit-slider-thumb {
         padding: 0 3em;
         padding-bottom: 3em;
     }
+    .about-us-flex img {
+        display: none; /* Hide the image */
+      }
+    .about-us-row {
+        display: block !important;
+      }
+    .about-us-flex.left h2{
+          width: 100%;
+      }
+    .about-us-flex.right {
+          display: none;
+      }
 }
 
 @media screen and (max-width: 767px) {
@@ -2958,7 +2970,6 @@ form {
 
 .about-us-flex {
     flex:0 0 50%;
-    max-width: 50%;
     padding: 0 20px;
     margin-top: 120px;
 }
@@ -2995,8 +3006,14 @@ form {
     .about-us-flex img {
       display: none; /* Hide the image */
     }
-    .about-us-flex{
+    .about-us-row {
+        display: block;
+    }
+    .about-us-flex.left h2{
         width: 100%;
+    }
+    .about-us-flex.right {
+        display: none;
     }
     .about-us-container{
         height: 800px;

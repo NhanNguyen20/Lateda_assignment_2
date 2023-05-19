@@ -1,0 +1,432 @@
+<!-- RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Authors: 
+  Nguyen Le Thu Nhan - s3932151
+  Ong Gia Man - s3938231
+  Nguyen Ngoc Minh Thu - s3941327
+  Nguyen Tuan Duong - s3965530
+  Nguyen Pham Tien Hai - s3979239
+  Chau The Kien - s3790421
+  Acknowledgement: Acknowledge the resources that you use here. -->
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Lateda`</title>
+      <link rel="stylesheet" href="css/style.css">
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/0f37397caf.js" crossorigin="anonymous"></script>
+  </head>    
+  <body>
+      <div id="page" class="site page-category">
+          <aside class="site-off desktop-hide">
+            <div class="off-canvas">
+              <div class="canvas-head flexitem">
+                <div class="logo"><a href="/">Lateda`</a></div>
+                <a href="" class="t-close flexcenter"><i class="ri-close-line"></i></a>
+              </div>
+              <div class="departments"></div>
+              <nav></nav>
+              <div class="thetop-nav"></div>
+            </div>
+          </aside>
+          <!-- Aside -->
+    
+          <header>
+              <div class="header-top mobile-hide">
+                  <div class="container">
+                    <div class="wrapper flexitem">
+                      <div class="left">
+                        <ul class="flexitem main-links">
+                          <li><a href="/logout">Log Out</a></li>
+                          <li><a href="">Featured Products</a></li>
+                          <li><a href="">Wishlist</a></li>
+                        </ul>
+                      </div>
+                      <div class="right">
+                        <ul class="flexitem main-links">
+                          
+                          <li><a href="/my-account-user">My Account</a></li>
+                          <li><a href="/">Order Tracking</a></li>
+                          <li><a href="">VND <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
+                            <ul>
+                              <li><a href="">USD</a></li>
+                              <li class="current"><a href="">VND</a></li>
+                            </ul>
+                          </li>
+                          <li><a href="">English <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
+                            <ul>
+                              <li class="current"><a href="">English</a></li>
+                              <li><a href="">Vietnamese</a></li>
+                            </ul>
+                          </li>  
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Header Top -->
+          
+                <div class="header-nav">
+                  <div class="container">
+                    <div class="wrapper flexitem">
+                      <a href="" class="trigger desktop-hide"><span><i class="ri-menu-2-line"></i></span></a>
+                      <div class="left flexitem">
+                        <div class="logo"><a href="/">Lateda`</a></div>
+                        <nav class="mobile-hide">
+                          <ul class="flexitem second-links">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/">Shop</a></li>
+                            <li class="has-child">
+                              <a href="/category-page/women">Women
+                                <div class="icon-small"><i class="ri-arrow-down-s-line"></i></div>
+                              </a>
+                              <div class="mega">
+                                <div class="container">
+                                  <div class="wrapper">
+                                    <div class="flexcol">
+                                      <div class="row">
+                                        <h4>Women's Clothing</h4>
+                                        <ul>
+                                          <li><a href="">Tops & Tees</a></li>
+                                          <li><a href="">Pants & Capris</a></li>
+                                          <li><a href="">Shoes</a></li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <div class="flexcol">
+                                      <div class="row">
+                                        <h4>Jewelry</h4>
+                                        <ul>
+                                          <li><a href="">Bags & Purses</a></li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <div class="flexcol">
+                                      <div class="row">
+                                        <h4>Beauty</h4>
+                                        <ul>
+                                          <li><a href="">Makeup & Cosmetics</a></li>
+                                          <li><a href="">Skin Care</a></li>
+                                          <li><a href="">Hair Care</a></li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <div class="flexcol">
+                                      <div class="row">
+                                        <h4>Top Brands</h4>
+                                        <ul class="women-brands">
+                                          <li><a href="">Burberry</a></li>
+                                          <li><a href="">Fenty Beauty</a></li>
+                                          <li><a href="">Gucci</a></li>
+                                        </ul>
+                                        <a href="" class="view-all">View all brands <i class="ri-arrow-right-line"></i></a>
+                                      </div>
+                                    </div>
+                                    <div class="flexcol products">
+                                      <div class="row">
+                                        <div class="media">
+                                          <div class="thumbnail object-cover">
+                                            <a href="">
+                                              <img src="assets/products/wf1.webp" alt="product image">
+                                            </a>
+                                          </div>
+                                        </div>
+                                        <div class="text-content">
+                                          <h4>Most wanted!</h4>
+                                          <a href="" class="primary-button">Order Now</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="has-child">
+                              <a href="/category-page/men">Men
+                                <div class="icon-small"><i class="ri-arrow-down-s-line"></i></div>
+                              </a>
+                              <div class="mega">
+                                <div class="container">
+                                  <div class="wrapper">
+                                    <div class="flexcol">
+                                      <div class="row">
+                                        <h4>Men's Clothing</h4>
+                                        <ul>
+                                          <li><a href="">Tops & Tees</a></li>
+                                          <li><a href="">Pants</a></li>
+                                          <li><a href="">Shoes</a></li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <div class="flexcol">
+                                      <div class="row">
+                                        <h4>Accessories</h4>
+                                        <ul>
+                                          <li><a href="">Bags</a></li>
+                                          <li><a href="">Hats</a></li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <div class="flexcol">
+                                      <div class="row">
+                                        <h4>Beauty</h4>
+                                        <ul>
+                                          <li><a href="">Skin Care</a></li>
+                                          <li><a href="">Hair Care</a></li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <div class="flexcol">
+                                      <div class="row">
+                                        <h4>Top Brands</h4>
+                                        <ul class="women-brands">
+                                          <li><a href="">Burberry</a></li>
+                                          <li><a href="">Fenty Beauty</a></li>
+                                          <li><a href="">Gucci</a></li>
+                                        </ul>
+                                        <a href="" class="view-all">View all brands <i class="ri-arrow-right-line"></i></a>
+                                      </div>
+                                    </div>
+                                    <div class="flexcol products">
+                                      <div class="row">
+                                        <div class="media">
+                                          <div class="thumbnail object-cover">
+                                            <a href="">
+                                              <img src="assets/products/apparel1.jpg" alt="product image">
+                                            </a>
+                                          </div>
+                                        </div>
+                                        <div class="text-content">
+                                          <h4>Most wanted!</h4>
+                                          <a href="" class="primary-button">Order Now</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="has-child">
+                              <a href="/category-page/electronic">Electronic
+                                <div class="icon-small"><i class="ri-arrow-down-s-line"></i></div>
+                              </a>
+                              <div class="mega">
+                                <div class="container">
+                                  <div class="wrapper">
+                                    <div class="flexcol">
+                                      <div class="row">
+                                        <h4>Smart Phones</h4>
+                                        <ul>
+                                          <li><a href="">Iphone</a></li>
+                                          <li><a href="">Samsung</a></li>
+                                          <li><a href="">Oppo</a></li>
+                                        </ul>
+                                        <a href="" class="view-all">View all <i class="ri-arrow-right-line"></i></a>
+                                      </div>
+                                    </div>
+                                    <div class="flexcol">
+                                      <div class="row">
+                                        <h4>Laptop</h4>
+                                        <ul>
+                                          <li><a href="">Macbook</a></li>
+                                          <li><a href="">Asus</a></li>
+                                        </ul>
+                                        <a href="" class="view-all">View all <i class="ri-arrow-right-line"></i></a>
+                                      </div>
+                                    </div>
+                                    <div class="flexcol">
+                                      <div class="row">
+                                        <h4>Top Brands</h4>
+                                        <ul class="women-brands">
+                                          <li><a href="">Apple</a></li>
+                                          <li><a href="">Samsung</a></li>
+                                          <li><a href="">Oppo</a></li>
+                                          <li><a href="">Asus</a></li>
+                                        </ul>
+                                        <a href="" class="view-all">View all brands <i class="ri-arrow-right-line"></i></a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li>
+                              <a href="#">Sports
+                                <div class="fly-item"><span>New!</span></div>
+                              </a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                      <div class="right">
+                        <ul class="flexitem second-links">
+                          <li class="mobile-hide"><a href="">
+                            <div class="icon-large"><i class="ri-heart-line"></i></div>
+                            <div class="fly-item"><span class="item-number">0</span></div>
+                          </a></li>
+                          <li><a href="/cart" class="iscart">
+                            <div class="icon-large">
+                              <i class="ri-shopping-cart-line"></i>
+                              <div class="fly-item"><span class="item-number">0</span></div>
+                            </div>
+                          </a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Header Nav -->
+      
+          </header>
+  
+          <main class="main-static">
+            <br>
+            <section id="contact-header" >
+                <h2>Want to know more?</h2>
+                <p>Scroll down to see how you can contact us! </p>
+            </section>
+        
+            <section id="contact-details" class="section-p1">
+                <div class="details">
+                    <h1>GET IN TOUCH</h1>
+                    <h2>Visit one of our agency location or contact us today</h2>
+                    <h3>Head Office</h3>
+                    <div>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>702 Nguyen Van Linh District 7, Ho Chi Minh City</p>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <p>s3790421@rmit.edu.vn</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <p>0762829172</p>
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-clock"></i>
+                            <p>Monday to Saturday from 8am to 5pm (GMT+7)</p>
+                        </li>
+                    </div>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.0637442741995!2d106.6930756!3d10.729566999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fbea5fe3db1%3A0xfae94aca5709003f!2zxJDhuqFpIGjhu41jIFJNSVQgVmnhu4d0IE5hbSAtIGPGoSBz4bufIE5hbSBTw6BpIEfDsm4!5e0!3m2!1svi!2s!4v1672885065173!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+   
+          </main>
+  
+          <footer>
+            <div class="newsletter">
+              <div class="container">
+                <div class="wrapper">
+                  <div class="box">
+                    <div class="content">
+                      <h3>Receive Our Newsletter</h3>
+                      <p>Get E-mail updates about our latest shop and <strong>special offers</strong></p>
+                    </div>
+                    <form action="" class="search">
+                      <span class="icon-large"><i class="ri-mail-line"></i></span>
+                      <input type="mail" placeholder="Your email address" required>
+                      <button type="submit">Send</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Newsletter -->
+      
+            <div class="widgets">
+              <div class="container">
+                <div class="wrapper">
+                  <div class="flexwrap">
+                    <div class="row">
+                      <div class="item mini-links">
+                        <h4>Help & Contact</h4>
+                        <ul class="flexcol">
+                          <li><a href="">Your Account</a></li>
+                          <li><a href="">Your Orders</a></li>
+                          <li><a href="">Shipping Rates</a></li>
+                          <li><a href="">Returns</a></li>
+                          <li><a href="">Assistant</a></li>
+                          <li><a href="/help">Help</a></li>
+                          <li><a href="/contact">Contact us</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="item mini-links">
+                        <h4>Product Categories</h4>
+                        <ul class="flexcol">
+                          <li><a href="">Beauty</a></li>
+                          <li><a href="">Electronic</a></li>
+                          <li><a href="">Women's Fashion</a></li>
+                          <li><a href="">Men's Fashion</a></li>
+                          <li><a href="">Girl's Fashion</a></li>
+                          <li><a href="">Boy's Fashion</a></li>
+                          <li><a href="">Health & Household</a></li>
+                          <li><a href="">Home & Kitchen</a></li>
+                          <li><a href="">Pet Supplies</a></li>
+                          <li><a href="">Sports</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="item mini-links">
+                        <h4>Payment Info</h4>
+                        <ul class="flexcol">
+                          <li><a href="">Bussiness Card</a></li>
+                          <li><a href="">Shop with Points</a></li>
+                          <li><a href="">Paypal</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="item mini-links">
+                        <h4>About Us</h4>
+                        <ul class="flexcol">
+                          <li><a href="/about">About Us</a></li>
+                          <li><a href="/privacy">Policy</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Widgets -->
+      
+            <div class="footer-info">
+              <div class="container">
+                <div class="wrapper">
+                  <div class="flexcol">
+                    <div class="logo">
+                      <a href="">Lateda`</a>
+                    </div>
+                    <div class="socials">
+                      <ul class="flexitem">
+                        <li><a href=""><i class="ri-twitter-line"></i></a></li>
+                        <li><a href=""><i class="ri-facebook-line"></i></a></li>
+                        <li><a href=""><i class="ri-instagram-line"></i></a></li>
+                        <li><a href=""><i class="ri-linkedin-line"></i></a></li>
+                        <li><a href=""><i class="ri-youtube-line"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p class="mini-text">Copyright 2023 © Lateda`. All right reserved.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Footer Info -->
+      
+          </footer>
+          <!-- Footer -->
+  </body>
+  </html>

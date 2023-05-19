@@ -621,6 +621,20 @@ app.post('/distributionHub', (req, res) => {
   .catch((error) => { console.log(error.message); });
 });
 
+// Render static pages
+app.get('/about', (req, res) => {
+  res.render('about');
+});
+app.get('/contact', (req, res) => {
+  res.render('contact');
+});
+app.get('/help', (req, res) => {
+  res.render('help');
+});
+app.get('/privacy', (req, res) => {
+  res.render('privacy');
+})
+
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
 });
