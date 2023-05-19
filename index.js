@@ -283,12 +283,13 @@ app.get('/product/:id', (req, res) => {
 // GET REQUEST FOR CATEGORY PAGE 
 app.get('/category-page/:category', (req, res) => {
   const categoryName = req.params.category;
+  const userLoggedIn = req.session.user ? true : false;
   Product.find({ category: req.params.category })
     .then((matchedProducts) => {
       if (!matchedProducts) {
         return res.send("Cannot found any product!");
       }
-      res.render('category-page', { matchedProducts, categoryName });
+      res.render('category-page', { matchedProducts, categoryName, userLoggedIn });
     })
     .catch((error) => res.send(error));
 })
@@ -489,6 +490,7 @@ app.get('/order/:id', (req, res) => {
       if (!order) { res.render('No Order Match') }
       res.render('order-detail', { order, shipperName })
     })
+    .catch((error) => {res.send(error.message)})
 })
 
 // CHANGE ORDER STATUS 
@@ -526,43 +528,55 @@ app.get('/vendor/register', (req, res) => {
   res.render('register_page_vendor')
 })
 
-// VENDOR VIEW THEIR INFO 
-app.get('/vendor-page', (req, res) => {
+
+// MIDDLEWARE TO CHECK IF USER IS LOGGED IN WHEN VIEWING PAGES CONTAIN PERSONAL INFORMATION
+let isLoggedIn = (req, res, next) => {
+  if (!req.session.user) {
+    return res.redirect('/login');
+  }
+  next();
+};
+
+// VENDOR VIEW THEIR INFO
+app.get('/vendor-page', isLoggedIn, (req, res) => {
   const vendorId = req.session.user._id;
-  const vendorName = req.session.user.username
+  const vendorName = req.session.user.username;
   Vendor.findById(vendorId)
     .then((vendor) => {
       if (!vendor) {
         return res.send("Cannot found vendor ID!");
       }
-      res.render('vendor-page', { vendor, vendorName })
+      res.render('vendor-page', { vendor, vendorName });
     })
-    .catch((error) => { res.send(error.message) })
-})
+    .catch((error) => { res.send(error.message); });
+});
 
 // SHIPPER VIEW THEIR INFO
-app.get('/shipper-page', (req, res) => {
+app.get('/shipper-page', isLoggedIn, (req, res) => {
   const shipperId = req.session.user._id;
   Shipper.findById(shipperId)
     .then((shipper) => {
       if (!shipper) {
         return res.send("Cannot found shipper ID!");
       }
-      res.render('shipper-page', { shipper })
+      res.render('shipper-page', { shipper });
     })
-    .catch((error) => { res.send(error.message) })
-})
+    .catch((error) => { res.send(error.message); });
+});
 
 // CUSTOMER VIEW THEIR INFO
-app.get('/my-account-user', (req, res) => {
+app.get('/my-account-user', isLoggedIn, (req, res) => {
   const userId = req.session.user._id;
   Customer.findById(userId)
-  .then((customer) => {
-    if (!customer) {return res.send('No user found')}
-    res.render('my-account-user', {customer})
-  })
-  .catch((error) => res.send(error.message));
-})
+    .then((customer) => {
+      if (!customer) {
+        return res.send('No user found');
+      }
+      res.render('my-account-user', { customer });
+    })
+    .catch((error) => res.send(error.message));
+});
+
 
 // CHANGE PROFILE PICTURE
 app.post('/changeProfilePic', profilePicUpload.single('profilePicture'), (req, res) => {
