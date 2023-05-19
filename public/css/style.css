@@ -247,11 +247,11 @@ h4 {
 15. MODAL
 16. ORDER DETAILS PAGE
 17. MY ACCOUNT PAGE
-18. STATIC PAGES
+18. MEDIA QUERY
+19. STATIC PAGES
     a. Privacy
     b. Help
     c. Contact Us
-19. MEDIA QUERY
 -------------------------------------------------------------- */
 
 /* ------------
@@ -2225,32 +2225,9 @@ input[type="range"]::-webkit-slider-thumb {
 .file-input-container {
     margin-top: 20px
 }
-  
-/* ------------
-18. STATIC PAGES
------------- */ 
-
-
-    /* ------------
-    18. STATIC PAGES
-    a. Privacy
-    ------------ */ 
-
-    
-    /* ------------
-    18. STATIC PAGES
-    b. Help
-    ------------ */ 
-
-
-    /* ------------
-    18. STATIC PAGES
-    a. About Us
-    ------------ */ 
-
 
 /* ------------
-19. RESPONSIVE | MEDIA QUERY
+18. RESPONSIVE | MEDIA QUERY
 ------------ */   
 @media only screen and (min-width: 481px) and (max-width: 767px) {
     .products.main .item {
@@ -2889,6 +2866,11 @@ form {
 } */
 
 
+  
+/* ------------
+18. STATIC PAGES
+------------ */ 
+
 /*--About us--*/
 .main-static {
     display: flex;
@@ -2976,9 +2958,9 @@ form {
 
 .about-us-flex {
     flex:0 0 50%;
-    max-width: 50%
-    padding:0 20px;
-    margin-top:120px;
+    max-width: 50%;
+    padding: 0 20px;
+    margin-top: 120px;
 }
 
 .about-us-flex h2{
