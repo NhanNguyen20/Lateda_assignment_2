@@ -78,13 +78,13 @@ body {
   background: linear-gradient(rgba(255, 109, 96, 20%), rgba(247, 208, 96, 20%), rgba(243, 233, 159, 20%));
   border-radius: 1300% 1300% 0 0;
   position: absolute;
-  width: 3000px;
+  /* width: 3000px; */
   height: 50em;
   animation: wave 10s -3s linear infinite;
   transform: translate3d(0, 0, 0);
   opacity: 0.8;
   bottom :  0;
-
+  width: 100%;
   z-index: -1;
 }
 
@@ -228,7 +228,7 @@ header{
   margin-bottom: 30px;
 }
 .wrapper .form-box {
-    width: 100%;
+    width: 90%;
     font-family: 'Rubik', sans-serif;
     padding: 50px 35px;
 }
@@ -645,10 +645,13 @@ footer {
       display:flex;
     }
     .user-detail{
-      width: 180%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+    .user-detail .input-box {
+      width: 100%;
     }
     .quick-link li {
       margin: -40px 20px
