@@ -3131,7 +3131,7 @@ form {
 /*--help--*/   
 .main-help {
      background: linear-gradient(#EAFDFC,#BFEAF5,#91D8E4,#82AAE3);
-     height: 165vh;
+     height: 100%;    
      display: flex;
      justify-content: center;
      align-items: center;
@@ -3140,19 +3140,22 @@ form {
 
 .main-help h1{
     margin-bottom: 70px ;
-    margin-top: -80px;
+    margin-top: 5%;
     font-size: 50px;
 }
 
 .fre-question {
     background: #fff;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
     width: 60%;
     padding: 30px 40px;
-    height:850px;
+    height: 90%;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
-
+.fre-question ul {
+    height: 80%;
+    /* margin-bottom: 150%; */
+}
 .fre-question ul li{
     margin-bottom: 30px;
 }
@@ -3183,11 +3186,12 @@ form {
 
 @media (max-width: 767px){
     .main-help {
-        height: 300vh;
+        height: 100%; 
     }
 
     .fre-question {
-        height: 1600px;
+        height: 90%;
+        width: 80%;
     }
 }
 
