@@ -21,17 +21,17 @@
     <link rel="icon" href="images/logo.jpeg" type="images/icon type">
     <link rel="stylesheet" href="css/register.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Sign up - Customer</title>
+    <title>Sign up - Vendor</title>
     <script type="text/javascript" src="js/login.js" ></script>
     
   </head>
   <body>
     <header>
       <nav class="navbar">
-        <div class="logo"><a href="/"><span class="circle"></span>Lateda`</a></div>
+        <div class="logo"><a href="static-materials/index.html"><span class="circle"></span>Lateda`</a></div>
         <div class="navbar-right">
           <ul class="navbar-list">
-            <li><a href="index.html"><i class="fa-solid fa-home"></i></a></li>
+            <li><a href="static-materials/index.html"><i class="fa-solid fa-home"></i></a></li>
           </ul>
         </div>
       </nav>
@@ -43,34 +43,34 @@
         <div class="wrapper">
             <div class="form-box register">
                 <h2>Create your Lateda` account</h2>
-                <h1>Customer</h1>
+                <h1>Vendor</h1>
                 <form action="#">
                   <div class="user-detail">
 
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-user"></i></span>
-                            <input type="text" required id="fullname" name="name">
-                            <label for="fullname">Enter your full name:</label>
+                            <input type="text" required id="fullname">
+                            <label for="fullname">Enter Vendor's owner full name:</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-user"></i></span>
                             <input type="text" required id="username" name="username">
-                            <label for="username">Enter your user name:</label>
+                            <label for="username">Enter vendor username:</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-lock"></i></span>
                             <input type="password" required id="password" name="password">
-                            <label>Enter your password:</label>
+                            <label for="password">Enter your password:</label>
                     </div>
-                    <!-- <div class="input-box">
+                    <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                            <input type="password" required id="confirm">
-                            <label for="password">Confirm your password:</label>
-                    </div> -->
+                            <input type="text" required id="businessName" name="businessName">
+                            <label for="businessName">Enter your business name:</label>
+                    </div>
                     <div class="input-box">
                       <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
-                          <input type="text" required id="address" name="address">
-                          <label for="address">Enter your address:</label>
+                          <input type="text" required id="businessAddress">
+                          <label for="businessAddress">Enter your business address:</label>
                     </div>
                     <div class="input-box">
                       <input name="image" type="file" id="image">
@@ -80,7 +80,7 @@
 
                     <div class="input-box2">
                         <div class="blabel">
-                        <p>Please Enter Your Birthday:</p>
+                        <p>Please Enter Vendor's owner Birthday:</p>
                         </div>
                     <div class="birthday-form" id="birthday-form">
                       <label for="day">Day:</label>
@@ -116,8 +116,24 @@
                       </div>
                     </div>
                     </div>
+                    
+                    <!-- <div class="category-selector">
+                      <label for="category">Select Sales Category:</label>
+                      <select id="category">
+                        <option value="beauty">Beauty</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="women-fashion">Women's Fashion</option>
+                        <option value="men-fashion">Men's Fashion</option>
+                        <option value="girls-fashion">Girls' Fashion</option>
+                        <option value="boys-fashion">Boys' Fashion</option>
+                        <option value="health-household">Health & Household</option>
+                        <option value="home-kitchen">Home & Kitchen</option>
+                        <option value="pet-supplies">Pet Supplies</option>
+                        <option value="other-products">Other Products</option>
+                        Add more category options as needed -->
+                      <!-- </select>
+                    </div> -->
                   
-                   
 
                     <div class="terms">
                         <label><input type="checkbox">I agree with all terms of use and privacy policy</label>
@@ -149,7 +165,7 @@
     <div class="footer-container">
 
         <div class="logo2">
-        <a href="/">
+        <a href="static-materials/index.html">
           <span class="circle"></span>
           <h3>Lateda`</h3>
           </a>

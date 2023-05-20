@@ -33,7 +33,7 @@
       <aside class="site-off desktop-hide">
         <div class="off-canvas">
           <div class="canvas-head flexitem">
-            <div class="logo"><a href="/">Lateda`</a></div>
+            <div class="logo"><a href="static-materials/index.html">Lateda`</a></div>
             <a href="" class="t-close flexcenter"><i class="ri-close-line"></i></a>
           </div>
           <div class="departments"></div>
@@ -78,12 +78,12 @@
             <div class="wrapper flexitem">
               <a href="" class="trigger desktop-hide"><span><i class="ri-menu-2-line"></i></span></a>
               <div class="left flexitem">
-                <div class="logo"><a href="/">Lateda`</a></div>
+                <div class="logo"><a href="static-materials/index.html">Lateda`</a></div>
                 <nav class="mobile-hide">
                   <ul class="flexitem second-links">
                     <li><a href="#">My Profile</a></li>
                     <li><a href="#">View My Products</a></li>
-                    <li><a href="#">Add New Products</a></li>
+                    <li><a href="./add-products-2.html">Add New Products</a></li>
                   </ul>
                 </nav>
               </div>
@@ -123,50 +123,68 @@
       <!-- Header -->
   
       <main>
-        <div class="add-products">
-            <div class="container">
-              <div class="wrapper">
-                <div class="sectop flexitem">
-                    <h2><span class="circle"></span><span>Add New Products</span></h2>
-                </div>
-                <div class="checkout flexwrap">
-                  <div class="item left styled">
-                    <h1>Product Information</h1>
-                    <form action="">
-                      <p>
-                        <label for="productName" class="form-label">Product Name <span></span></label>
-                        <input type="text" name="name" id="productName" class="form-input" required>
-                      </p>
-                      <p>
-                        <label for="productPrice" class="form-label">Product Price <span></span></label>
-                        <input type="number" name="price" id="productPrice" min="0" step="1000" class="form-input" placeholder="VND" required>
-                      </p>
-                      <p>
-                        <label for="category" class="form-label">Product Category <span></span></label>
-                        <select name="category" id="category">
-                            <option value="beauty">Beauty</option>
-                            <option value="electronic">Electronic</option>
-                            <option value="women">Women</option>
-                            <option value="men">Men</option>
-                        </select>
-                      </p>
-                      <p>
-                        <label for="productImage" class="form-label">Product Image <span></span></label>
-                        <input type="file" name="image" id="productImage" accept="images" required>
-                      </p>
-                      <p>
-                        <label for="prodDescription">Product Description</label>
-                        <textarea name="description" id="prodDescription" class="form-input" required></textarea>
-                      </p>
-                    </form>
-                    <div class="primary-checkout">
-                      <button type="submit" class="primary-button">Add Product</button>
+        <div class="my-account">
+          <div class="container">
+            <div class="wrapper">
+              <div class="sectop flexitem">
+                <h2><span class="circle"></span><span>My Account | Vendor</span></h2>
+              </div>
+              <div class="column">
+                <div class="banner flexwrap">
+                  <div class="row">
+                    <div class="item">
+                      <h1>Profile Image</h1>
+                      <div class="profile-upper">
+                        <div class="profile-picture">
+                          <img id="profilePicturePreview" src="./assets/banner/banner1.jpg" alt="user's picture">
+                        </div>
+                      </div>
+                      <div class="profile-bottom">
+                        <form>
+                          <label for="profilePicture" class="profile-label">Update your profile picture:</label>
+                          <div class="file-input-container">
+                            <input type="file" name="profilePicture" id="profilePicture" accept="image/*" style="display: none;" onchange="showImage(this)">
+                            <label for="profilePicture" class="file-label">
+                              <span>Choose File</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                              </svg>
+                            </label>
+                            <span id="selectedFileName"></span>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="item">
+                      <h1>Information</h1>
+                      <ul class="content">
+                        <li>
+                          <span>Username</span>
+                          <span>Burberry</span>
+                        </li>
+                        <li>
+                          <span>Business Name</span>
+                          <span>Burberry</span>
+                        </li>
+                        <li>
+                          <span>Business Address</span>
+                          <span>Burberry</span>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
+                <!-- Banner -->
+  
               </div>
             </div>
+          </div>
         </div>
+        
       </main>
       <!-- Main -->
   

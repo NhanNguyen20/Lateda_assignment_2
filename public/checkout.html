@@ -33,7 +33,7 @@
       <aside class="site-off desktop-hide">
         <div class="off-canvas">
           <div class="canvas-head flexitem">
-            <div class="logo"><a href="/">Lateda`</a></div>
+            <div class="logo"><a href="static-materials/index.html">Lateda`</a></div>
             <a href="" class="t-close flexcenter"><i class="ri-close-line"></i></a>
           </div>
           <div class="departments"></div>
@@ -91,7 +91,7 @@
             <div class="wrapper flexitem">
               <a href="" class="trigger desktop-hide"><span><i class="ri-menu-2-line"></i></span></a>
               <div class="left flexitem">
-                <div class="logo"><a href="/">Lateda`</a></div>
+                <div class="logo"><a href="static-materials/index.html">Lateda`</a></div>
                 <nav class="mobile-hide">
                   <ul class="flexitem second-links">
                     <li><a href="#">Home</a></li>
@@ -582,522 +582,155 @@
       <!-- Header -->
   
       <main>
-        <div class="single-category">
-            <div class="container">
-                <div class="wrapper">
-                    <div class="column">
-                        <div class="holder">
-                            <div class="row sidebar">
-                                <div class="filter show">
-                                    <div class="filter-block products">
-                                        <h4>Category</h4>
-                                        <ul>
-                                            <li>
-                                                <input type="checkbox" name="checkbox" id="bags">
-                                                <label for="bags">
-                                                    <span class="checked"></span>
-                                                    <span>Bags</span>
-                                                </label>
-                                                <span class="count">2</span>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" name="checkbox" id="beauty">
-                                                <label for="beauty">
-                                                    <span class="checked"></span>
-                                                    <span>Beauty</span>
-                                                </label>
-                                                <span class="count">7</span>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" name="checkbox" id="clothing">
-                                                <label for="clothing">
-                                                    <span class="checked"></span>
-                                                    <span>Clothing</span>
-                                                </label>
-                                                <span class="count">15</span>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" name="checkbox" id="jewelry">
-                                                <label for="jewelry">
-                                                    <span class="checked"></span>
-                                                    <span>Jewelry</span>
-                                                </label>
-                                                <span class="count">15</span>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" name="checkbox" id="shoes">
-                                                <label for="shoes">
-                                                    <span class="checked"></span>
-                                                    <span>Shoes</span>
-                                                </label>
-                                                <span class="count">15</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="filter-block products">
-                                        <h4>Brands</h4>
-                                        <ul>
-                                            <li>
-                                                <input type="checkbox" name="checkbox" id="fentibeauty">
-                                                <label for="fentibeauty">
-                                                    <span class="checked"></span>
-                                                    <span>Fenti Beauty</span>
-                                                </label>
-                                                <span class="count">2</span>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" name="checkbox" id="burberry">
-                                                <label for="burberry">
-                                                    <span class="checked"></span>
-                                                    <span>Burberry</span>
-                                                </label>
-                                                <span class="count">7</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="filter-block products">
-                                        <h4>Color</h4>
-                                        <ul class="bycolor variant flexitem">
-                                            <li>
-                                                <input type="radio" name="color" id="colight">
-                                                <label for="colight" class="circle"></label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" name="color" id="cogrey">
-                                                <label for="cogrey" class="circle"></label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" name="color" id="coblue">
-                                                <label for="coblue" class="circle"></label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" name="color" id="cogreen">
-                                                <label for="cogreen" class="circle"></label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" name="color" id="cored">
-                                                <label for="cored" class="circle"></label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" name="color" id="copurple">
-                                                <label for="copurple" class="circle"></label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="filter-block pricing">
-                                        <h4>Price</h4>
-                                        <div class="byprice">
-                                            <div class="price-range">
-                                              <span class="price-from">1,000 VND</span>
-                                              <span class="price-to">100,000,000 VND</span>
-                                            </div>
-                                            <div class="range-track">
-                                                <form action="/category/<%= categoryName%>/filter" method="POST" class="range-track">
-                                                  <input type="range" name="priceRange" min="1000" max="100000000" id="price">
-                                                  <button type="submit" class="primary-button">Filter Price!</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="section">
-                                <div class="row">
-                                    <div class="cat-head">
-                                        <div class="breadcrumb">
-                                            <ul class="flexitem">
-                                                <li><a href="/public/index.html">Home</a></li>
-                                                <li>Women</li>
-                                            </ul>
-                                        </div>
-                                        <div class="page-title">
-                                            <h1>Women</h1>
-                                        </div>
-                                        <div class="cat-description">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas fugit quibusdam quisquam debitis at libero animi voluptates voluptatum dolorem itaque, aut corporis similique modi incidunt unde autem id soluta ut aspernatur enim sapiente officiis provident illum. Earum tempora possimus nobis animi provident maxime, sunt, optio dolorum, eum nesciunt quas officiis repellendus. Vel ipsa iusto non cum facere mollitia reprehenderit, amet ea, rem accusamus unde sint laboriosam deleniti?</p>
-                                        </div>
-                                        <div class="cat-navigation flexitem">
-                                            <div class="item-filter desktop-hide">
-                                                <a href="" class="filter-trigger label">
-                                                    <i class="ri-menu-2-line ri-2x"></i>
-                                                    <span>Filter</span>
-                                                </a>
-                                            </div>
-                                            <div class="item-sortir">
-                                                <div class="label">
-                                                    <span class="mobile-hide">Sort by default</span>
-                                                    <div class="desktop-hide">Default</div>
-                                                    <i class="ri-arrow-down-s-line"></i>
-                                                </div>
-                                                <ul>
-                                                    <li>Default</li>
-                                                    <li>Product Name</li>
-                                                    <li>Price</li>
-                                                    <li>Brand</li>
-                                                </ul>
-                                            </div>
-                                            <div class="item-perpage mobile-hide">
-                                                <div class="label">Items 10 per page</div>
-                                                <div class="desktop-hide">10</div>
-                                            </div>
-                                            <div class="item-options">
-                                                <div class="label">
-                                                    <span class="mobile-hide">Show 10 per page</span>
-                                                    <div class="desktop-hide">10</div>
-                                                    <i class="ri-arrow-down-s-line"></i>
-                                                </div>
-                                                <ul>
-                                                    <li>10</li>
-                                                    <li>20</li>
-                                                    <li>30</li>
-                                                    <li>ALL</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="products main flexwrap">
-                                    <div class="item">
-                                        <div class="media">
-                                            <div class="thumbnail object-cover">
-                                                <a href="">
-                                                    <img src="/public/assets/products/makeup1.jpg.webp" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="hoverable">
-                                                <ul>
-                                                    <li class="active"><a href=""><i class="ri-heart-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-reply-line"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="discount circle flexcenter"><span>32%</span></div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="rating">
-                                                <div class="stars"></div>
-                                                <span class="mini-text">(2,548)</span>
-                                            </div>
-                                            <h3 class="main-links"><a href="">FENTY FACE: BUILD YOUR OWN 4-PIECE BUNDLE</a></h3>
-                                            <div class="price">
-                                                <span class="current">$214.99</span>
-                                                <span class="normal mini-text">$243.99</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="media">
-                                            <div class="thumbnail object-cover">
-                                                <a href="">
-                                                    <img src="/public/assets/products/makeup2.jpg.webp" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="hoverable">
-                                                <ul>
-                                                    <li class="active"><a href=""><i class="ri-heart-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-reply-line"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="discount circle flexcenter"><span>32%</span></div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="rating">
-                                                <div class="stars"></div>
-                                                <span class="mini-text">(2,548)</span>
-                                            </div>
-                                            <h3 class="main-links"><a href="">PRO FILT'R SOFT MATTE LONGWEAR FOUNDATION</a></h3>
-                                            <div class="price">
-                                                <span class="current">$214.99</span>
-                                                <span class="normal mini-text">$243.99</span>
-                                            </div>
-                                        </div>
-                                    </div> 
-                                    <div class="item">
-                                        <div class="media">
-                                            <div class="thumbnail object-cover">
-                                                <a href="">
-                                                    <img src="/public/assets/products/makeup3.jpg.webp" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="hoverable">
-                                                <ul>
-                                                    <li class="active"><a href=""><i class="ri-heart-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-reply-line"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="discount circle flexcenter"><span>32%</span></div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="rating">
-                                                <div class="stars"></div>
-                                                <span class="mini-text">(2,548)</span>
-                                            </div>
-                                            <h3 class="main-links"><a href="">MATCH STIX CONTOUR SKINSTICK</a></h3>
-                                            <div class="price">
-                                                <span class="current">$214.99</span>
-                                                <span class="normal mini-text">$243.99</span>
-                                            </div>
-                                        </div>
-                                    </div> 
-                                    <div class="item">
-                                        <div class="media">
-                                            <div class="thumbnail object-cover">
-                                                <a href="">
-                                                    <img src="/public/assets/products/makeup4.jpg.webp" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="hoverable">
-                                                <ul>
-                                                    <li class="active"><a href=""><i class="ri-heart-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-reply-line"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="discount circle flexcenter"><span>32%</span></div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="rating">
-                                                <div class="stars"></div>
-                                                <span class="mini-text">(2,548)</span>
-                                            </div>
-                                            <h3 class="main-links"><a href="">KILLAWATT FREESTYLE HIGHLIGHTER</a></h3>
-                                            <div class="price">
-                                                <span class="current">$214.99</span>
-                                                <span class="normal mini-text">$243.99</span>
-                                            </div>
-                                        </div>
-                                    </div> 
-                                    <div class="item">
-                                        <div class="media">
-                                            <div class="thumbnail object-cover">
-                                                <a href="">
-                                                    <img src="/public/assets/products/makeup5.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="hoverable">
-                                                <ul>
-                                                    <li class="active"><a href=""><i class="ri-heart-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-reply-line"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="discount circle flexcenter"><span>32%</span></div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="rating">
-                                                <div class="stars"></div>
-                                                <span class="mini-text">(2,548)</span>
-                                            </div>
-                                            <h3 class="main-links"><a href="">INVISIMATTE INSTANT SETTING + BLOTTING POWDER</a></h3>
-                                            <div class="price">
-                                                <span class="current">$214.99</span>
-                                                <span class="normal mini-text">$243.99</span>
-                                            </div>
-                                        </div>
-                                    </div> 
-                                    <div class="item">
-                                        <div class="media">
-                                            <div class="thumbnail object-cover">
-                                                <a href="">
-                                                    <img src="/public/assets/products/skincare1.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="hoverable">
-                                                <ul>
-                                                    <li class="active"><a href=""><i class="ri-heart-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-reply-line"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="discount circle flexcenter"><span>32%</span></div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="rating">
-                                                <div class="stars"></div>
-                                                <span class="mini-text">(2,548)</span>
-                                            </div>
-                                            <h3 class="main-links"><a href="">COCOA CLEANS'R MINI BAR DUO TO GO MINI CLEANSING BAR DUO + CASE</a></h3>
-                                            <div class="price">
-                                                <span class="current">$214.99</span>
-                                                <span class="normal mini-text">$243.99</span>
-                                            </div>
-                                        </div>
-                                    </div> 
-                                    <div class="item">
-                                        <div class="media">
-                                            <div class="thumbnail object-cover">
-                                                <a href="">
-                                                    <img src="/public/assets/products/bodycare1.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="hoverable">
-                                                <ul>
-                                                    <li class="active"><a href=""><i class="ri-heart-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-reply-line"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="discount circle flexcenter"><span>32%</span></div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="rating">
-                                                <div class="stars"></div>
-                                                <span class="mini-text">(2,548)</span>
-                                            </div>
-                                            <h3 class="main-links"><a href="">THE BODY DUO MINI BODY SCRUB + MOISTURIZER ESSENTIALS</a></h3>
-                                            <div class="price">
-                                                <span class="current">$214.99</span>
-                                                <span class="normal mini-text">$243.99</span>
-                                            </div>
-                                        </div>
-                                    </div> 
-                                    <div class="item">
-                                        <div class="media">
-                                            <div class="thumbnail object-cover">
-                                                <a href="">
-                                                    <img src="/public/assets/products/haircare1.jpg.webp" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="hoverable">
-                                                <ul>
-                                                    <li class="active"><a href=""><i class="ri-heart-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                    <li><a href=""><i class="ri-reply-line"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="discount circle flexcenter"><span>32%</span></div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="rating">
-                                                <div class="stars"></div>
-                                                <span class="mini-text">(2,548)</span>
-                                            </div>
-                                            <h3 class="main-links"><a href="">JS SLOANE MOISTURIZING SHAMPOO 8 OZ</a></h3>
-                                            <div class="price">
-                                                <span class="current">$214.99</span>
-                                                <span class="normal mini-text">$243.99</span>
-                                            </div>
-                                        </div>
-                                    </div>  
-                                </div>
-                                <div class="load-more flexcenter">
-                                    <a href="" class="secondary-button">Load more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-  
-        <div class="banners">
+        <div class="single-checkout">
           <div class="container">
             <div class="wrapper">
-              <div class="column">
-                <div class="banner flexwrap">
-                  <div class="row">
-                    <div class="item">
-                      <div class="image">
-                        <img src="/public/assets/banner/banner1.jpg" alt="">
-                      </div>
-                      <div class="text-content flexcol">
-                        <h4>Mega Sale!</h4>
-                        <h3><span>Get the deal in here</span><br>Living Room Chair</h3>
-                        <a href="" class="primary-button">Buy It Now</a>
-                      </div>
-                      <a href="" class="over-link"></a>
-                    </div>
+              <div class="checkout flexwrap">
+                <div class="item left styled">
+                  <h1>Shipping Address</h1>
+                  <form action="">
+                    <p>
+                      <label for="email">Email Address</label>
+                      <input type="email" name="email" id="email" autocomplete="off" required>
+                    </p>
+                    <p>
+                      <label for="fname">First Name</label>
+                      <input type="text" id="fname" required>
+                    </p>
+                    <p>
+                      <label for="lname">Last Name</label>
+                      <input type="text" id="lname" required>
+                    </p>
+                    <p>
+                      <label for="address">Street Address <span></span></label>
+                      <input type="text" id="address" required>
+                    </p>
+                    <p>
+                      <label for="city">City <span></span></label>
+                      <input type="text" id="city" required>
+                    </p>
+                    <p>
+                      <label for="state">State / Province <span></span></label>
+                      <input type="text" id="state" required>
+                    </p>
+                    <p>
+                      <label for="postal">Zip / Postal Code <span></span></label>
+                      <input type="number" id="postal" required>
+                    </p>
+                    <p>
+                      <label for="country"> Country <span></span></label>
+                      <select name="country" id="country">
+                        <option value=""></option>
+                        <option value="1">United State</option>
+                        <option value="2">Australia</option>
+                        <option value="3" selected="selected">Vietnam</option>
+                      </select>
+                    </p>
+                    <p>
+                      <label for="phone">Phone Number <span></span></label>
+                      <input type="number" id="phone" required>
+                    </p>
+                    <p>
+                      <label for="">Order Notes (Optional)</label>
+                      <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </p>
+                    <p class="checkset">
+                      <input type="checkbox" id="anaccount">
+                      <label for="anaccount">Create an Account?</label>
+                    </p>
+                  </form>
+                  <div class="shipping-method">
+                    <h2></h2>
+                    <p class="checkset">
+                      <input type="radio" checked>
+                      <label for="">$5.00 Flate Rate</label>
+                    </p>
                   </div>
-                  <div class="row">
-                    <div class="item get-gray">
-                      <div class="image">
-                        <img src="/public/assets/banner/banner2.jpg" alt="">
-                      </div>
-                      <div class="text-content flexcol">
-                        <h4>Mega Sale!</h4>
-                        <h3><span>Discount everyday</span><br>Office Outfit</h3>
-                        <a href="" class="primary-button">Buy It Now</a>
-                      </div>
-                      <a href="" class="over-link"></a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Banner -->
-  
-                <div class="product-categories flexwrap">
-                  <div class="row">
-                    <div class="item">
-                      <div class="image">
-                        <a href="">
-                          <img src="/public/assets/banner/procat1.jpg" alt="">
-                        </a>
-                      </div>
-                      <div class="content mini-links">
-                        <h4><a href="">Beauty</a></h4>
-                        <ul class="flexcol">
-                          <li><a href="">Makeup</a></li>
-                          <li><a href="">Skin Care</a></li>
-                          <li><a href="">Hair Care</a></li>
-                          <li><a href="">Body Care</a></li>
-                        </ul>
-                        <div class="second-links">
-                          <a href="" class="view-all">View all<i class="ri-arrow-right-line"></i>
-                          </a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="item">
-                      <div class="image">
-                        <a href="">
-                          <img src="/public/assets/banner/procat2.jpg" alt="">
-                        </a>
-                      </div>
-                      <div class="content mini-links">
-                        <h4><a href="">Electronic</a></h4>
-                        <ul class="flexcol">
-                          <li><a href="">Smart-phones</a></li>
-                          <li><a href="">Laptop</a></li>
-                          <li><a href="">Smart-watches</a></li>
-                          <li><a href="">Headphones</a></li>
-                        </ul>
-                        <div class="second-links">
-                          <a href="" class="view-all">View all<i class="ri-arrow-right-line"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="item">
-                      <div class="image">
-                        <a href="">
-                          <img src="/public/assets/banner/procat3.jpg" alt="">
-                        </a>
-                      </div>
-                      <div class="content mini-links">
-                        <h4><a href="">Home Decor</a></h4>
-                        <ul class="flexcol">
-                          <li><a href="">Kitchen</a></li>
-                          <li><a href="">Dining Room</a></li>
-                          <li><a href="">Pantry</a></li>
-                          <li><a href="">Great Room</a></li>
-                        </ul>
-                        <div class="second-links">
-                          <a href="" class="view-all">View all<i class="ri-arrow-right-line"></i></a>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="primary-checkout">
+                    <button class="primary-button">Place Order</button>
                   </div>
                 </div>
-  
+                <div class="item right">
+                  <h2>Order Summary</h2>
+                  <div class="summary-order is_sticky">
+                    <div class="summary-totals">
+                      <ul>
+                        <li>
+                          <span>Subtotal</span>
+                          <span>$2155.95</span>
+                        </li>
+                        <li>
+                          <span>Discount</span>
+                          <span>-$100.00</span>
+                        </li>
+                        <li>
+                          <span>Shipping: Flat</span>
+                          <span>$10.00</span>
+                        </li>
+                        <li>
+                          <span>Total</span>
+                          <strong>$2065.95</strong>
+                        </li>
+                      </ul>
+                    </div>
+                    <ul class="products mini">
+                      <li class="item">
+                        <div class="thumbnail object-cover">
+                          <img src="/public/assets/products/home2.jpg" alt="">
+                        </div>
+                        <div class="item-content">
+                          <p>Dimmable Ceiling Light Modern</p>
+                          <span class="price">
+                            <span>$279.99</span>
+                            <span>x 2</span>
+                          </span>
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="thumbnail object-cover">
+                          <img src="/public/assets/products/home3.jpg" alt="">
+                        </div>
+                        <div class="item-content">
+                          <p>Modern Storage Cabinet with Door & 3 Drawers</p>
+                          <span class="price">
+                            <span>$129.99</span>
+                            <span>x 1</span>
+                          </span>
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="thumbnail object-cover">
+                          <img src="/public/assets/products/home4.jpg" alt="">
+                        </div>
+                        <div class="item-content">
+                          <p>Vonanda Velvet Sofa Couch</p>
+                          <span class="price">
+                            <span>$252.99</span>
+                            <span>x 1</span>
+                          </span>
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="thumbnail object-cover">
+                          <img src="/public/assets/products/home5.jpg" alt="">
+                        </div>
+                        <div class="item-content">
+                          <p>Awesome Bed for a Couple</p>
+                          <span class="price">
+                            <span>$579.00</span>
+                            <span>x 1</span>
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- Banners -->
-  
+        <!-- Single checkout -->
+
       </main>
       <!-- Main -->
   
@@ -1265,6 +898,26 @@
         </div>
       </div>
       <!-- Search bottom -->
+
+      <div id="modal" class="modal">
+        <div class="content flexcol">
+          <div class="image object-cover">
+            <img src="/public/assets/products/apparel1.jpg" alt="">
+          </div>
+          <h2>Get the latest deals and coupons</h2>
+          <p class="mobile-hide">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, id delectus. Expedita inventore in et!</p>
+          <form action="" class="search">
+            <span class="icon-large"><i class="ri-mail line"></i></span>
+            <input type="mail" placeholder="Your email address">
+            <button>Subcribe</button>
+          </form>
+          <a href="" class="mini-text">Do not show me this again</a>
+          <a href="" class="t-close modalclose flexcenter">
+            <i class="ri-close-line"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Modal -->
   
       <div class="overlay"></div>
       <!-- Overlay -->

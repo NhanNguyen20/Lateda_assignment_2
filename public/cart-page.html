@@ -33,7 +33,7 @@
       <aside class="site-off desktop-hide">
         <div class="off-canvas">
           <div class="canvas-head flexitem">
-            <div class="logo"><a href="/">Lateda`</a></div>
+            <div class="logo"><a href="static-materials/index.html">Lateda`</a></div>
             <a href="" class="t-close flexcenter"><i class="ri-close-line"></i></a>
           </div>
           <div class="departments"></div>
@@ -56,6 +56,15 @@
               </div>
               <div class="right">
                 <ul class="flexitem main-links">
+                  <li><a href="#">Sign Up <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
+                    <ul>
+                      <li class="current"><a href="">Sign Up</a></li>
+                      <li><a href="">Customer</a></li>
+                      <li><a href="">Vendor</a></li>
+                      <li><a href="">Shipper</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="">Sign In</a></li>
                   <li><a href="">My Account</a></li>
                   <li><a href="">Order Tracking</a></li>
                   <li><a href="">USD <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
@@ -82,7 +91,7 @@
             <div class="wrapper flexitem">
               <a href="" class="trigger desktop-hide"><span><i class="ri-menu-2-line"></i></span></a>
               <div class="left flexitem">
-                <div class="logo"><a href="/">Lateda`</a></div>
+                <div class="logo"><a href="static-materials/index.html">Lateda`</a></div>
                 <nav class="mobile-hide">
                   <ul class="flexitem second-links">
                     <li><a href="#">Home</a></li>
@@ -573,85 +582,223 @@
       <!-- Header -->
   
       <main>
-        <div class="my-account">
-            <div class="container">
-              <div class="wrapper">
-                <div class="sectop flexitem">
-                  <h2><span class="circle"></span><span>My Account | User</span></h2>
-                </div>
-                <div class="column">
-                  <div class="banner flexwrap">
-                    <div class="row">
-                      <div class="item">
-                        <h1>Profile Image</h1>
-                        <div class="profile-upper">
-                          <div class="profile-picture">
-                            <img id="profilePicturePreview" src="./assets/banner/banner1.jpg" alt="user's picture">
+        <div class="single-cart">
+          <div class="container">
+            <div class="wrapper">
+              <div class="breadcrumb">
+                <ul class="flexitem">
+                    <li><a href="/public/index.html">Home</a></li>
+                    <li>Cart</li>
+                </ul>
+              </div>
+              <div class="page-title">
+                <h1>Shopping Cart</h1>
+              </div>
+              <div class="products one cart">
+                <div class="flexwrap">
+                  <div class="form-cart">
+                    <div class="item">
+                      <table id="cart-table">
+                        <thead>
+                          <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="flexitem">
+                              <div class="thumbnail object-cover">
+                                <a href=""><img src="/public/assets/products/home2.jpg" alt=""></a>
+                              </div>
+                              <div class="content">
+                                <strong><a href="">Dimmable Ceiling Light Modern</a></strong>
+                                <p>Color: Gold</p>
+                              </div>
+                            </td>
+                            <td>$279.99</td>
+                            <td>
+                              <div class="qty-control flexitem">
+                                <button class="minus">-</button>
+                                <input type="text" value="2" min="1">
+                                <button class="plus">+</button>
+                              </div>
+                            </td>
+                            <td>$559.98</td>
+                            <td>
+                              <form action="/cart/remove/<%= item._id %>" method="POST">
+                                <button type="submit" class="item-remove"><i class="ri-close-line"></i></button>
+                              </form>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="flexitem">
+                              <div class="thumbnail object-cover">
+                                <a href=""><img src="/public/assets/products/home3.jpg" alt=""></a>
+                              </div>
+                              <div class="content">
+                                <strong><a href="">Modern Storage Cabinet with Door & 3 Drawers</a></strong>
+                                <p>Color: Light</p>
+                              </div>
+                            </td>
+                            <td>$129.99</td>
+                            <td>
+                              <div class="qty-control flexitem">
+                                <button class="minus">-</button>
+                                <input type="text" value="1" min="1">
+                                <button class="plus">+</button>
+                              </div>
+                            </td>
+                            <td>$129.99</td>
+                            <td>
+                              <form action="/cart/remove/<%= item._id %>" method="POST">
+                                <button type="submit" class="item-remove"><i class="ri-close-line"></i></button>
+                              </form>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="flexitem">
+                              <div class="thumbnail object-cover">
+                                <a href=""><img src="/public/assets/products/home4.jpg" alt=""></a>
+                              </div>
+                              <div class="content">
+                                <strong><a href="">Vonanda Velvet Sofa Couch</a></strong>
+                                <p>Color: Gold</p>
+                              </div>
+                            </td>
+                            <td>$352.99</td>
+                            <td>
+                              <div class="qty-control flexitem">
+                                <button class="minus">-</button>
+                                <input type="text" value="1" min="1">
+                                <button class="plus">+</button>
+                              </div>
+                            </td>
+                            <td>$353.99</td>
+                            <td>
+                              <form action="/cart/remove/<%= item._id %>" method="POST">
+                                <button type="submit" class="item-remove"><i class="ri-close-line"></i></button>
+                              </form>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="flexitem">
+                              <div class="thumbnail object-cover">
+                                <a href=""><img src="/public/assets/products/home5.jpg" alt=""></a>
+                              </div>
+                              <div class="content">
+                                <strong><a href="">Awesome Bed for a Couple</a></strong>
+                                <p>Color: Red</p>
+                              </div>
+                            </td>
+                            <td>$579.99</td>
+                            <td>
+                              <div class="qty-control flexitem">
+                                <button class="minus">-</button>
+                                <input type="text" value="1" min="1">
+                                <button class="plus">+</button>
+                              </div>
+                            </td>
+                            <td>$579.99</td>
+                            <td>
+                              <form action="/cart/remove/<%= item._id %>" method="POST">
+                                <button type="submit" class="item-remove"><i class="ri-close-line"></i></button>
+                              </form>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="cart-summary styled">
+                    <div class="item">
+                      <div class="coupon">
+                        <input type="text" name="" id="" placeholder="Enter Coupon Here">
+                        <button>Apply</button>
+                      </div>
+                      <div class="shipping-rate collapse">
+                        <div class="has-child expand">
+                          <a href="" class="icon-small">Estimate Shipping and Tax</a>
+                          <div class="content">
+                            <div class="countries">
+                              <form action="">
+                                <label for="country">Country</label>
+                                <select name="country" id="country">
+                                  <option value="">Select country</option>
+                                  <option value="1">United State</option>
+                                  <option value="2">Australia</option>
+                                  <option value="3" selected="selected">Vietnam</option>
+                                </select>
+                              </form>
+                            </div>
+                            <div class="states">
+                              <form action="">
+                                <label for="state">State / Province</label>
+                                <select name="state" id="state">
+                                  <option value="">Select a region, state or province</option>
+                                  <option value="1">Ha Noi</option>
+                                  <option value="2">Hai Phong</option>
+                                  <option value="3" selected="selected">Ho Chi Minh</option>
+                                </select>
+                              </form>
+                            </div>
+                            <div class="postal-code">
+                              <form action="">
+                                <label for="postal">Zip / Postal Code</label>
+                                <input type="number" name="postal" id="postal">
+                              </form>
+                            </div>
+                            <div class="rate-options variant">
+                              <form action="">
+                                <p>
+                                  <span>Flat: $10.00</span>
+                                  <input type="radio" name="rate-option" id="flat" checked>
+                                  <label for="flat" class="circle"></label>
+                                </p>
+                                <p>
+                                  <span>Best: $0.00</span>
+                                  <input type="radio" name="rate-option" id="best">
+                                  <label for="best" class="circle"></label>
+                                </p>
+                              </form>
+                            </div>
                           </div>
                         </div>
-                        <div class="profile-bottom">
-                          <form>
-                            <label for="profilePicture" class="profile-label">Update your profile picture</label>
-                            <div class="file-input-container">
-                              <input type="file" name="profilePicture" id="profilePicture" accept="image/*" style="display: none;" onchange="showImage(this)">
-                              <label for="profilePicture" class="file-label">
-                                <span>Choose File</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload">
-                                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                  <polyline points="17 8 12 3 7 8"></polyline>
-                                  <line x1="12" y1="3" x2="12" y2="15"></line>
-                                </svg>
-                              </label>
-                              <span id="selectedFileName"></span>
-                            </div>
-                          </form>
-                        </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="item">
-                        <h1>Information</h1>
-                        <ul class="content">
-                          <li>
-                            <span>Username</span>
-                            <span>nhannguyen</span>
-                          </li>
-                          <li>
-                            <span>First Name</span>
-                            <span>Nhan</span>
-                          </li>
-                          <li>
-                            <span>Last Name</span>
-                            <span>Nguyen</span>
-                          </li>
-                          <li>
-                            <span>Street Address</span>
-                            <span>14</span>
-                          </li>
-                          <li>
-                            <span>City</span>
-                            <span>Ho Chi Minh</span>
-                          </li>
-                          <li>
-                            <span>State / Province</span>
-                            <span>District 7</span>
-                          </li>
-                          <li>
-                            <span>Country</span>
-                            <span>Vietnam</span>
-                          </li>
-                          <li>
-                            <span>Phone Number</span>
-                            <span>Nguyen</span>
-                          </li>
-                        </ul>
+                      <div class="cart-total">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <th>Subtotal</th>
+                              <td>$2155.95</td>
+                            </tr>
+                            <tr>
+                              <th>Discount</th>
+                              <td>-$100.00</td>
+                            </tr>
+                            <tr>
+                              <th>Shipping <span class="mini-text">(Flat)</span></th>
+                              <td>$10.00</td>
+                            </tr>
+                            <tr class="grand-total">
+                              <th>TOTAL</th>
+                              <td><strong>$2065.95</strong></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <a href="/public/checkout.html" class="secondary-button">Checkout</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
+  
       </main>
       <!-- Main -->
   
